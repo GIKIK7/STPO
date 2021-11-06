@@ -9,8 +9,8 @@
         .auto-style1 {  
             width: 100%;  
         }  
-        .auto-style2 {
-            height: 28px;
+        .auto-style3 {
+            height: 41px;
         }
     </style>  
 </head>  
@@ -19,58 +19,21 @@
     <div>  
       
         <table class="auto-style1">  
-            <tr>  
-                <td colspan="6" style="text-align: center; vertical-align: top">  
-                    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Font-Underline="True" Text="Sign In"></asp:Label>  
+            <tr>
+                <td class="auto-style3"> </td>  
+                <td class="auto-style3"> </td>  
+                <td style="text-align: center" class="auto-style3">  
+                    <asp:Button ID="Button1" runat="server" BorderStyle="None" Font-Size="X-Large" OnClick="Button1_Click" Text="Get Data"/>  
                 </td>  
-            </tr>  
-            <tr>  
-                <td> </td>  
-                <td style="text-align: center">  
-                    <asp:Label ID="Label2" runat="server" Font-Size="X-Large" Text="Login :"></asp:Label>  
-                </td>  
-                <td style="text-align: center">  
-                    <asp:TextBox ID="TextBox1" runat="server" Font-Size="X-Large"></asp:TextBox>  
-                </td>  
-                <td> </td>  
-                <td> </td>  
-                <td> </td>  
-            </tr>  
-            <tr>  
-                <td class="auto-style2"> </td>  
-                <td style="text-align: center" class="auto-style2">  
-                    <asp:Label ID="Label3" runat="server" Font-Size="X-Large" Text="Password :"></asp:Label>  
-                </td>  
-                <td style="text-align: center" class="auto-style2">  
-                    <asp:TextBox ID="TextBox2" runat="server" Font-Size="X-Large"></asp:TextBox>  
-                </td>  
-                <td class="auto-style2"> </td>  
-                <td class="auto-style2"> </td>  
-                <td class="auto-style2"> </td>  
-            </tr>  
-            <tr>  
-                <td> </td>  
-                <td> </td>  
-                <td> </td>  
-                <td> </td>  
-                <td> </td>  
-                <td> </td>  
-            </tr>  
-            <tr>  
-                <td> </td>  
-                <td> </td>  
-                <td style="text-align: center">  
-                    <asp:Button ID="Button1" runat="server" BorderStyle="None" Font-Size="X-Large" OnClick="Button1_Click" Text="Sign In" />  
-                </td>  
-                <td> </td>  
-                <td> </td>  
-                <td> </td>  
+                <td class="auto-style3"> </td>  
+                <td class="auto-style3"> </td>  
+                <td class="auto-style3"> </td>  
             </tr>  
             <tr>  
                 <td> </td>  
                 <td> </td>  
                 <td>  
-                    <asp:Label ID="Label4" runat="server" Font-Size="X-Large"></asp:Label>  
+                    <asp:Label ID="lbl1" runat="server" Font-Size="X-Large" Height="200"></asp:Label>  
                 </td>  
                 <td> </td>  
                 <td> </td>  

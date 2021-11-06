@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 
 namespace stpoProject
 {
     public partial class SignInForm : System.Web.UI.Page
     {
+
+        //Server=tcp:stpo.database.windows.net,1433;Initial Catalog=StpoDB;
+        //Persist Security Info=False;User ID=GIKIK;Password={your_password};
+        //MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
         MySql.Data.MySqlClient.MySqlConnection conn;
         MySql.Data.MySqlClient.MySqlCommand cmd;
         String queryStr;
@@ -24,20 +24,32 @@ namespace stpoProject
 
         private void registerUser()
         {
-            String connString = System.Configuration.ConfigurationManager.ConnectionStrings["dbConnString"].ToString();
 
-            conn = new MySql.Data.MySqlClient.MySqlConnection(connString);
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
-            conn.Open();
+            builder.DataSource = "stpo.database.windows.net";
+            builder.UserID = "GIKIK";
+            builder.Password = "AdminHaslo137";
+            builder.InitialCatalog = "StpoDB";
 
-            queryStr = "";
+            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            {
 
-            queryStr = "INSERT INTO stpo.users (login, password) VALUES('" + TextBox1.Text + "','" + TextBox2.Text + "')";
-            cmd = new MySql.Data.MySqlClient.MySqlCommand(queryStr, conn);
+                connection.Open();
 
-            cmd.ExecuteReader();
+                String sql = "SELECT * FROM dbo.users";
 
-            conn.Close();
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lbl1.Text += reader.GetValue(0).ToString() + " " + reader.GetValue(1).ToString() + " " + reader.GetValue(2).ToString();
+                        }
+                    }
+                }
+            }
 
         }
     }
