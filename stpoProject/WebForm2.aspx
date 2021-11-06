@@ -72,6 +72,42 @@
                 <td> </td>  
                 <td> </td>  
                 <td> </td>  
+            </tr>
+            <tr>  
+                <td> </td>  
+                <td> 
+                    <asp:Label ID="lblMessage" runat="server" Text="Message"></asp:Label>
+                </td>  
+                <td> </td>
+                <td> </td>  
+                <td> </td>  
+                <td> </td>  
+            </tr>  
+            <tr>  
+                <td> </td>  
+                <td> 
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Users]"></asp:SqlDataSource>
+                </td>  
+                <td> </td>
+                <td> </td>  
+                <td> </td>  
+                <td> </td
+            </tr>  
+            <tr>  
+                <td> </td>  
+                <td> 
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1" Width="556px">
+                        <Columns>
+                            <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" SortExpression="Id" />
+                            <asp:BoundField DataField="Login" HeaderText="Login" SortExpression="Login" />
+                            <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
+                        </Columns>
+                    </asp:GridView>
+                </td>  
+                <td> </td>
+                <td> </td>  
+                <td> </td>  
+                <td> </td>
             </tr>  
         </table>  
       

@@ -67,6 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\DBstpo.mdf" />
+    <Content Include="App_Data\DBstpo_log.ldf">
+      <DependentUpon>DBstpo.mdf</DependentUpon>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="WebForm2.aspx" />
   </ItemGroup>
