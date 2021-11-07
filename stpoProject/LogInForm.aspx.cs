@@ -29,9 +29,7 @@ namespace stpoProject
 
                 connection.Open();
 
-                String sql = "SELECT * FROM [dbo].[userTest] WHERE login='" + TxtBox_User.Text + "'";
-
-                
+                String sql = "SELECT * FROM [dbo].[users] WHERE login='" + TxtBox_User.Text + "'";
 
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {

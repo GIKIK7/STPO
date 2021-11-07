@@ -17,16 +17,17 @@ namespace stpoProject
             String password = String.Concat(TxtBox_password.Text.Where(c => !Char.IsWhiteSpace(c)));
             String name = String.Concat(TxtBox_name.Text.Where(c => !Char.IsWhiteSpace(c)));
             String lName = String.Concat(TxtBox_LastName.Text.Where(c => !Char.IsWhiteSpace(c)));
+            bool isTrener = ChkBox_trener.Checked;
 
             if (login.Length == 0 || password.Length == 0 || name.Length == 0 || lName.Length == 0)
             {
                 Lbl_Helper.Text = "Wszystkie pola sa wymagane!";
             }
-            registerUser(login, password, name, lName);
+            registerUser(login, password, name, lName, isTrener);
             Response.Redirect("LogInForm.aspx");
         }
 
-        private void registerUser(String login, String password, String name, String lName)
+        private void registerUser(String login, String password, String name, String lName, bool isTrener)
         {
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -38,14 +39,13 @@ namespace stpoProject
 
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
-
                 connection.Open();
 
                 SqlCommand cmd;
 
                 int user_id=0;
                 
-                String sql = "INSERT INTO [dbo].[userTest] (login, password) VALUES ('" + login + "','" + password + "')";
+                String sql = "INSERT INTO [dbo].[users] (login, password, isTrener) VALUES ('" + login + "','" + password + "','" + isTrener + "')";
 
                 cmd = new SqlCommand(sql, connection);
 
@@ -55,8 +55,7 @@ namespace stpoProject
 
                 connection.Open();
 
-                String getIdUser = "SELECT ID FROM [dbo].[userTest] WHERE login='" + login + "' AND password='" + password + "'";
-
+                String getIdUser = "SELECT ID FROM [dbo].[users] WHERE login='" + login + "' AND password='" + password + "'";
 
                 using (SqlCommand command = new SqlCommand(getIdUser, connection))
                 {
@@ -69,21 +68,54 @@ namespace stpoProject
                     }
                 }   
 
-                Lbl_Helper.Text = user_id.ToString();
-
                 connection.Close();
 
                 connection.Open();
 
-                String insertToKlient = "INSERT INTO [dbo].[klient] (ID_user, name, last_name) VALUES ('" + user_id + "','" + name + "','" + lName + "')";
+                String insertStr="";
 
-                using (SqlCommand command = new SqlCommand(insertToKlient, connection))
+                if (isTrener == true)
+                {
+                    insertStr = "INSERT INTO [dbo].[coaches] (ID_user, name, last_name) VALUES ('" + user_id + "','" + name + "','" + lName + "')";
+                }
+                else
+                {
+                    insertStr = "INSERT INTO [dbo].[clients] (ID_user, name, last_name) VALUES ('" + user_id + "','" + name + "','" + lName + "')";
+                }
+                
+                using (SqlCommand command = new SqlCommand(insertStr, connection))
                 {
                     command.ExecuteReader();
                 }
 
             }
 
+        }
+
+        protected void ChkBox_trener_CheckedChanged(object sender, EventArgs e)
+        {
+            Lbl_Helper.Text += "he";
+            //Lbl_Helper.Text = isTrener.ToString();
+            if (ChkBox_trener.Checked)
+            {
+                ChkBox_trener.Checked = false;
+            }
+            else
+            {
+                ChkBox_trener.Checked = true;
+            }
+        }
+
+        protected void Btn_Helper_Click(object sender, EventArgs e)
+        {
+            if(ChkBox_trener.Checked == true)
+            {
+                Lbl_Helper.Text = "trener = TAK";
+            }
+            else
+            {
+                Lbl_Helper.Text = "trener = NIE";
+            }
         }
     }
 }

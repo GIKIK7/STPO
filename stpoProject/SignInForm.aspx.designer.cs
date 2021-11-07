@@ -105,6 +105,15 @@ namespace stpoProject
         protected global::System.Web.UI.WebControls.TextBox TxtBox_LastName;
 
         /// <summary>
+        /// Kontrolka ChkBox_trener.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ChkBox_trener;
+
+        /// <summary>
         /// Kontrolka Lbl_Helper.
         /// </summary>
         /// <remarks>
@@ -121,5 +130,14 @@ namespace stpoProject
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_SignIn;
+
+        /// <summary>
+        /// Kontrolka Btn_Helper.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_Helper;
     }
 }

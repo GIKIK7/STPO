@@ -82,16 +82,27 @@
                     <asp:TextBox ID="TxtBox_LastName" runat="server" Width="404px"></asp:TextBox>
                 </td>
                 <td class="auto-style9"></td>
-            </tr>  
+            </tr>
+
+            <tr>  
+                <td></td>
+                <td>
+                    <asp:CheckBox ID="ChkBox_trener" runat="server" OnCheckedChanged="ChkBox_trener_CheckedChanged" Text="Trener" />
+                </td>
+                <td></td>
+            </tr> 
+
             <tr>  
                 <td class="auto-style4">
                     <asp:Label ID="Lbl_Helper" runat="server"></asp:Label>
                 </td>
                 <td class="auto-style5">
                     <asp:Button ID="Btn_SignIn" runat="server" Text="Zarejestruj sie" OnClick="Btn_SignIn_Click" />
+                    <asp:Button ID="Btn_Helper" runat="server" OnClick="Btn_Helper_Click" Text="sprawdz Trenera" />
                 </td>
                 <td class="auto-style8"></td>
-            </tr>  
+            </tr>
+
         </table>  
       
     </div>  
