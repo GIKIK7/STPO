@@ -9,8 +9,26 @@
         .auto-style1 {  
             width: 100%;  
         }  
-        .auto-style3 {
-            height: 41px;
+        .auto-style4 {
+            width: 120px;
+        }
+        .auto-style5 {
+            width: 1019px;
+        }
+        .auto-style6 {
+            width: 120px;
+            height: 26px;
+        }
+        .auto-style7 {
+            width: 1019px;
+            height: 26px;
+        }
+        .auto-style8 {
+            width: 120px;
+        }
+        .auto-style9 {
+            width: 120px;
+            height: 26px;
         }
     </style>  
 </head>  
@@ -19,25 +37,60 @@
     <div>  
       
         <table class="auto-style1">  
+
             <tr>
-                <td class="auto-style3"> </td>  
-                <td class="auto-style3"> </td>  
-                <td style="text-align: center" class="auto-style3">  
-                    <asp:Button ID="Button1" runat="server" BorderStyle="None" Font-Size="X-Large" OnClick="Button1_Click" Text="Get Data"/>  
-                </td>  
-                <td class="auto-style3"> </td>  
-                <td class="auto-style3"> </td>  
-                <td class="auto-style3"> </td>  
+                <td class="auto-style4"></td>
+                <td align ="center" class="auto-style5">
+                    <asp:Label ID="Lbl_SignIn" runat="server" Text="Zarejestruj się!"></asp:Label>
+                </td>
+                <td class="auto-style8"></td>
+            </tr>
+            
+            <tr>
+                <td class="auto-style6">
+                    <asp:Label ID="Lbl_login" runat="server" Text="Login:"></asp:Label>
+                </td>
+                <td class="auto-style7">
+                    <asp:TextBox ID="TxtBox_login" runat="server" Width="407px"></asp:TextBox>
+                </td>
+                <td class="auto-style9"></td>
             </tr>  
             <tr>  
-                <td> </td>  
-                <td> </td>  
-                <td>  
-                    <asp:Label ID="lbl1" runat="server" Font-Size="X-Large" Height="200"></asp:Label>  
-                </td>  
-                <td> </td>  
-                <td> </td>  
-                <td> </td>  
+                <td class="auto-style6">
+                    <asp:Label ID="Lbl_password" runat="server" Text="Haslo:"></asp:Label>
+                </td>
+                <td class="auto-style7">
+                    <asp:TextBox ID="TxtBox_password" runat="server" Width="404px"></asp:TextBox>
+                </td>
+                <td class="auto-style9"></td>
+            </tr>  
+
+            <tr>
+                <td class="auto-style6">
+                    <asp:Label ID="Lbl_name" runat="server" Text="Imie:"></asp:Label>
+                </td>
+                <td class="auto-style7">
+                    <asp:TextBox ID="TxtBox_name" runat="server" Width="407px"></asp:TextBox>
+                </td>
+                <td class="auto-style9"></td>
+            </tr>  
+            <tr>  
+                <td class="auto-style6">
+                    <asp:Label ID="Lbl_lastName" runat="server" Text="Nazwisko:"></asp:Label>
+                </td>
+                <td class="auto-style7">
+                    <asp:TextBox ID="TxtBox_LastName" runat="server" Width="404px"></asp:TextBox>
+                </td>
+                <td class="auto-style9"></td>
+            </tr>  
+            <tr>  
+                <td class="auto-style4">
+                    <asp:Label ID="Lbl_Helper" runat="server"></asp:Label>
+                </td>
+                <td class="auto-style5">
+                    <asp:Button ID="Btn_SignIn" runat="server" Text="Zarejestruj sie" OnClick="Btn_SignIn_Click" />
+                </td>
+                <td class="auto-style8"></td>
             </tr>  
         </table>  
       

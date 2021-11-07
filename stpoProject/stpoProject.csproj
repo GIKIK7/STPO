@@ -108,10 +108,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LogInForm.aspx" />
     <Content Include="SignInForm.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LogInForm.aspx.cs">
+      <DependentUpon>LogInForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogInForm.aspx.designer.cs">
+      <DependentUpon>LogInForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignInForm.aspx.cs">
       <DependentUpon>SignInForm.aspx</DependentUpon>

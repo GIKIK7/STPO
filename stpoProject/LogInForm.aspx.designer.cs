@@ -11,7 +11,7 @@ namespace stpoProject
 {
 
 
-    public partial class SignInForm
+    public partial class LogInForm
     {
 
         /// <summary>
@@ -24,102 +24,75 @@ namespace stpoProject
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Kontrolka Lbl_SignIn.
+        /// Kontrolka Lbl_LogIn.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_SignIn;
+        protected global::System.Web.UI.WebControls.Label Lbl_LogIn;
 
         /// <summary>
-        /// Kontrolka Lbl_login.
+        /// Kontrolka LbL_User.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_login;
+        protected global::System.Web.UI.WebControls.Label LbL_User;
 
         /// <summary>
-        /// Kontrolka TxtBox_login.
+        /// Kontrolka TxtBox_User.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtBox_login;
+        protected global::System.Web.UI.WebControls.TextBox TxtBox_User;
 
         /// <summary>
-        /// Kontrolka Lbl_password.
+        /// Kontrolka Lbl_Password.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_password;
+        protected global::System.Web.UI.WebControls.Label Lbl_Password;
 
         /// <summary>
-        /// Kontrolka TxtBox_password.
+        /// Kontrolka TxtBox_Password.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtBox_password;
+        protected global::System.Web.UI.WebControls.TextBox TxtBox_Password;
 
         /// <summary>
-        /// Kontrolka Lbl_name.
+        /// Kontrolka Btn_LogIn.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_name;
+        protected global::System.Web.UI.WebControls.Button Btn_LogIn;
 
         /// <summary>
-        /// Kontrolka TxtBox_name.
+        /// Kontrolka Lbl_NoAccunt.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtBox_name;
+        protected global::System.Web.UI.WebControls.Label Lbl_NoAccunt;
 
         /// <summary>
-        /// Kontrolka Lbl_lastName.
+        /// Kontrolka LbL_Helper.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_lastName;
-
-        /// <summary>
-        /// Kontrolka TxtBox_LastName.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtBox_LastName;
-
-        /// <summary>
-        /// Kontrolka Lbl_Helper.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_Helper;
-
-        /// <summary>
-        /// Kontrolka Btn_SignIn.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_SignIn;
+        protected global::System.Web.UI.WebControls.Label LbL_Helper;
     }
 }
