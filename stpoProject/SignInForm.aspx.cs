@@ -6,9 +6,12 @@ namespace stpoProject
 {
     public partial class SignInForm : System.Web.UI.Page
     {
+
+        bool isChecked = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             Lbl_Helper.Text = "";
+            ChkBox_trener.Checked = isChecked;
         }
 
         protected void Btn_SignIn_Click(object sender, EventArgs e)
@@ -17,7 +20,7 @@ namespace stpoProject
             String password = String.Concat(TxtBox_password.Text.Where(c => !Char.IsWhiteSpace(c)));
             String name = String.Concat(TxtBox_name.Text.Where(c => !Char.IsWhiteSpace(c)));
             String lName = String.Concat(TxtBox_LastName.Text.Where(c => !Char.IsWhiteSpace(c)));
-            bool isTrener = ChkBox_trener.Checked;
+            bool isTrener = isChecked;
 
             if (login.Length == 0 || password.Length == 0 || name.Length == 0 || lName.Length == 0)
             {
@@ -96,25 +99,15 @@ namespace stpoProject
         {
             Lbl_Helper.Text += "he";
             //Lbl_Helper.Text = isTrener.ToString();
-            if (ChkBox_trener.Checked)
+            if (isChecked)
             {
-                ChkBox_trener.Checked = false;
+                isChecked = false;
+                ChkBox_trener.Checked = isChecked;
             }
             else
             {
-                ChkBox_trener.Checked = true;
-            }
-        }
-
-        protected void Btn_Helper_Click(object sender, EventArgs e)
-        {
-            if(ChkBox_trener.Checked == true)
-            {
-                Lbl_Helper.Text = "trener = TAK";
-            }
-            else
-            {
-                Lbl_Helper.Text = "trener = NIE";
+                isChecked = true;
+                ChkBox_trener.Checked = isChecked;
             }
         }
     }

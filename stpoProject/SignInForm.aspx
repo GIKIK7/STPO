@@ -98,7 +98,6 @@
                 </td>
                 <td class="auto-style5">
                     <asp:Button ID="Btn_SignIn" runat="server" Text="Zarejestruj sie" OnClick="Btn_SignIn_Click" />
-                    <asp:Button ID="Btn_Helper" runat="server" OnClick="Btn_Helper_Click" Text="sprawdz Trenera" />
                 </td>
                 <td class="auto-style8"></td>
             </tr>
