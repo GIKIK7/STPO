@@ -7,7 +7,7 @@ namespace stpoProject
     public partial class SignInForm : System.Web.UI.Page
     {
 
-        bool isChecked = false;
+        static bool isChecked = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             Lbl_Helper.Text = "";
@@ -26,8 +26,12 @@ namespace stpoProject
             {
                 Lbl_Helper.Text = "Wszystkie pola sa wymagane!";
             }
-            registerUser(login, password, name, lName, isTrener);
-            Response.Redirect("LogInForm.aspx");
+            else
+            {
+                registerUser(login, password, name, lName, isTrener);
+                Response.Redirect("LogInForm.aspx");
+            }
+            
         }
 
         private void registerUser(String login, String password, String name, String lName, bool isTrener)

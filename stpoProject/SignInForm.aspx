@@ -13,14 +13,14 @@
             width: 120px;
         }
         .auto-style5 {
-            width: 1019px;
+            width: 1001px;
         }
         .auto-style6 {
             width: 120px;
             height: 26px;
         }
         .auto-style7 {
-            width: 1019px;
+            width: 1001px;
             height: 26px;
         }
         .auto-style8 {
@@ -86,7 +86,7 @@
 
             <tr>  
                 <td></td>
-                <td>
+                <td class="auto-style5">
                     <asp:CheckBox ID="ChkBox_trener" runat="server" OnCheckedChanged="ChkBox_trener_CheckedChanged" Text="Trener" />
                 </td>
                 <td></td>
@@ -99,7 +99,9 @@
                 <td class="auto-style5">
                     <asp:Button ID="Btn_SignIn" runat="server" Text="Zarejestruj sie" OnClick="Btn_SignIn_Click" />
                 </td>
-                <td class="auto-style8"></td>
+                <td class="auto-style8">
+                    <a href="LogInForm.aspx">Zaloguj się</a>
+                </td>
             </tr>
 
         </table>  

@@ -12,7 +12,7 @@ namespace stpoProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void Btn_LogInClick(object sender, EventArgs e)
@@ -26,32 +26,27 @@ namespace stpoProject
 
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
-
                 connection.Open();
 
-                String sql = "SELECT * FROM [dbo].[users] WHERE login='" + TxtBox_User.Text + "'";
+                String sql = "SELECT ID, password FROM [dbo].[users] WHERE login='" + TxtBox_User.Text + "'";
 
-                using (SqlCommand command = new SqlCommand(sql, connection))
+                SqlCommand cmdGetPassword = new SqlCommand(sql, connection);
+                SqlDataReader readerGetPassword = cmdGetPassword.ExecuteReader();
+
+                while (readerGetPassword.Read())
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    if (readerGetPassword.GetValue(1).ToString() == TxtBox_Password.Text)
                     {
-                        while (reader.Read())
-                        {
-                            if(reader.GetValue(2).ToString() == TxtBox_Password.Text)
-                            {
-                                LbL_Helper.Text = "Zalogowano!";
-                            }
-                            else
-                            {
-                                LbL_Helper.Text = "Niepoprawne haslo!";
-                            }
-                        }
-
+                        LbL_Helper.Text = "Zalogowano!";
+                        Session["ID_user"] = Int16.Parse(readerGetPassword.GetValue(0).ToString());
+                        Response.Redirect("CoachDetailsForm.aspx");
+                    }
+                    else
+                    {
+                        LbL_Helper.Text = "Niepoprawne haslo!";
                     }
                 }
-
                 connection.Close();
-
             }
         }
     }

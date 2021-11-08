@@ -46,7 +46,6 @@
                 <td style="text-align: center">  
                     <asp:TextBox ID="TxtBox_User" runat="server" Font-Size="X-Large"></asp:TextBox>  
                 </td> 
-                <td> </td>
             </tr>  
             <tr>  
                 <td class="auto-style2"> </td>  
@@ -56,13 +55,11 @@
                 <td style="text-align: center" class="auto-style2">  
                     <asp:TextBox ID="TxtBox_Password" runat="server" Font-Size="X-Large" TextMode="Password"></asp:TextBox>  
                 </td>  
-                <td> </td>
             </tr>  
             <tr>  
                 <td> </td>  
                 <td class="auto-style3"> </td>  
                 <td> </td>  
-                <td> </td>
             </tr>  
             <tr>  
                 <td> </td>  
@@ -70,18 +67,15 @@
                 <td style="text-align: center">  
                     <asp:Button ID="Btn_LogIn" runat="server" BorderStyle="None" Font-Size="X-Large" OnClick="Btn_LogInClick" Text="Log In" />  
                 </td>   
-                <td> </td>
             </tr>  
             <tr>  
                 <td class="auto-style5"> </td>  
-                <td class="auto-style6"> 
+                <td class="auto-style6" align ="center"> 
                     <asp:Label ID="Lbl_NoAccunt" runat="server" Text="Nie masz jeszcze konta?"></asp:Label>
                 </td>  
                 <td class="auto-style5">
                     <a href ="SignInForm.aspx"> Zarejestruj sie!</a>
                 </td>
-                <td class="auto-style5">  
-                </td>  
             </tr>  
 
             <tr> 
