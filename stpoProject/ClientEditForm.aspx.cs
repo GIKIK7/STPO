@@ -8,33 +8,34 @@ using System.Data.SqlClient;
 
 namespace stpoProject
 {
-    public partial class CoachEditForm : System.Web.UI.Page
+    public partial class ClientEditForm : System.Web.UI.Page
     {
+        static SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
+        {
+            DataSource = "stpo.database.windows.net",
+            UserID = "GIKIK",
+            Password = "AdminHaslo137",
+            InitialCatalog = "DBstpo"
+        };
+        
 
         protected void Page_Load(object sender, EventArgs e)
-        { 
+        {
             // default id
-            // Session["ID_user"] = 16;
-
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-
-            builder.DataSource = "stpo.database.windows.net";
-            builder.UserID = "GIKIK";
-            builder.Password = "AdminHaslo137";
-            builder.InitialCatalog = "DBstpo";
+            Session["ID_user"] = 10;
 
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
             connection.Open();
 
-            String sql = "SELECT name, last_name FROM [dbo].[coaches] WHERE ID_user='" + Session["ID_user"] + "'";
+            String sql = "SELECT name, last_name FROM [dbo].[clients] WHERE ID_user='" + Session["ID_user"] + "'";
 
             SqlCommand cmdGetFullName = new SqlCommand(sql, connection);
             SqlDataReader readerGetFullName = cmdGetFullName.ExecuteReader();
 
             while (readerGetFullName.Read())
             {
-                Lbl_Coach.Text = "Edycja Trenera: " + readerGetFullName.GetValue(0).ToString() + " " + readerGetFullName.GetValue(1).ToString();
+                Lbl_Client.Text = "Edycja Klienta: " + readerGetFullName.GetValue(0).ToString() + " " + readerGetFullName.GetValue(1).ToString();
             }
             connection.Close();
         }
@@ -51,28 +52,21 @@ namespace stpoProject
             else
             {
                 submitFunction(name, lName);
-                Response.Redirect("CoachDetailsForm.aspx");
+                Response.Redirect("ClientDetailsForm.aspx");
             }
         }
 
         void submitFunction(String name, String lastName)
         {
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
-            {
-                DataSource = "stpo.database.windows.net",
-                UserID = "GIKIK",
-                Password = "AdminHaslo137",
-                InitialCatalog = "DBstpo"
-            };
-
+            
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
             connection.Open();
 
-            String updateCoach = "UPDATE [dbo].[coaches] SET name ='" + name + "', last_name='" + lastName + "' WHERE ID_user =" + Session["ID_user"];
+            String updateClient = "UPDATE [dbo].[clients] SET name ='" + name + "', last_name='" + lastName + "' WHERE ID_user =" + Session["ID_user"];
 
-            SqlCommand cmdEditCoach = new SqlCommand(updateCoach, connection);
-            cmdEditCoach.ExecuteReader();
+            SqlCommand cmdEditClient = new SqlCommand(updateClient, connection);
+            cmdEditClient.ExecuteReader();
 
             connection.Close();
         }

@@ -108,6 +108,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClientDetailsForm.aspx" />
+    <Content Include="ClientEditForm.aspx" />
     <Content Include="CoachEditForm.aspx" />
     <Content Include="LogInForm.aspx" />
     <Content Include="SignInForm.aspx" />
@@ -115,6 +117,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientDetailsForm.aspx.cs">
+      <DependentUpon>ClientDetailsForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientDetailsForm.aspx.designer.cs">
+      <DependentUpon>ClientDetailsForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientEditForm.aspx.cs">
+      <DependentUpon>ClientEditForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientEditForm.aspx.designer.cs">
+      <DependentUpon>ClientEditForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CoachEditForm.aspx.cs">
       <DependentUpon>CoachEditForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

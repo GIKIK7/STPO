@@ -8,10 +8,12 @@ using System.Data.SqlClient;
 
 namespace stpoProject
 {
-    public partial class TrenerDetailsForm : System.Web.UI.Page
+    public partial class ClientDetailsForm : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //default ID_user
+            Session["ID_user"] = 10;
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
             builder.DataSource = "stpo.database.windows.net";
@@ -23,7 +25,7 @@ namespace stpoProject
 
             connection.Open();
 
-            String sql = "SELECT name, last_name FROM [dbo].[coaches] WHERE ID_user='" + Session["ID_user"] + "'";
+            String sql = "SELECT name, last_name FROM [dbo].[clients] WHERE ID_user='" + Session["ID_user"] + "'";
 
             SqlCommand cmdGetFullName = new SqlCommand(sql, connection);
             SqlDataReader readerGetFullName = cmdGetFullName.ExecuteReader();

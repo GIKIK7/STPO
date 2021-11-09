@@ -11,7 +11,7 @@ namespace stpoProject
 {
 
 
-    public partial class TrenerDetailsForm
+    public partial class ClientEditForm
     {
 
         /// <summary>
@@ -24,39 +24,48 @@ namespace stpoProject
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Kontrolka Lbl_Coach.
+        /// Kontrolka Lbl_Client.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_Coach;
+        protected global::System.Web.UI.WebControls.Label Lbl_Client;
 
         /// <summary>
-        /// Kontrolka Lbl_Name.
+        /// Kontrolka TxtBox_Name.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_Name;
+        protected global::System.Web.UI.WebControls.TextBox TxtBox_Name;
 
         /// <summary>
-        /// Kontrolka Lbl_lastName.
+        /// Kontrolka TxtBox_lastName.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_lastName;
+        protected global::System.Web.UI.WebControls.TextBox TxtBox_lastName;
 
         /// <summary>
-        /// Kontrolka Btn_wyloguj.
+        /// Kontrolka Lbl_helper.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_wyloguj;
+        protected global::System.Web.UI.WebControls.Label Lbl_helper;
+
+        /// <summary>
+        /// Kontrolka Btn_Submit.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_Submit;
     }
 }

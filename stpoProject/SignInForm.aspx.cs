@@ -16,10 +16,10 @@ namespace stpoProject
 
         protected void Btn_SignIn_Click(object sender, EventArgs e)
         {
-            String login = String.Concat(TxtBox_login.Text.Where(c => !Char.IsWhiteSpace(c)));
-            String password = String.Concat(TxtBox_password.Text.Where(c => !Char.IsWhiteSpace(c)));
-            String name = String.Concat(TxtBox_name.Text.Where(c => !Char.IsWhiteSpace(c)));
-            String lName = String.Concat(TxtBox_LastName.Text.Where(c => !Char.IsWhiteSpace(c)));
+            String login = TxtBox_login.Text.Trim();
+            String password = TxtBox_password.Text.Trim();
+            String name = TxtBox_name.Text.Trim();
+            String lName = TxtBox_LastName.Text.Trim();
             bool isTrener = isChecked;
 
             if (login.Length == 0 || password.Length == 0 || name.Length == 0 || lName.Length == 0)

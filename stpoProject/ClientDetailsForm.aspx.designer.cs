@@ -11,7 +11,7 @@ namespace stpoProject
 {
 
 
-    public partial class TrenerDetailsForm
+    public partial class ClientDetailsForm
     {
 
         /// <summary>
@@ -24,13 +24,13 @@ namespace stpoProject
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Kontrolka Lbl_Coach.
+        /// Kontrolka Lbl_Client.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_Coach;
+        protected global::System.Web.UI.WebControls.Label Lbl_Client;
 
         /// <summary>
         /// Kontrolka Lbl_Name.

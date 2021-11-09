@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CoachEditForm.aspx.cs" Inherits="stpoProject.CoachEditForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ClientEditForm.aspx.cs" Inherits="stpoProject.ClientEditForm" %>
 
 <!DOCTYPE html>
 
@@ -20,7 +20,7 @@
                 <tr>
                     <td style="width: 20%"></td>
                     <td style="width: 65%" align ="center">
-                        <asp:Label ID="Lbl_Coach" runat="server" Text="Edycja Trenera " Font-Bold="True" Font-Italic="False" Font-Size="XX-Large"></asp:Label>
+                        <asp:Label ID="Lbl_Client" runat="server" Text="Edycja Klienta" Font-Bold="True" Font-Italic="False" Font-Size="XX-Large"></asp:Label>
                     </td>
                     <td style="width: 15%"></td>
                 </tr>
@@ -49,7 +49,7 @@
                     </td>
                     <td style="width: 70%" align="right" spacing="10">
 
-                        <a href="CoachDetailsForm.aspx">Powrót</a>
+                        <a href="ClientDetailsForm.aspx">Powrót</a>
 
                         <!-- spaces -->
                         <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> 
