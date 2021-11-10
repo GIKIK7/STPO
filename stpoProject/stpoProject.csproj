@@ -111,6 +111,7 @@
     <Content Include="ClientDetailsForm.aspx" />
     <Content Include="ClientEditForm.aspx" />
     <Content Include="CoachEditForm.aspx" />
+    <Content Include="CoachSearchForm.aspx" />
     <Content Include="LogInForm.aspx" />
     <Content Include="SignInForm.aspx" />
     <Content Include="CoachDetailsForm.aspx" />
@@ -137,6 +138,13 @@
     </Compile>
     <Compile Include="CoachEditForm.aspx.designer.cs">
       <DependentUpon>CoachEditForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CoachSearchForm.aspx.cs">
+      <DependentUpon>CoachSearchForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CoachSearchForm.aspx.designer.cs">
+      <DependentUpon>CoachSearchForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="LogInForm.aspx.cs">
       <DependentUpon>LogInForm.aspx</DependentUpon>
