@@ -28,10 +28,10 @@
                         <asp:DataList ID="DataList1" runat="server" DataSourceID="DataSource_coaches">
                             <ItemTemplate>
                                 name:
-                                <asp:LinkButton ID="nameLabel" runat="server" Text='<%# Eval("name") %>'/>
+                                <asp:LinkButton ID="nameLabel" onClick="DataList1_SelectedIndexChanged" runat="server" CommandName="select" Text='<%# Eval("name") %>'/>
                                 <br />
                                 last_name:
-                                <asp:LinkButton ID="last_nameLabel" runat="server" Text='<%# Eval("last_name") %>' />
+                                <asp:LinkButton ID="last_nameLabel" onClick="DataList1_SelectedIndexChanged" runat="server" CommandName="select" Text='<%# Eval("last_name") %>' />
                                 <br />
                                 <br />
                             </ItemTemplate>
