@@ -146,6 +146,12 @@
     <Compile Include="CoachSearchForm.aspx.designer.cs">
       <DependentUpon>CoachSearchForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="controllers\ClientController.cs" />
+    <Compile Include="controllers\CoachController.cs" />
+    <Compile Include="controllers\UserController.cs" />
+    <Compile Include="datasets\Client.cs" />
+    <Compile Include="datasets\Coach.cs" />
+    <Compile Include="datasets\User.cs" />
     <Compile Include="LogInForm.aspx.cs">
       <DependentUpon>LogInForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -177,6 +183,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

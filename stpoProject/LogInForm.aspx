@@ -35,13 +35,13 @@
         <table class="auto-style1">  
             <tr>  
                 <td colspan="6" style="text-align: center; vertical-align: top">  
-                    <asp:Label ID="Lbl_LogIn" runat="server" Font-Bold="True" Font-Size="XX-Large" Font-Underline="True" Text="Log In "></asp:Label>  
+                    <asp:Label ID="Lbl_LogIn" runat="server" Font-Bold="True" Font-Size="XX-Large" Font-Underline="True" Text="Logowanie"></asp:Label>  
                 </td>  
             </tr>  
             <tr>  
                 <td> </td>  
                 <td style="text-align: center" class="auto-style3">  
-                    <asp:Label ID="LbL_User" runat="server" Font-Size="X-Large" Text="User:"></asp:Label>  
+                    <asp:Label ID="LbL_User" runat="server" Font-Size="X-Large" Text="Login:"></asp:Label>  
                 </td>  
                 <td style="text-align: center">  
                     <asp:TextBox ID="TxtBox_User" runat="server" Font-Size="X-Large"></asp:TextBox>  
@@ -50,7 +50,7 @@
             <tr>  
                 <td class="auto-style2"> </td>  
                 <td style="text-align: center" class="auto-style4">  
-                    <asp:Label ID="Lbl_Password" runat="server" Font-Size="X-Large" Text="Password :"></asp:Label>  
+                    <asp:Label ID="Lbl_Password" runat="server" Font-Size="X-Large" Text="Hasło :"></asp:Label>  
                 </td>  
                 <td style="text-align: center" class="auto-style2">  
                     <asp:TextBox ID="TxtBox_Password" runat="server" Font-Size="X-Large" TextMode="Password"></asp:TextBox>  
@@ -65,7 +65,7 @@
                 <td> </td>  
                 <td class="auto-style3"> </td>  
                 <td style="text-align: center">  
-                    <asp:Button ID="Btn_LogIn" runat="server" BorderStyle="None" Font-Size="X-Large" OnClick="Btn_LogInClick" Text="Log In" />  
+                    <asp:Button ID="Btn_LogIn" runat="server" BorderStyle="None" Font-Size="X-Large" OnClick="Btn_LogInClick" Text="Zaloguj się" />  
                 </td>   
             </tr>  
             <tr>  

@@ -21,8 +21,10 @@ namespace stpoProject
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // default id
-            Session["ID_user"] = 10;
+            if (Int16.Parse(Session["ID_user"].ToString()) == -1)
+            {
+                Response.Redirect("LogInForm.aspx");
+            }
 
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
@@ -32,6 +34,7 @@ namespace stpoProject
 
             SqlCommand cmdGetFullName = new SqlCommand(sql, connection);
             SqlDataReader readerGetFullName = cmdGetFullName.ExecuteReader();
+
 
             while (readerGetFullName.Read())
             {
@@ -58,7 +61,6 @@ namespace stpoProject
 
         void submitFunction(String name, String lastName)
         {
-            
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
             connection.Open();

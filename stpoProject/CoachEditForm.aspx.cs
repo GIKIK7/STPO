@@ -11,17 +11,21 @@ namespace stpoProject
     public partial class CoachEditForm : System.Web.UI.Page
     {
 
+        SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
+        {
+            DataSource = "stpo.database.windows.net",
+            UserID = "GIKIK",
+            Password = "AdminHaslo137",
+            InitialCatalog = "DBstpo"
+        };
+
         protected void Page_Load(object sender, EventArgs e)
-        { 
-            // default id
-            // Session["ID_user"] = 16;
+        {
 
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-
-            builder.DataSource = "stpo.database.windows.net";
-            builder.UserID = "GIKIK";
-            builder.Password = "AdminHaslo137";
-            builder.InitialCatalog = "DBstpo";
+            if (Int16.Parse(Session["ID_user"].ToString()) == -1)
+            {
+                Response.Redirect("LogInForm.aspx");
+            }
 
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
@@ -57,14 +61,6 @@ namespace stpoProject
 
         void submitFunction(String name, String lastName)
         {
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
-            {
-                DataSource = "stpo.database.windows.net",
-                UserID = "GIKIK",
-                Password = "AdminHaslo137",
-                InitialCatalog = "DBstpo"
-            };
-
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
             connection.Open();

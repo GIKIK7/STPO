@@ -57,7 +57,7 @@
             </tr>  
             <tr>  
                 <td class="auto-style6">
-                    <asp:Label ID="Lbl_password" runat="server" Text="Haslo:"></asp:Label>
+                    <asp:Label ID="Lbl_password" runat="server" Text="Hasło:"></asp:Label>
                 </td>
                 <td class="auto-style7">
                     <asp:TextBox ID="TxtBox_password" runat="server" Width="404px"></asp:TextBox>

@@ -19,7 +19,9 @@
             <table style="width:100%">
                 <tr>
                     <td></td>
-                    <td></td>
+                    <td align="center">
+                        <asp:Label ID="Lbl_Coaches" runat="server" Text="Trenerzy" ></asp:Label>
+                    </td>
                     <td></td>
                 </tr>
                 <tr>

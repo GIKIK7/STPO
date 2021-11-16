@@ -4,8 +4,16 @@ using System.Linq;
 
 namespace stpoProject
 {
+    using controllers;
     public partial class SignInForm : System.Web.UI.Page
     {
+        SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
+        {
+            DataSource = "stpo.database.windows.net",
+            UserID = "GIKIK",
+            Password = "AdminHaslo137",
+            InitialCatalog = "DBstpo"
+        };
 
         static bool isChecked = false;
         protected void Page_Load(object sender, EventArgs e)
@@ -37,20 +45,18 @@ namespace stpoProject
         private void registerUser(String login, String password, String name, String lName, bool isTrener)
         {
 
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            UserController userController = (UserController)Session["userController"];
 
-            builder.DataSource = "stpo.database.windows.net";
-            builder.UserID = "GIKIK";
-            builder.Password = "AdminHaslo137";
-            builder.InitialCatalog = "DBstpo";
+            userController.addUser(login, password, isTrener);
+
 
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
+                /*
                 connection.Open();
 
                 SqlCommand cmd;
 
-                int user_id=0;
                 
                 String sql = "INSERT INTO [dbo].[users] (login, password, isTrener) VALUES ('" + login + "','" + password + "','" + isTrener + "')";
 
@@ -59,8 +65,11 @@ namespace stpoProject
                 cmd.ExecuteReader();
 
                 connection.Close();
+                */
 
                 connection.Open();
+
+                int user_id = 0;
 
                 String getIdUser = "SELECT ID FROM [dbo].[users] WHERE login='" + login + "' AND password='" + password + "'";
 
@@ -76,6 +85,7 @@ namespace stpoProject
                 }   
 
                 connection.Close();
+
 
                 connection.Open();
 
@@ -101,8 +111,6 @@ namespace stpoProject
 
         protected void ChkBox_trener_CheckedChanged(object sender, EventArgs e)
         {
-            Lbl_Helper.Text += "he";
-            //Lbl_Helper.Text = isTrener.ToString();
             if (isChecked)
             {
                 isChecked = false;

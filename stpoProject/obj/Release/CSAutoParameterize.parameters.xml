@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DBstpoConnectionString-Web.config Connection String" description="DBstpoConnectionString Parametry połączenia używane w pliku web.config przez aplikację w celu uzyskiwania dostępu do bazy danych." defaultValue="Data Source=stpo.database.windows.net;Initial Catalog=DBstpo;Persist Security Info=True;User ID=GIKIK;Password=AdminHaslo137" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\ProjektTPST\\STPO\\stpoProject\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBstpoConnectionString']/@connectionString" />
+  </parameter>
+</parameters>
