@@ -92,5 +92,16 @@ namespace stpoProject.controllers
             connection.Close();
 
         }
+    
+        public int getUserIDBy(string login, string password)
+        {
+            foreach (User user in m_users) {
+                if(user.login() == login && user.password() == password)
+                {
+                    return user.ID();
+                }
+            }
+            return 0;
+        }
     }
 }

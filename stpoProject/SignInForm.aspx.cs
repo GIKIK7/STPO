@@ -15,6 +15,7 @@ namespace stpoProject
             InitialCatalog = "DBstpo"
         };
 
+
         static bool isChecked = false;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,72 +40,27 @@ namespace stpoProject
                 registerUser(login, password, name, lName, isTrener);
                 Response.Redirect("LogInForm.aspx");
             }
-            
         }
 
-        private void registerUser(String login, String password, String name, String lName, bool isTrener)
+        private void registerUser(String login, String password, String name, String lastName, bool isTrener)
         {
+            CoachController coachController = (CoachController)Session["coachController"];
+
+            ClientController clientController = (ClientController)Session["clientController"];
 
             UserController userController = (UserController)Session["userController"];
 
             userController.addUser(login, password, isTrener);
 
+            int user_id = userController.getUserIDBy(login, password);
 
-            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            if (isTrener == true)
             {
-                /*
-                connection.Open();
-
-                SqlCommand cmd;
-
-                
-                String sql = "INSERT INTO [dbo].[users] (login, password, isTrener) VALUES ('" + login + "','" + password + "','" + isTrener + "')";
-
-                cmd = new SqlCommand(sql, connection);
-
-                cmd.ExecuteReader();
-
-                connection.Close();
-                */
-
-                connection.Open();
-
-                int user_id = 0;
-
-                String getIdUser = "SELECT ID FROM [dbo].[users] WHERE login='" + login + "' AND password='" + password + "'";
-
-                using (SqlCommand command = new SqlCommand(getIdUser, connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            user_id = Int16.Parse(reader.GetValue(0).ToString());
-                        }
-                    }
-                }   
-
-                connection.Close();
-
-
-                connection.Open();
-
-                String insertStr="";
-
-                if (isTrener == true)
-                {
-                    insertStr = "INSERT INTO [dbo].[coaches] (ID_user, name, last_name) VALUES ('" + user_id + "','" + name + "','" + lName + "')";
-                }
-                else
-                {
-                    insertStr = "INSERT INTO [dbo].[clients] (ID_user, name, last_name) VALUES ('" + user_id + "','" + name + "','" + lName + "')";
-                }
-                
-                using (SqlCommand command = new SqlCommand(insertStr, connection))
-                {
-                    command.ExecuteReader();
-                }
-
+                coachController.addCoach(user_id, name, lastName);
+            }
+            else
+            {
+                clientController.addClient(user_id, name, lastName);
             }
 
         }

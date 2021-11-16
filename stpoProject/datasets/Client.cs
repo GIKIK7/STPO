@@ -20,6 +20,13 @@ namespace stpoProject.datasets
             m_lastName = lastName;
         }
 
+        public Client(int ID_user, string name, string lastName)
+        {
+            m_ID_user = ID_user;
+            m_name = name;
+            m_lastName = lastName;
+        }
+
         public int ID()
         {
             return m_ID;
@@ -35,6 +42,11 @@ namespace stpoProject.datasets
         public string lastName()
         {
             return m_lastName;
+        }
+
+        public void setID(int ID)
+        {
+            m_ID = ID;
         }
     }
 }

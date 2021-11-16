@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 
 namespace stpoProject
 {
+    using controllers;
+
     public partial class CoachSearchForm : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -20,24 +22,11 @@ namespace stpoProject
             Lbl_helper.Text = "haha gowno";
         }
 
-        // OnSelectedIndexChanged="DataList1_SelectedIndexChanged" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="Item_Command"
 
-        protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
+        public void itemCommand(object sender, DataListCommandEventArgs e)
         {
-            //DataListItem dataItem = (DataListItem)e.Item;
-
-            //string curItem = DataList1.SelectedIndex.ToString();
-
-            int idx = DataList1.SelectedIndex;
-
-            Lbl_helper.Text = idx.ToString();
-
-            /*
-            Label lbl = (Label)DataList1.Items[idx].FindControl("nameLabel");
-            int id = Convert.ToInt32(DataList1.SelectedValue);
-
-            Lbl_helper.Text = id.ToString();
-            */
+            string itemID = e.CommandArgument.ToString();
+            Lbl_helper.Text = itemID;
         }
     }
 }

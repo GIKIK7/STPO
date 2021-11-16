@@ -83,6 +83,11 @@
                 <td>
                     <asp:Label ID="LbL_Helper" runat="server" Font-Size="X-Large"></asp:Label>
                 </td>
+                <td>
+
+                    <asp:Button ID="Btn_Helper" runat="server" OnClick="Btn_Helper_Click" Text="Wyszukaj Trenerow" />
+
+                </td>
             </tr>
 
         </table>  

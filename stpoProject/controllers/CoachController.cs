@@ -12,16 +12,16 @@ namespace stpoProject.controllers
 
         private List<Coach> m_coaches = new List<Coach>();
 
+        SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
+        {
+            DataSource = "stpo.database.windows.net",
+            UserID = "GIKIK",
+            Password = "AdminHaslo137",
+            InitialCatalog = "DBstpo"
+        };
+
         public void getCoachListFromDatabase()
         {
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
-            {
-                DataSource = "stpo.database.windows.net",
-                UserID = "GIKIK",
-                Password = "AdminHaslo137",
-                InitialCatalog = "DBstpo"
-            };
-
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
             connection.Open();
@@ -49,6 +49,48 @@ namespace stpoProject.controllers
             return m_coaches;
         }
 
+        public void addCoach(int ID_user, string name, string lastName)
+        {
 
+            Coach coach = new Coach(ID_user, name, lastName);
+
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+
+            connection.Open();
+
+            SqlCommand cmd;
+
+            String insertStr = "INSERT INTO [dbo].[coaches] (ID_user, name, last_name) VALUES ('" + ID_user + "','" + name + "','" + lastName + "')";
+
+            using (cmd = new SqlCommand(insertStr, connection))
+            {
+                cmd.ExecuteReader();
+            }
+
+            connection.Close();
+
+
+            connection.Open();
+
+            int coachID = 0;
+
+            String getCoachID = "SELECT ID FROM [dbo].[coaches] WHERE ID_user='" + ID_user +"'";
+
+            using (SqlCommand command = new SqlCommand(getCoachID, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        coachID = Int16.Parse(reader.GetValue(0).ToString());
+                    }
+                }
+            }
+            coach.setID(coachID);
+
+            m_coaches.Add(coach);
+
+            connection.Close();
+        }
     }
 }

@@ -32,6 +32,7 @@ namespace stpoProject
             ClientController clientController = new ClientController();
             clientController.getClientListFromDatabase();
             clients = clientController.getClientList();
+            Session["clientController"] = clientController;
 
             UserController userController = new UserController();
             userController.getUserListFromDatabase();
@@ -41,6 +42,7 @@ namespace stpoProject
             CoachController coachController = new CoachController();
             coachController.getCoachListFromDatabase();
             coaches = coachController.getCoachList();
+            Session["coachController"] = coachController;
         }
 
         protected void Btn_LogInClick(object sender, EventArgs e)
@@ -67,42 +69,11 @@ namespace stpoProject
                     LbL_Helper.Text = "Niepoprawne haslo!";
                 }
             }
+        }
 
-
-            /*
-            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-            {
-                connection.Open();
-
-                String sql = "SELECT ID, password, isTrener FROM [dbo].[users] WHERE login='" + TxtBox_User.Text + "'";
-
-                SqlCommand cmdGetInfoUser = new SqlCommand(sql, connection);
-                SqlDataReader readerGetInfoUser = cmdGetInfoUser.ExecuteReader();
-
-                while (readerGetInfoUser.Read())
-                {
-                    if (readerGetInfoUser.GetValue(1).ToString() == TxtBox_Password.Text)
-                    {
-                        LbL_Helper.Text = "Zalogowano!";
-                        Session["ID_user"] = Int16.Parse(readerGetInfoUser.GetValue(0).ToString());
-                        
-                        if(readerGetInfoUser.GetValue(2).ToString() == "True")
-                        {
-                            Response.Redirect("CoachDetailsForm.aspx");
-                        }
-                        else
-                        {
-                            Response.Redirect("ClientDetailsForm.aspx");
-                        }
-                    }
-                    else
-                    {
-                        LbL_Helper.Text = "Niepoprawne haslo!";
-                    }
-                }
-                connection.Close();
-            }
-            */
+        protected void Btn_Helper_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CoachSearchForm.aspx");
         }
     }
 }

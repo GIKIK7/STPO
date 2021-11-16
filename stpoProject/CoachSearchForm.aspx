@@ -27,27 +27,28 @@
                 <tr>
                     <td></td>
                     <td>
-                        <asp:DataList ID="DataList1" runat="server" DataSourceID="DataSource_coaches">
+                        <asp:DataList ID="DataList1" runat="server" DataSourceID="DataSource_coaches" OnItemCommand="itemCommand" DataKeyField="ID" >
                             <ItemTemplate>
                                 name:
-                                <asp:LinkButton ID="nameLabel" onClick="DataList1_SelectedIndexChanged" runat="server" CommandName="select" Text='<%# Eval("name") %>'/>
+                                <asp:LinkButton ID="nameLabel" runat="server" Text='<%# Eval("name") %>' CommandArgument='<%# Eval("ID") %>' />
                                 <br />
                                 last_name:
-                                <asp:LinkButton ID="last_nameLabel" onClick="DataList1_SelectedIndexChanged" runat="server" CommandName="select" Text='<%# Eval("last_name") %>' />
+                                <asp:LinkButton ID="last_nameLabel" runat="server" Text='<%# Eval("last_name") %>' CommandArgument='<%# Eval("ID") %>' />
                                 <br />
                                 <br />
                             </ItemTemplate>
                         </asp:DataList>
                         <asp:SqlDataSource ID="DataSource_coaches" runat="server" ConnectionString="<%$ ConnectionStrings:DBstpoConnectionString %>" 
-                            SelectCommand="SELECT [name], [last_name] FROM [coaches]"></asp:SqlDataSource>
+                            SelectCommand="SELECT [name], [last_name], [ID] FROM [coaches]"></asp:SqlDataSource>
                     </td>
-                    <td></td>
+                    <td>
+                        <asp:Label ID="Lbl_helper" runat="server"></asp:Label>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style1"></td>
                     <td class="auto-style1">
-                        <asp:Label ID="Lbl_helper" runat="server"></asp:Label>
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style1"></td>
                 </tr>
 
