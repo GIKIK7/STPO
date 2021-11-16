@@ -10,6 +10,13 @@
         .auto-style1 {
             height: 23px;
         }
+        .cell
+        {
+            width: 200px;
+            float: left;
+            border: solid 1px gray;
+            padding: 2px;
+        }      
     </style>
 </head>
 <body>
@@ -28,15 +35,16 @@
                 <tr>
                     <td></td>
                     <td>
-                        <asp:DataList ID="DataList1" runat="server" DataSourceID="DataSource_coaches" OnItemCommand="itemCommand" DataKeyField="ID" >
+                        <asp:DataList ID="DataList1" runat="server" DataSourceID="DataSource_coaches" OnItemCommand="itemCommand" DataKeyField="ID">
                             <ItemTemplate>
-                                name:
-                                <asp:LinkButton ID="nameLabel" runat="server" Text='<%# Eval("name") %>' CommandArgument='<%# Eval("ID") %>' />
-                                &nbsp;&nbsp;
-                                last_name:
+                                <div class="cell">
+                                     name:
+                                    <asp:LinkButton ID="nameLabel" runat="server" Text='<%# Eval("name") %>' CommandArgument='<%# Eval("ID") %>' />
+                                    </div>
+                                <div class="cell">
+                                    last_name:
                                 <asp:LinkButton ID="last_nameLabel" runat="server" Text='<%# Eval("last_name") %>' CommandArgument='<%# Eval("ID") %>' />
-                                <br />
-                                <br />
+                               </div>
                             </ItemTemplate>
                         </asp:DataList>
                         <asp:SqlDataSource ID="DataSource_coaches" runat="server" ConnectionString="<%$ ConnectionStrings:DBstpoConnectionString %>" 
