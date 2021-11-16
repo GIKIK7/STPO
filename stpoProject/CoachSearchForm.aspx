@@ -22,7 +22,8 @@
                     <td align="center">
                         <asp:Label ID="Lbl_Coaches" runat="server" Text="Trenerzy" ></asp:Label>
                     </td>
-                    <td></td>
+                    <td>
+                    </td>
                 </tr>
                 <tr>
                     <td></td>
@@ -31,7 +32,7 @@
                             <ItemTemplate>
                                 name:
                                 <asp:LinkButton ID="nameLabel" runat="server" Text='<%# Eval("name") %>' CommandArgument='<%# Eval("ID") %>' />
-                                <br />
+                                &nbsp;&nbsp;
                                 last_name:
                                 <asp:LinkButton ID="last_nameLabel" runat="server" Text='<%# Eval("last_name") %>' CommandArgument='<%# Eval("ID") %>' />
                                 <br />
@@ -39,7 +40,7 @@
                             </ItemTemplate>
                         </asp:DataList>
                         <asp:SqlDataSource ID="DataSource_coaches" runat="server" ConnectionString="<%$ ConnectionStrings:DBstpoConnectionString %>" 
-                            SelectCommand="SELECT [name], [last_name], [ID] FROM [coaches]"></asp:SqlDataSource>
+                            SelectCommand='SELECT [name], [last_name], [ID] FROM [coaches]'></asp:SqlDataSource>
                     </td>
                     <td>
                         <asp:Label ID="Lbl_helper" runat="server"></asp:Label>

@@ -12,16 +12,13 @@ namespace stpoProject
 
     public partial class CoachSearchForm : System.Web.UI.Page
     {
+        public string order { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            order = " ORDER BY [name]";
+            //DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [ID] FROM [coaches] ORDER BY [name]";
         }
-
-        void funkcja(object sender, EventArgs e)
-        {
-            Lbl_helper.Text = "haha gowno";
-        }
-
 
         public void itemCommand(object sender, DataListCommandEventArgs e)
         {
