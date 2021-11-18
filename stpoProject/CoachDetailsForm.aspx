@@ -6,6 +6,16 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 15%;
+            height: 30px;
+        }
+        .auto-style2 {
+            width: 70%;
+            height: 30px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -17,7 +27,9 @@
                         <asp:Label ID="Lbl_Coach" runat="server" Text="Trener" Font-Bold="True" Font-Italic="False" Font-Size="XX-Large"></asp:Label>
                     </td>
                     <td style="width: 15%">
-                        <a href="CoachEditForm.aspx">Edytuj Profil</a>
+                        
+                        <asp:Button ID="Btn_goToEditCoachProfile" runat="server" OnClick="Btn_goToEditCoachProfile_Click" Text="Edytuj profil" />
+                        
                     </td>
                 </tr>
                 <tr>
@@ -39,9 +51,17 @@
                     <td style="width: 15%"></td>
                 </tr>
                 <tr>
-                    <td style="width: 15%" align="right"></td>
-                    <td style="width: 70%"></td>
-                    <td style="width: 15%">
+                    <td align="right"><a>Kategoria: </a></td>
+                    <td>
+                        <asp:Label ID="LbL_Category" runat="server"></asp:Label>
+
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right" class="auto-style1"></td>
+                    <td class="auto-style2"></td>
+                    <td class="auto-style1">
                         <asp:Button ID="Btn_wyloguj" runat="server" OnClick="Btn_wyloguj_Click" Text="Wyloguj sie" />
                     </td>
                 </tr>

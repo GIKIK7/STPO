@@ -85,9 +85,7 @@
                 </td>
                 <td>
 
-                    <asp:Button ID="Btn_Helper" runat="server" OnClick="Btn_Helper_Click" Text="Wyszukaj Trenerow" />
-
-                </td>
+                    &nbsp;</td>
             </tr>
 
         </table>  

@@ -22,6 +22,7 @@ namespace stpoProject.controllers
 
         public void getCoachListFromDatabase()
         {
+            m_coaches.Clear();
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
             connection.Open();
@@ -37,8 +38,14 @@ namespace stpoProject.controllers
                 int coachtUserID = Int16.Parse(readerGetCoach.GetValue(1).ToString());
                 string coachName = readerGetCoach.GetValue(2).ToString();
                 string coachLastName = readerGetCoach.GetValue(3).ToString();
+                int ID_category = 0;
 
-                Coach coach = new Coach(coachID, coachtUserID, coachName, coachLastName);
+                if (readerGetCoach.GetValue(4).ToString() != "")
+                {
+                    ID_category = Int16.Parse(readerGetCoach.GetValue(4).ToString());
+                }
+
+                Coach coach = new Coach(coachID, coachtUserID, coachName, coachLastName, ID_category);
                 m_coaches.Add(coach);
             }
             connection.Close();
@@ -49,7 +56,19 @@ namespace stpoProject.controllers
             return m_coaches;
         }
 
-        public void addCoach(int ID_user, string name, string lastName)
+        public Coach getCoachByIDuser(int ID)
+        {
+            foreach (Coach coach in m_coaches)
+            {
+                if (coach.ID_user() == ID)
+                {
+                    return coach;
+                }
+            }
+            return null;
+        }
+
+        public void addCoach(int ID_user, string name, string lastName, int ID_category)
         {
 
             Coach coach = new Coach(ID_user, name, lastName);
@@ -60,7 +79,7 @@ namespace stpoProject.controllers
 
             SqlCommand cmd;
 
-            String insertStr = "INSERT INTO [dbo].[coaches] (ID_user, name, last_name) VALUES ('" + ID_user + "','" + name + "','" + lastName + "')";
+            String insertStr = "INSERT INTO [dbo].[coaches] (ID_user, name, last_name, ID_category) VALUES ('" + ID_user + "','" + name + "','" + lastName + "','" + ID_category + "')";
 
             using (cmd = new SqlCommand(insertStr, connection))
             {
@@ -92,5 +111,43 @@ namespace stpoProject.controllers
 
             connection.Close();
         }
+    
+        public int getIDuserByIDcoach(int ID)
+        {
+            foreach (Coach coach in m_coaches)
+            {
+                if(coach.ID() == ID)
+                {
+                    return coach.ID_user();
+                }
+            }
+            return -1;
+        }
+    
+        public void updateCoach(string name, string lastName, int category, int ID_user)
+        {
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+
+            connection.Open();
+
+            String updateCoach = "UPDATE [dbo].[coaches] SET name ='" + name + "', last_name='" + lastName + "', ID_category='" + category
+                + "'WHERE ID_user =" + ID_user;
+
+
+            SqlCommand cmdEditCoach = new SqlCommand(updateCoach, connection);
+            cmdEditCoach.ExecuteReader();
+
+            connection.Close();
+
+            foreach (Coach coach in m_coaches)
+            {
+                if (coach.ID_user() == ID_user)
+                {
+                    coach.setName(name);
+                    coach.setLastName(lastName);
+                    coach.setIDcategory(category);
+                }
+            }
+        }    
     }
 }

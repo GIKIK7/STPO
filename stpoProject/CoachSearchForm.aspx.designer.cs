@@ -33,6 +33,33 @@ namespace stpoProject
         protected global::System.Web.UI.WebControls.Label Lbl_Coaches;
 
         /// <summary>
+        /// Kontrolka LbL_sort.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LbL_sort;
+
+        /// <summary>
+        /// Kontrolka Btn_sortByName.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_sortByName;
+
+        /// <summary>
+        /// Kontrolka Btn_sortByLastName.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_sortByLastName;
+
+        /// <summary>
         /// Kontrolka DataList1.
         /// </summary>
         /// <remarks>

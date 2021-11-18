@@ -21,6 +21,7 @@ namespace stpoProject
         {
             Lbl_Helper.Text = "";
             ChkBox_trener.Checked = isChecked;
+            DropList_category.Enabled = isChecked;
         }
 
         protected void Btn_SignIn_Click(object sender, EventArgs e)
@@ -29,6 +30,7 @@ namespace stpoProject
             String password = TxtBox_password.Text.Trim();
             String name = TxtBox_name.Text.Trim();
             String lName = TxtBox_LastName.Text.Trim();
+            string category = DropList_category.Text;
             bool isTrener = isChecked;
 
             if (login.Length == 0 || password.Length == 0 || name.Length == 0 || lName.Length == 0)
@@ -37,12 +39,12 @@ namespace stpoProject
             }
             else
             {
-                registerUser(login, password, name, lName, isTrener);
+                registerUser(login, password, name, lName, isTrener, category);
                 Response.Redirect("LogInForm.aspx");
             }
         }
 
-        private void registerUser(String login, String password, String name, String lastName, bool isTrener)
+        private void registerUser(String login, String password, String name, String lastName, bool isTrener, string category)
         {
             CoachController coachController = (CoachController)Session["coachController"];
 
@@ -50,13 +52,17 @@ namespace stpoProject
 
             UserController userController = (UserController)Session["userController"];
 
+            CategoryControllers categoryController = (CategoryControllers)Session["categoryController"];
+
             userController.addUser(login, password, isTrener);
 
             int user_id = userController.getUserIDBy(login, password);
 
+            int category_id = categoryController.getIDbyName(category);
+
             if (isTrener == true)
             {
-                coachController.addCoach(user_id, name, lastName);
+                coachController.addCoach(user_id, name, lastName, category_id);
             }
             else
             {
@@ -67,16 +73,26 @@ namespace stpoProject
 
         protected void ChkBox_trener_CheckedChanged(object sender, EventArgs e)
         {
+
             if (isChecked)
             {
                 isChecked = false;
+                DropList_category.Enabled = false;
                 ChkBox_trener.Checked = isChecked;
             }
             else
             {
                 isChecked = true;
+                DropList_category.Enabled = true;
                 ChkBox_trener.Checked = isChecked;
             }
+        }
+
+        public void zrobCos()
+        {
+            Lbl_Helper.Text += "hehe";
+            DropList_category.Enabled = true;
+            DropList_category.DataBind();
         }
     }
 }

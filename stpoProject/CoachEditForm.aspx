@@ -44,6 +44,18 @@
                 </tr>
 
                 <tr>
+                    <td align ="right">
+                        <a>Kategoria: </a>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="DropList_category" runat="server" DataSourceID="SqlDataSource1" DataTextField="categoryName" DataValueField="ID">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBstpoConnectionString %>" SelectCommand="SELECT [ID], [categoryName] FROM [category]"></asp:SqlDataSource>
+                    </td>
+                    <td></td>
+                </tr>
+
+                <tr>
                     <td style="width: 15%" align="right">
                         <asp:Label ID="Lbl_helper" runat="server" Font-Overline="False" ForeColor="#CC3300"></asp:Label>
                     </td>

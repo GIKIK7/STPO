@@ -24,9 +24,11 @@ namespace stpoProject
         static List<User> users = new List<User>();
         static List<Client> clients = new List<Client>();
         static List<Coach> coaches = new List<Coach>();
+        static List<Category> categories = new List<Category>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["ID_current_user"] = -1;
             Session["ID_user"] = -1;
 
             ClientController clientController = new ClientController();
@@ -43,6 +45,11 @@ namespace stpoProject
             coachController.getCoachListFromDatabase();
             coaches = coachController.getCoachList();
             Session["coachController"] = coachController;
+
+            CategoryControllers categoryController = new CategoryControllers();
+            categoryController.getCategoryListFromDatabase();
+            categories = categoryController.getCategoryList();
+            Session["categoryController"] = categoryController;
         }
 
         protected void Btn_LogInClick(object sender, EventArgs e)
@@ -54,6 +61,7 @@ namespace stpoProject
                     if(user.password() == TxtBox_Password.Text)
                     {
                         Session["ID_user"] = user.ID();
+                        Session["ID_current_user"] = user.ID();
                         if (user.isTrener())
                         {
                             Response.Redirect("CoachDetailsForm.aspx");
@@ -69,11 +77,6 @@ namespace stpoProject
                     LbL_Helper.Text = "Niepoprawne haslo!";
                 }
             }
-        }
-
-        protected void Btn_Helper_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("CoachSearchForm.aspx");
         }
     }
 }

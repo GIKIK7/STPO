@@ -8,45 +8,51 @@ using System.Data.SqlClient;
 
 namespace stpoProject
 {
+    using controllers;
+    using datasets;
+
     public partial class TrenerDetailsForm : System.Web.UI.Page
     {
-
-        SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
-        {
-            DataSource = "stpo.database.windows.net",
-            UserID = "GIKIK",
-            Password = "AdminHaslo137",
-            InitialCatalog = "DBstpo"
-        };
-
         protected void Page_Load(object sender, EventArgs e)
         {
+            CoachController coachController = (CoachController)Session["coachController"];
+            
+            CategoryControllers categoryController = (CategoryControllers)Session["categoryController"];
+
+            coachController.getCoachList();
+
+            Session["coachController"] = coachController;
+
+            Coach coachOwnerPage = coachController.getCoachByIDuser(Int16.Parse(Session["ID_User"].ToString()));
+
+            if (Session["ID_current_user"].ToString() == Session["ID_user"].ToString())
+            {
+                Btn_goToEditCoachProfile.Enabled = true;
+            }
+            else
+            {
+                Btn_goToEditCoachProfile.Enabled = false;
+            }
+
             if (Int16.Parse(Session["ID_user"].ToString()) == -1)
             {
                 Response.Redirect("LogInForm.aspx");
-            } 
-
-            SqlConnection connection = new SqlConnection(builder.ConnectionString);
-
-            connection.Open();
-
-            String sql = "SELECT name, last_name FROM [dbo].[coaches] WHERE ID_user='" + Session["ID_user"] + "'";
-
-            SqlCommand cmdGetFullName = new SqlCommand(sql, connection);
-            SqlDataReader readerGetFullName = cmdGetFullName.ExecuteReader();
-
-            while (readerGetFullName.Read())
-            {
-                Lbl_Name.Text = readerGetFullName.GetValue(0).ToString();
-                Lbl_lastName.Text = readerGetFullName.GetValue(1).ToString();
             }
-            connection.Close();
+
+            Lbl_Name.Text = coachOwnerPage.name();
+            Lbl_lastName.Text = coachOwnerPage.lastName();
+            LbL_Category.Text = categoryController.getNameByID(coachOwnerPage.ID_category());
         }
 
         protected void Btn_wyloguj_Click(object sender, EventArgs e)
         {
             Session["ID_user"] = -1;
             Response.Redirect("LogInForm.aspx");
+        }
+
+        protected void Btn_goToEditCoachProfile_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CoachEditForm.aspx");
         }
     }
 }

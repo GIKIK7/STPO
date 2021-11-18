@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 
 namespace stpoProject
 {
+    using datasets;
+    using controllers;
     public partial class CoachEditForm : System.Web.UI.Page
     {
 
@@ -21,26 +23,18 @@ namespace stpoProject
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            int userID = Int16.Parse(Session["ID_user"].ToString());
 
-            if (Int16.Parse(Session["ID_user"].ToString()) == -1)
+            if (userID == -1)
             {
                 Response.Redirect("LogInForm.aspx");
             }
 
-            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+            CoachController coachController = (CoachController)Session["coachController"];
 
-            connection.Open();
+            Coach currentCoach = coachController.getCoachByIDuser(userID);
 
-            String sql = "SELECT name, last_name FROM [dbo].[coaches] WHERE ID_user='" + Session["ID_user"] + "'";
-
-            SqlCommand cmdGetFullName = new SqlCommand(sql, connection);
-            SqlDataReader readerGetFullName = cmdGetFullName.ExecuteReader();
-
-            while (readerGetFullName.Read())
-            {
-                Lbl_Coach.Text = "Edycja Trenera: " + readerGetFullName.GetValue(0).ToString() + " " + readerGetFullName.GetValue(1).ToString();
-            }
-            connection.Close();
+            Lbl_Coach.Text = "Edycja Trenera: " + currentCoach.name() + " " + currentCoach.lastName();
         }
 
         protected void Btn_Submit_Click(object sender, EventArgs e)
@@ -61,16 +55,13 @@ namespace stpoProject
 
         void submitFunction(String name, String lastName)
         {
-            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+            CategoryControllers categoryController = (CategoryControllers)Session["categoryController"];
 
-            connection.Open();
+            CoachController coachController = (CoachController)Session["coachController"];
 
-            String updateCoach = "UPDATE [dbo].[coaches] SET name ='" + name + "', last_name='" + lastName + "' WHERE ID_user =" + Session["ID_user"];
+            int userID = Int16.Parse(Session["ID_user"].ToString());
 
-            SqlCommand cmdEditCoach = new SqlCommand(updateCoach, connection);
-            cmdEditCoach.ExecuteReader();
-
-            connection.Close();
+            coachController.updateCoach(name, lastName, Int16.Parse(DropList_category.Text), userID);
         }
     }
 }

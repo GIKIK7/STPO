@@ -33,6 +33,15 @@ namespace stpoProject
         protected global::System.Web.UI.WebControls.Label Lbl_Client;
 
         /// <summary>
+        /// Kontrolka btn_goToEditClientProfile.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_goToEditClientProfile;
+
+        /// <summary>
         /// Kontrolka Lbl_Name.
         /// </summary>
         /// <remarks>

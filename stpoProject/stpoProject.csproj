@@ -146,9 +146,11 @@
     <Compile Include="CoachSearchForm.aspx.designer.cs">
       <DependentUpon>CoachSearchForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="controllers\CategoryControllers.cs" />
     <Compile Include="controllers\ClientController.cs" />
     <Compile Include="controllers\CoachController.cs" />
     <Compile Include="controllers\UserController.cs" />
+    <Compile Include="datasets\Category.cs" />
     <Compile Include="datasets\Client.cs" />
     <Compile Include="datasets\Coach.cs" />
     <Compile Include="datasets\User.cs" />

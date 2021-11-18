@@ -12,9 +12,8 @@
         }
         .cell
         {
-            width: 200px;
+            width: 500px;
             float: left;
-            border: solid 1px gray;
             padding: 2px;
         }      
     </style>
@@ -35,16 +34,27 @@
                 <tr>
                     <td></td>
                     <td>
+                        <asp:Label ID="LbL_sort" runat="server" Text="Sortuj po: "></asp:Label>
+                        <asp:Button ID="Btn_sortByName" runat="server" OnClick="Btn_sortByName_Click" Text="imieniu" />
+                        <asp:Button ID="Btn_sortByLastName" runat="server" Text="nazwisku" OnClick="Btn_sortByLastName_Click" />
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
                         <asp:DataList ID="DataList1" runat="server" DataSourceID="DataSource_coaches" OnItemCommand="itemCommand" DataKeyField="ID">
                             <ItemTemplate>
                                 <div class="cell">
-                                     name:
-                                    <asp:LinkButton ID="nameLabel" runat="server" Text='<%# Eval("name") %>' CommandArgument='<%# Eval("ID") %>' />
-                                    </div>
-                                <div class="cell">
-                                    last_name:
-                                <asp:LinkButton ID="last_nameLabel" runat="server" Text='<%# Eval("last_name") %>' CommandArgument='<%# Eval("ID") %>' />
-                               </div>
+                                    <asp:Label ID="nameLabel" runat="server" Text='<%# Eval("name") %>' CommandArgument='<%# Eval("ID") %>' />
+                                    <asp:Label ID="last_nameLabel" runat="server" Text='<%# Eval("last_name") %>' CommandArgument='<%# Eval("ID") %>' />
+                                    <asp:Button ID="goToProfileCoachBtn" runat="server" Text="Przejdz do profilu" CommandArgument='<%# Eval("ID") %>' OnClientClick="itemCommand" />
+                                </div>
                             </ItemTemplate>
                         </asp:DataList>
                         <asp:SqlDataSource ID="DataSource_coaches" runat="server" ConnectionString="<%$ ConnectionStrings:DBstpoConnectionString %>" 

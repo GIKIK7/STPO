@@ -33,6 +33,15 @@ namespace stpoProject
         protected global::System.Web.UI.WebControls.Label Lbl_Coach;
 
         /// <summary>
+        /// Kontrolka Btn_goToEditCoachProfile.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_goToEditCoachProfile;
+
+        /// <summary>
         /// Kontrolka Lbl_Name.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace stpoProject
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lbl_lastName;
+
+        /// <summary>
+        /// Kontrolka LbL_Category.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LbL_Category;
 
         /// <summary>
         /// Kontrolka Btn_wyloguj.

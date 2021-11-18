@@ -12,18 +12,58 @@ namespace stpoProject
 
     public partial class CoachSearchForm : System.Web.UI.Page
     {
-        public string order { get; set; }
-
+        static bool ascSortName = false;
+        static bool ascSortLastName = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-            order = " ORDER BY [name]";
-            //DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [ID] FROM [coaches] ORDER BY [name]";
+
         }
 
         public void itemCommand(object sender, DataListCommandEventArgs e)
         {
-            string itemID = e.CommandArgument.ToString();
-            Lbl_helper.Text = itemID;
+            string itemIDstr = e.CommandArgument.ToString();
+            //Lbl_helper.Text = itemIDstr;
+
+            int itemID = Int16.Parse(itemIDstr);
+
+            CoachController coachController = (CoachController)Session["coachController"];
+
+            UserController userController = (UserController)Session["userController"];
+
+
+            Session["ID_user"] = coachController.getIDuserByIDcoach(itemID).ToString();
+
+            Response.Redirect("CoachDetailsForm.aspx");
+
+        }
+
+        protected void Btn_sortByName_Click(object sender, EventArgs e)
+        {
+            ascSortName = !ascSortName;
+
+            if(ascSortName)
+            {
+                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [ID] FROM [coaches] ORDER BY [name] ASC";
+            }
+            else
+            {
+                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [ID] FROM [coaches] ORDER BY [name] DESC";
+            }
+            
+        }
+
+        protected void Btn_sortByLastName_Click(object sender, EventArgs e)
+        {
+            ascSortLastName = !ascSortLastName;
+
+            if (ascSortLastName)
+            {
+                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [ID] FROM [coaches] ORDER BY [last_name] ASC";
+            }
+            else
+            {
+                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [ID] FROM [coaches] ORDER BY [last_name] DESC";
+            }
         }
     }
 }

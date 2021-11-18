@@ -51,6 +51,24 @@ namespace stpoProject
         protected global::System.Web.UI.WebControls.TextBox TxtBox_lastName;
 
         /// <summary>
+        /// Kontrolka DropList_category.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropList_category;
+
+        /// <summary>
+        /// Kontrolka SqlDataSource1.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+
+        /// <summary>
         /// Kontrolka Lbl_helper.
         /// </summary>
         /// <remarks>

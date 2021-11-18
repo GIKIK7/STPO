@@ -48,5 +48,15 @@ namespace stpoProject.datasets
         {
             m_ID = ID;
         }
+
+        public void setName(string name)
+        {
+            m_name = name;
+        }
+
+        public void setLastName(string lastName)
+        {
+            m_lastName = lastName;
+        }
     }
 }

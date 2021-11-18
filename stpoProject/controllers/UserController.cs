@@ -21,6 +21,7 @@ namespace stpoProject.controllers
 
         public void getUserListFromDatabase()
         {
+            m_users.Clear();
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
             connection.Open();

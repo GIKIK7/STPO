@@ -24,6 +24,7 @@ namespace stpoProject.controllers
 
         public void getClientListFromDatabase()
         {
+            m_clients.Clear();
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
             connection.Open();
@@ -49,6 +50,18 @@ namespace stpoProject.controllers
         public List<Client> getClientList()
         {
             return m_clients;
+        }
+
+        public Client getClientByIDuser(int ID)
+        {
+            foreach (Client client in m_clients)
+            {
+                if(client.ID_user() == ID)
+                {
+                    return client;
+                }
+            }
+            return null;
         }
 
         public void addClient(int ID_user, string name, string lastName)
@@ -89,6 +102,30 @@ namespace stpoProject.controllers
             m_clients.Add(client);
 
             connection.Close();
+        }
+
+        public void updateClient(string name, string lastName, int ID_user)
+        {
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+
+            connection.Open();
+
+            String updateClient = "UPDATE [dbo].[clients] SET name ='" + name + "', last_name='" + lastName + "'WHERE ID_user =" + ID_user;
+
+
+            SqlCommand cmdEditClient = new SqlCommand(updateClient, connection);
+            cmdEditClient.ExecuteReader();
+
+            connection.Close();
+
+            foreach (Client client in m_clients)
+            {
+                if (client.ID_user() == ID_user)
+                {
+                    client.setName(name);
+                    client.setLastName(lastName);
+                }
+            }
         }
 
     }

@@ -8,6 +8,10 @@ using System.Data.SqlClient;
 
 namespace stpoProject
 {
+
+    using datasets;
+    using controllers;
+
     public partial class ClientEditForm : System.Web.UI.Page
     {
         static SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
@@ -21,10 +25,14 @@ namespace stpoProject
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Int16.Parse(Session["ID_user"].ToString()) == -1)
+            int userID = Int16.Parse(Session["ID_user"].ToString());
+
+            if (userID == -1)
             {
                 Response.Redirect("LogInForm.aspx");
             }
+
+            //TUTAJ WYSZUKIWANIE Z LISTY!!!
 
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
@@ -61,16 +69,11 @@ namespace stpoProject
 
         void submitFunction(String name, String lastName)
         {
-            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+            ClientController clientController = (ClientController)Session["clientController"];
 
-            connection.Open();
+            int userID = Int16.Parse(Session["ID_user"].ToString());
 
-            String updateClient = "UPDATE [dbo].[clients] SET name ='" + name + "', last_name='" + lastName + "' WHERE ID_user =" + Session["ID_user"];
-
-            SqlCommand cmdEditClient = new SqlCommand(updateClient, connection);
-            cmdEditClient.ExecuteReader();
-
-            connection.Close();
+            clientController.updateClient(name, lastName, userID);
         }
     }
 }

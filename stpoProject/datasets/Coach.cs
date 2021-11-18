@@ -11,13 +11,15 @@ namespace stpoProject.datasets
         private int m_ID_user;
         private string m_name;
         private string m_lastName;
+        private int m_ID_category;
 
-        public Coach(int ID, int ID_user, string name, string lastName)
+        public Coach(int ID, int ID_user, string name, string lastName, int ID_category)
         {
             m_ID = ID;
             m_ID_user = ID_user;
             m_name = name;
             m_lastName = lastName;
+            m_ID_category = ID_category;
         }
 
         public Coach(int ID_user, string name, string lastName)
@@ -44,9 +46,26 @@ namespace stpoProject.datasets
             return m_lastName;
         }
 
+        public int ID_category()
+        {
+            return m_ID_category;
+        }
         public void setID(int ID)
         {
             m_ID = ID;
+        }
+        public void setName(string name)
+        {
+            m_name = name;
+        }
+        public void setLastName(string lastName)
+        {
+            m_lastName = lastName;
+        }
+
+        public void setIDcategory(int IDcategory)
+        {
+            m_ID_category = IDcategory;
         }
 
     }
