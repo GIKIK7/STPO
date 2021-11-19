@@ -104,5 +104,29 @@ namespace stpoProject.controllers
             }
             return 0;
         }
+    
+        public User getUserbyID(int ID)
+        {
+            foreach (User user in m_users)
+            {
+                if (user.ID() == ID)
+                {
+                    return user;
+                }
+            }
+            return null;
+        }
+    
+        public bool isUnique(string login)
+        {
+            foreach (User user in m_users)
+            {
+                if (user.login() == login)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

@@ -18,7 +18,9 @@ namespace stpoProject
 
             clientController.getClientList();
 
-            Client clientOwnerPage = clientController.getClientByIDuser(Int16.Parse(Session["ID_User"].ToString()));
+            int userID = Int16.Parse(Session["ID_current_user"].ToString());
+
+            Client clientOwnerPage = clientController.getClientByIDuser(userID);
 
             if(Session["ID_current_user"].ToString() != Session["ID_user"].ToString())
             {
@@ -29,7 +31,7 @@ namespace stpoProject
                 btn_goToEditClientProfile.Enabled = true;
             }
 
-            if (Int16.Parse(Session["ID_user"].ToString()) == -1)
+            if (Int16.Parse(Session["ID_current_user"].ToString()) == -1)
             {
                 Response.Redirect("LogInForm.aspx");
             }
@@ -47,6 +49,11 @@ namespace stpoProject
         protected void btn_goToEditClientProfile_Click(object sender, EventArgs e)
         {
             Response.Redirect("ClientEditForm.aspx");
+        }
+
+        protected void Btn_Chat_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MessageContacts.aspx");
         }
     }
 }

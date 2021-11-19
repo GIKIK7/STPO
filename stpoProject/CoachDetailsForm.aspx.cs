@@ -23,7 +23,7 @@ namespace stpoProject
 
             Session["coachController"] = coachController;
 
-            Coach coachOwnerPage = coachController.getCoachByIDuser(Int16.Parse(Session["ID_User"].ToString()));
+            Coach coachOwnerPage = coachController.getCoachByIDuser(Int16.Parse(Session["ID_user"].ToString()));
 
             if (Session["ID_current_user"].ToString() == Session["ID_user"].ToString())
             {
@@ -46,13 +46,18 @@ namespace stpoProject
 
         protected void Btn_wyloguj_Click(object sender, EventArgs e)
         {
-            Session["ID_user"] = -1;
+            Session["ID_current_user"] = -1;
             Response.Redirect("LogInForm.aspx");
         }
 
         protected void Btn_goToEditCoachProfile_Click(object sender, EventArgs e)
         {
             Response.Redirect("CoachEditForm.aspx");
+        }
+
+        protected void Bt_chat_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MessageContacts.aspx");
         }
     }
 }

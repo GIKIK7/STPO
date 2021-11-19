@@ -11,7 +11,7 @@ namespace stpoProject
 {
 
 
-    public partial class ClientDetailsForm
+    public partial class MessageContacts
     {
 
         /// <summary>
@@ -24,57 +24,39 @@ namespace stpoProject
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Kontrolka Lbl_Client.
+        /// Kontrolka Btn_back.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_Client;
+        protected global::System.Web.UI.WebControls.Button Btn_back;
 
         /// <summary>
-        /// Kontrolka btn_goToEditClientProfile.
+        /// Kontrolka LbL_contactsInfo.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_goToEditClientProfile;
+        protected global::System.Web.UI.WebControls.Label LbL_contactsInfo;
 
         /// <summary>
-        /// Kontrolka Btn_Chat.
+        /// Kontrolka DataList_Contacts.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Chat;
+        protected global::System.Web.UI.WebControls.DataList DataList_Contacts;
 
         /// <summary>
-        /// Kontrolka Lbl_Name.
+        /// Kontrolka SqlDataSource1.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_Name;
-
-        /// <summary>
-        /// Kontrolka Lbl_lastName.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_lastName;
-
-        /// <summary>
-        /// Kontrolka Btn_wyloguj.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_wyloguj;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

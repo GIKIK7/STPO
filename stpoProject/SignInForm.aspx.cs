@@ -33,14 +33,24 @@ namespace stpoProject
             string category = DropList_category.Text;
             bool isTrener = isChecked;
 
+            UserController userController = (UserController)Session["userController"];
+
             if (login.Length == 0 || password.Length == 0 || name.Length == 0 || lName.Length == 0)
             {
                 Lbl_Helper.Text = "Wszystkie pola sa wymagane!";
             }
             else
             {
-                registerUser(login, password, name, lName, isTrener, category);
-                Response.Redirect("LogInForm.aspx");
+                if (userController.isUnique(login))
+                {
+                    registerUser(login, password, name, lName, isTrener, category);
+                    Response.Redirect("LogInForm.aspx");
+                }
+                else
+                {
+                    Lbl_Helper.Text = "login jest już zajęty!";
+                }
+                
             }
         }
 

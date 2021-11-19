@@ -113,6 +113,7 @@
     <Content Include="CoachEditForm.aspx" />
     <Content Include="CoachSearchForm.aspx" />
     <Content Include="LogInForm.aspx" />
+    <Content Include="MessageContacts.aspx" />
     <Content Include="SignInForm.aspx" />
     <Content Include="CoachDetailsForm.aspx" />
     <Content Include="Web.config" />
@@ -160,6 +161,13 @@
     </Compile>
     <Compile Include="LogInForm.aspx.designer.cs">
       <DependentUpon>LogInForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MessageContacts.aspx.cs">
+      <DependentUpon>MessageContacts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MessageContacts.aspx.designer.cs">
+      <DependentUpon>MessageContacts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignInForm.aspx.cs">

@@ -42,6 +42,15 @@ namespace stpoProject
         protected global::System.Web.UI.WebControls.Button Btn_goToEditCoachProfile;
 
         /// <summary>
+        /// Kontrolka Bt_chat.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Bt_chat;
+
+        /// <summary>
         /// Kontrolka Lbl_Name.
         /// </summary>
         /// <remarks>

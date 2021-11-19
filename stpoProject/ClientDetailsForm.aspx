@@ -20,6 +20,8 @@
                         
                         <asp:Button ID="btn_goToEditClientProfile" runat="server" OnClick="btn_goToEditClientProfile_Click" Text="Edytuj Profil" />
                         
+                        <asp:Button ID="Btn_Chat" runat="server" OnClick="Btn_Chat_Click" Text="Chat" />
+                        
                     </td>
                 </tr>
                 <tr>

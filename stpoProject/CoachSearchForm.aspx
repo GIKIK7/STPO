@@ -58,13 +58,14 @@
                                 <asp:Label ID="last_nameLabel" runat="server" Text='<%# Eval("last_name") %>' />
                                 <br />
                                 kategoria:
-                                <asp:Label ID="categoryNameLabel" runat="server" Text='<%# Eval("categoryName") %>' />
+                                <asp:Label ID="categoryNameLabel" runat="server" Text='<%# Eval("categoryName") %>'/>
+                                <asp:Button ID="Btn_goToCoachPage" runat="server" Text="Strona" commandargument='<%# Eval("ID") %>'/>
                                 <br />
                                 <br />
                             </ItemTemplate>
                         </asp:DataList>
                         <asp:SqlDataSource ID="DataSource_coaches" runat="server" ConnectionString="<%$ ConnectionStrings:DBstpoConnectionString %>" 
-                            SelectCommand='SELECT [name], [last_name], [categoryName] FROM [CoachesWithCategories]'></asp:SqlDataSource>
+                            SelectCommand='SELECT [name], [last_name], [categoryName], [ID] FROM [CoachesWithCategories]'></asp:SqlDataSource>
                     </td>
                     <td>
                         <asp:Label ID="Lbl_helper" runat="server"></asp:Label>
