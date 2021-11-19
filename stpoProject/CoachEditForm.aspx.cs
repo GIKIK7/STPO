@@ -12,15 +12,6 @@ namespace stpoProject
     using controllers;
     public partial class CoachEditForm : System.Web.UI.Page
     {
-
-        SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
-        {
-            DataSource = "stpo.database.windows.net",
-            UserID = "GIKIK",
-            Password = "AdminHaslo137",
-            InitialCatalog = "DBstpo"
-        };
-
         protected void Page_Load(object sender, EventArgs e)
         {
             int userID = Int16.Parse(Session["ID_user"].ToString());
@@ -61,7 +52,9 @@ namespace stpoProject
 
             int userID = Int16.Parse(Session["ID_user"].ToString());
 
-            coachController.updateCoach(name, lastName, Int16.Parse(DropList_category.Text), userID);
+            int categoryID = Int16.Parse(DropList_category.Text);
+
+            coachController.updateCoach(name, lastName, categoryID, userID);
         }
     }
 }

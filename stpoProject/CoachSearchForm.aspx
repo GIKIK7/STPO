@@ -37,6 +37,7 @@
                         <asp:Label ID="LbL_sort" runat="server" Text="Sortuj po: "></asp:Label>
                         <asp:Button ID="Btn_sortByName" runat="server" OnClick="Btn_sortByName_Click" Text="imieniu" />
                         <asp:Button ID="Btn_sortByLastName" runat="server" Text="nazwisku" OnClick="Btn_sortByLastName_Click" />
+                        <asp:Button ID="Btn_sortByCategory" runat="server" Text="Kategorii" OnClick="Btn_sortByCategory_Click" />
                     </td>
                     <td></td>
                 </tr>
@@ -48,17 +49,22 @@
                 <tr>
                     <td></td>
                     <td>
-                        <asp:DataList ID="DataList1" runat="server" DataSourceID="DataSource_coaches" OnItemCommand="itemCommand" DataKeyField="ID">
+                        <asp:DataList ID="DataList1" runat="server" DataSourceID="DataSource_coaches" OnItemCommand="itemCommand">
                             <ItemTemplate>
-                                <div class="cell">
-                                    <asp:Label ID="nameLabel" runat="server" Text='<%# Eval("name") %>' CommandArgument='<%# Eval("ID") %>' />
-                                    <asp:Label ID="last_nameLabel" runat="server" Text='<%# Eval("last_name") %>' CommandArgument='<%# Eval("ID") %>' />
-                                    <asp:Button ID="goToProfileCoachBtn" runat="server" Text="Przejdz do profilu" CommandArgument='<%# Eval("ID") %>' OnClientClick="itemCommand" />
-                                </div>
+                                imie:
+                                <asp:Label ID="nameLabel" runat="server" Text='<%# Eval("name") %>' />
+                                <br />
+                                nazwisko:
+                                <asp:Label ID="last_nameLabel" runat="server" Text='<%# Eval("last_name") %>' />
+                                <br />
+                                kategoria:
+                                <asp:Label ID="categoryNameLabel" runat="server" Text='<%# Eval("categoryName") %>' />
+                                <br />
+                                <br />
                             </ItemTemplate>
                         </asp:DataList>
                         <asp:SqlDataSource ID="DataSource_coaches" runat="server" ConnectionString="<%$ ConnectionStrings:DBstpoConnectionString %>" 
-                            SelectCommand='SELECT [name], [last_name], [ID] FROM [coaches]'></asp:SqlDataSource>
+                            SelectCommand='SELECT [name], [last_name], [categoryName] FROM [CoachesWithCategories]'></asp:SqlDataSource>
                     </td>
                     <td>
                         <asp:Label ID="Lbl_helper" runat="server"></asp:Label>

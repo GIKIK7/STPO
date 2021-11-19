@@ -14,15 +14,7 @@ namespace stpoProject
 
     public partial class ClientEditForm : System.Web.UI.Page
     {
-        static SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
-        {
-            DataSource = "stpo.database.windows.net",
-            UserID = "GIKIK",
-            Password = "AdminHaslo137",
-            InitialCatalog = "DBstpo"
-        };
         
-
         protected void Page_Load(object sender, EventArgs e)
         {
             int userID = Int16.Parse(Session["ID_user"].ToString());
@@ -32,23 +24,12 @@ namespace stpoProject
                 Response.Redirect("LogInForm.aspx");
             }
 
-            //TUTAJ WYSZUKIWANIE Z LISTY!!!
+            ClientController clientController = (ClientController)Session["clientController"];
 
-            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+            Client clientOwnerPage = clientController.getClientByIDuser(userID);
 
-            connection.Open();
+            Lbl_Client.Text = "Edycja Klienta: " + clientOwnerPage.name() + " " + clientOwnerPage.lastName();
 
-            String sql = "SELECT name, last_name FROM [dbo].[clients] WHERE ID_user='" + Session["ID_user"] + "'";
-
-            SqlCommand cmdGetFullName = new SqlCommand(sql, connection);
-            SqlDataReader readerGetFullName = cmdGetFullName.ExecuteReader();
-
-
-            while (readerGetFullName.Read())
-            {
-                Lbl_Client.Text = "Edycja Klienta: " + readerGetFullName.GetValue(0).ToString() + " " + readerGetFullName.GetValue(1).ToString();
-            }
-            connection.Close();
         }
 
         protected void Btn_Submit_Click(object sender, EventArgs e)

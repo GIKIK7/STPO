@@ -14,6 +14,7 @@ namespace stpoProject
     {
         static bool ascSortName = false;
         static bool ascSortLastName = false;
+        static bool ascSortCategory = false;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -22,7 +23,6 @@ namespace stpoProject
         public void itemCommand(object sender, DataListCommandEventArgs e)
         {
             string itemIDstr = e.CommandArgument.ToString();
-            //Lbl_helper.Text = itemIDstr;
 
             int itemID = Int16.Parse(itemIDstr);
 
@@ -43,11 +43,11 @@ namespace stpoProject
 
             if(ascSortName)
             {
-                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [ID] FROM [coaches] ORDER BY [name] ASC";
+                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [name] ASC";
             }
             else
             {
-                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [ID] FROM [coaches] ORDER BY [name] DESC";
+                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [name] DESC";
             }
             
         }
@@ -58,11 +58,25 @@ namespace stpoProject
 
             if (ascSortLastName)
             {
-                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [ID] FROM [coaches] ORDER BY [last_name] ASC";
+                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [last_name] ASC";
             }
             else
             {
-                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [ID] FROM [coaches] ORDER BY [last_name] DESC";
+                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [last_name] DESC";
+            }
+        }
+
+        protected void Btn_sortByCategory_Click(object sender, EventArgs e)
+        {
+            ascSortCategory = !ascSortCategory;
+
+            if (ascSortCategory)
+            {
+                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [categoryName] ASC";
+            }
+            else
+            {
+                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [categoryName] DESC";
             }
         }
     }

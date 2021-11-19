@@ -10,7 +10,6 @@ namespace stpoProject.controllers
 
     public class ClientController
     {
-
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
         {
             DataSource = "stpo.database.windows.net",
@@ -20,7 +19,6 @@ namespace stpoProject.controllers
         };
 
         private List<Client> m_clients = new List<Client>();
-
 
         public void getClientListFromDatabase()
         {
