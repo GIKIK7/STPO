@@ -30,7 +30,7 @@
                         
                         <asp:Button ID="Btn_goToEditCoachProfile" runat="server" OnClick="Btn_goToEditCoachProfile_Click" Text="Edytuj profil" />
                         
-                        <asp:Button ID="Bt_chat" runat="server" OnClick="Bt_chat_Click" Text="Chat" />
+                        <asp:Button ID="Btn_chat" runat="server" OnClick="Btn_chat_Click" Text="Chat" />
                         
                     </td>
                 </tr>

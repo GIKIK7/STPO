@@ -43,11 +43,11 @@ namespace stpoProject
 
             if(ascSortName)
             {
-                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [name] ASC";
+                DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [name] ASC";
             }
             else
             {
-                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [name] DESC";
+                DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [name] DESC";
             }
             
         }
@@ -58,11 +58,11 @@ namespace stpoProject
 
             if (ascSortLastName)
             {
-                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [last_name] ASC";
+                DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [last_name] ASC";
             }
             else
             {
-                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [last_name] DESC";
+                DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [last_name] DESC";
             }
         }
 
@@ -72,11 +72,11 @@ namespace stpoProject
 
             if (ascSortCategory)
             {
-                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [categoryName] ASC";
+                DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [categoryName] ASC";
             }
             else
             {
-                DataSource_coaches.SelectCommand = "SELECT [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [categoryName] DESC";
+                DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [categoryName] DESC";
             }
         }
     }

@@ -22,9 +22,6 @@ namespace stpoProject
         };
 
         static List<User> users = new List<User>();
-        static List<Client> clients = new List<Client>();
-        static List<Coach> coaches = new List<Coach>();
-        static List<Category> categories = new List<Category>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,7 +30,6 @@ namespace stpoProject
 
             ClientController clientController = new ClientController();
             clientController.getClientListFromDatabase();
-            clients = clientController.getClientList();
             Session["clientController"] = clientController;
 
             UserController userController = new UserController();
@@ -43,13 +39,15 @@ namespace stpoProject
 
             CoachController coachController = new CoachController();
             coachController.getCoachListFromDatabase();
-            coaches = coachController.getCoachList();
             Session["coachController"] = coachController;
 
             CategoryControllers categoryController = new CategoryControllers();
             categoryController.getCategoryListFromDatabase();
-            categories = categoryController.getCategoryList();
             Session["categoryController"] = categoryController;
+
+            MessageController messageController = new MessageController();
+            messageController.getMessagesListFromDatabase();
+            Session["messageController"] = messageController;
         }
 
         protected void Btn_LogInClick(object sender, EventArgs e)

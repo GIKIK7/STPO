@@ -32,6 +32,7 @@ namespace stpoProject
             else
             {
                 Btn_goToEditCoachProfile.Enabled = false;
+                Btn_chat.Text = "Przejdz do rozmowy";
             }
 
             if (Int16.Parse(Session["ID_user"].ToString()) == -1)
@@ -55,9 +56,16 @@ namespace stpoProject
             Response.Redirect("CoachEditForm.aspx");
         }
 
-        protected void Bt_chat_Click(object sender, EventArgs e)
+        protected void Btn_chat_Click(object sender, EventArgs e)
         {
-            Response.Redirect("MessageContacts.aspx");
+            if(Btn_chat.Text == "Przejdz do rozmowy")
+            {
+                Response.Redirect("MessagesForm.aspx");
+            }
+            else
+            {
+                Response.Redirect("MessageContacts.aspx");
+            }
         }
     }
 }
