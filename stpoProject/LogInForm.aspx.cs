@@ -34,7 +34,7 @@ namespace stpoProject
 
             UserController userController = new UserController();
             userController.getUserListFromDatabase();
-            users = userController.getUsserList();
+            users = userController.getUserList();
             Session["userController"] = userController;
 
             CoachController coachController = new CoachController();

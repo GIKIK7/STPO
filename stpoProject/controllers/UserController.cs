@@ -44,7 +44,7 @@ namespace stpoProject.controllers
             connection.Close();
         }
 
-        public List<User> getUsserList()
+        public List<User> getUserList()
         {
             return m_users;
         }

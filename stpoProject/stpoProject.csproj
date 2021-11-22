@@ -32,6 +32,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -151,11 +153,13 @@
     <Compile Include="controllers\CategoryControllers.cs" />
     <Compile Include="controllers\ClientController.cs" />
     <Compile Include="controllers\CoachController.cs" />
+    <Compile Include="controllers\ConversationController.cs" />
     <Compile Include="controllers\MessageController.cs" />
     <Compile Include="controllers\UserController.cs" />
     <Compile Include="datasets\Category.cs" />
     <Compile Include="datasets\Client.cs" />
     <Compile Include="datasets\Coach.cs" />
+    <Compile Include="datasets\Conversation.cs" />
     <Compile Include="datasets\Message.cs" />
     <Compile Include="datasets\User.cs" />
     <Compile Include="LogInForm.aspx.cs">

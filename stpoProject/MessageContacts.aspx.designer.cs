@@ -42,21 +42,12 @@ namespace stpoProject
         protected global::System.Web.UI.WebControls.Label LbL_contactsInfo;
 
         /// <summary>
-        /// Kontrolka DataList_Contacts.
+        /// Kontrolka Panel_conversation.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataList_Contacts;
-
-        /// <summary>
-        /// Kontrolka SqlDataSource1.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Panel Panel_conversation;
     }
 }

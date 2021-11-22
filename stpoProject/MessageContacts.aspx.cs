@@ -11,17 +11,28 @@ namespace stpoProject
     using controllers;
     public partial class MessageContacts : System.Web.UI.Page
     {
+        int secondUserInConversation;
         protected void Page_Load(object sender, EventArgs e)
         {
             UserController userController = (UserController)Session["userController"];
-            int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
-            User currUser = userController.getUserbyID(currUserID);
 
-            SqlDataSource1.SelectCommand = "SELECT DISTINCT loginTo, loginFrom FROM [dbo].[Contacts] WHERE loginTo ='" + currUser.login() + "' OR loginFrom ='" + currUser.login() + "'";
-            if(DataList_Contacts.Items.Count == 0)
-            {
-                LbL_contactsInfo.Text = "Nie masz jeszcze żadnych rozmów";
-            }
+            MessageController messageController = (MessageController)Session["messageController"];
+
+            int currUser = Int16.Parse(Session["ID_current_user"].ToString());
+            secondUserInConversation = Int16.Parse(Session["ID_user"].ToString());
+
+            List<Message> messages = messageController.getMessageList();
+
+            ConversationController conversationController = new ConversationController();
+
+            conversationController.createConversations(currUser, messages);
+
+            //DO POPRAWY
+            //LINKED BUTTON MUSI PRZYJMOWAC ID Z TEKSTU (ALBO INACZEJ)
+            LinkButton help = new LinkButton();
+            help.Text += conversationController.printConversations();
+            help.Click += new EventHandler(linkClicked);
+            Panel_conversation.Controls.Add(help);
         }
 
         protected void Btn_back_Click(object sender, EventArgs e)
@@ -38,6 +49,17 @@ namespace stpoProject
             {
                 Response.Redirect("ClientDetailsForm.aspx");
             }
+        }
+
+        protected void linkClicked(object sender, EventArgs e)
+        {
+            //ID user = second user
+            //int secondUserInConversation = Int16.Parse(Session["ID_user"].ToString());
+            //Session["ID_user"] = secondUserInConversation;
+
+
+            Session["ID_user"] = 16;
+            Response.Redirect("MessagesForm.aspx");
         }
     }
 }

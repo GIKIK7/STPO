@@ -46,7 +46,6 @@ namespace stpoProject.controllers
 
         public void addMessage(int IDfrom, int IDto, string content)
         {
-
             Message message = new Message(IDfrom, IDto, content);
 
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
@@ -99,7 +98,7 @@ namespace stpoProject.controllers
             foreach (Message message in m_messages)
             {
                 //We want ALL Messages in conversation between two Users
-                if (message.ID_to() == IDto || message.ID_from() == IDfrom || message.ID_to() == IDfrom || message.ID_from() == IDto)
+                if ( (message.ID_to() == IDto && message.ID_from() == IDfrom) || (message.ID_to() == IDfrom && message.ID_from() == IDto))
                 {
                     conversation.Add(message);
                 }

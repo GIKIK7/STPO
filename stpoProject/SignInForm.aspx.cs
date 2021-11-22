@@ -97,12 +97,5 @@ namespace stpoProject
                 ChkBox_trener.Checked = isChecked;
             }
         }
-
-        public void zrobCos()
-        {
-            Lbl_Helper.Text += "hehe";
-            DropList_category.Enabled = true;
-            DropList_category.DataBind();
-        }
     }
 }
