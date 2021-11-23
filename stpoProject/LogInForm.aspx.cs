@@ -76,5 +76,10 @@ namespace stpoProject
                 }
             }
         }
+
+        protected void Btn_testowa_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Testowa.aspx");
+        }
     }
 }

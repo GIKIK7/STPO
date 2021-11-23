@@ -83,6 +83,9 @@
                 <td>
                     <asp:Label ID="LbL_Helper" runat="server" Font-Size="X-Large"></asp:Label>
                 </td>
+                <td>
+
+                    &nbsp;</td>
             </tr>
 
         </table>  

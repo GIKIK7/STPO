@@ -57,7 +57,7 @@
             </tr>  
             <tr>  
                 <td class="auto-style6">
-                    <asp:Label ID="Lbl_password" runat="server" Text="Haslo:"></asp:Label>
+                    <asp:Label ID="Lbl_password" runat="server" Text="Hasło:"></asp:Label>
                 </td>
                 <td class="auto-style7">
                     <asp:TextBox ID="TxtBox_password" runat="server" Width="404px"></asp:TextBox>
@@ -84,10 +84,20 @@
                 <td class="auto-style9"></td>
             </tr>
 
+            <tr>
+                <td></td>
+                <td>
+                    <asp:DropDownList ID="DropList_category" runat="server" DataSourceID="SqlDataSource1" DataTextField="categoryName" DataValueField="categoryName" Enabled="False">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBstpoConnectionString %>" SelectCommand="SELECT [categoryName], [ID] FROM [category]"></asp:SqlDataSource>
+                </td>
+                <td></td>
+            </tr>
+
             <tr>  
                 <td></td>
                 <td class="auto-style5">
-                    <asp:CheckBox ID="ChkBox_trener" runat="server" OnCheckedChanged="ChkBox_trener_CheckedChanged" Text="Trener" />
+                    <asp:CheckBox ID="ChkBox_trener" runat="server" OnCheckedChanged="ChkBox_trener_CheckedChanged" Text="Trener" AutoPostBack="true" />
                 </td>
                 <td></td>
             </tr> 

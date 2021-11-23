@@ -11,28 +11,40 @@ namespace stpoProject
     using controllers;
     public partial class MessageContacts : System.Web.UI.Page
     {
-        int secondUserInConversation;
         protected void Page_Load(object sender, EventArgs e)
         {
             UserController userController = (UserController)Session["userController"];
 
             MessageController messageController = (MessageController)Session["messageController"];
 
-            int currUser = Int16.Parse(Session["ID_current_user"].ToString());
-            secondUserInConversation = Int16.Parse(Session["ID_user"].ToString());
+            int IDcurrUser = Int16.Parse(Session["ID_current_user"].ToString());
 
             List<Message> messages = messageController.getMessageList();
 
             ConversationController conversationController = new ConversationController();
 
-            conversationController.createConversations(currUser, messages);
+            conversationController.createConversations(IDcurrUser, messages);
 
-            //DO POPRAWY
-            //LINKED BUTTON MUSI PRZYJMOWAC ID Z TEKSTU (ALBO INACZEJ)
-            LinkButton help = new LinkButton();
-            help.Text += conversationController.printConversations();
-            help.Click += new EventHandler(linkClicked);
-            Panel_conversation.Controls.Add(help);
+            List<Conversation> conversations = conversationController.getConversationList();
+
+            foreach (Conversation conversation in conversations) {
+                LinkButton LinkBtn_conversation = new LinkButton();
+                LinkBtn_conversation.Text += "konwersacja z ";
+
+               if(IDcurrUser != conversation.IDfrom())
+               {
+                    LinkBtn_conversation.Text += userController.getLoginByID(conversation.IDfrom());
+                }
+               else
+               {
+                    LinkBtn_conversation.Text += userController.getLoginByID(conversation.IDto());
+               }
+
+                LinkBtn_conversation.Click += new EventHandler(linkClicked);
+                Panel_conversation.Controls.Add(LinkBtn_conversation);
+                Panel_conversation.Controls.Add(new LiteralControl("<br />"));
+            }
+            
         }
 
         protected void Btn_back_Click(object sender, EventArgs e)
@@ -53,13 +65,28 @@ namespace stpoProject
 
         protected void linkClicked(object sender, EventArgs e)
         {
-            //ID user = second user
-            //int secondUserInConversation = Int16.Parse(Session["ID_user"].ToString());
-            //Session["ID_user"] = secondUserInConversation;
+            String s = (sender as LinkButton).Text;
+            string[] separator = { "konwersacja z " };
+            string[] cuttedString = s.Split(separator, StringSplitOptions.RemoveEmptyEntries);
 
+            UserController userController = (UserController)Session["userController"];
 
-            Session["ID_user"] = 16;
+            int IDuser = 0;
+
+            if(cuttedString.Count() == 1)
+            {
+                IDuser = userController.geIDByLogin(cuttedString[0].ToString());
+            }
+            else
+            {
+                Lbl_helper.Text = "Error in ID parse from link button!";
+            }
+
+            Session["ID_user_conversation"] = IDuser;
+
             Response.Redirect("MessagesForm.aspx");
+
+
         }
     }
 }

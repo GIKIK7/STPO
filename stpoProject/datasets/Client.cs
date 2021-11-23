@@ -11,6 +11,9 @@ namespace stpoProject.datasets
         private int m_ID_user;
         private string m_name;
         private string m_lastName;
+        private int m_ID_assign_coach=0;
+        private int m_ID_assign_diet=0;
+        private int m_ID_assign_training=0;
 
         public Client(int ID, int ID_user, string name, string lastName)
         {
@@ -44,6 +47,20 @@ namespace stpoProject.datasets
             return m_lastName;
         }
 
+        public int ID_assign_coach()
+        {
+            return m_ID_assign_coach;
+        }
+        public int ID_assign_diet()
+        {
+            return m_ID_assign_diet;
+        }
+
+        public int ID_assign_training()
+        {
+            return m_ID_assign_training;
+        }
+
         public void setID(int ID)
         {
             m_ID = ID;
@@ -57,6 +74,21 @@ namespace stpoProject.datasets
         public void setLastName(string lastName)
         {
             m_lastName = lastName;
+        }
+
+        public void setID_assign_coach(int ID_assignCoach)
+        {
+            m_ID_assign_coach = ID_assignCoach;
+        }
+
+        public void setID_assign_diet(int ID)
+        {
+            m_ID_assign_diet = ID;
+        }
+
+        public void setID_assign_training(int ID)
+        {
+            m_ID_assign_training = ID;
         }
     }
 }

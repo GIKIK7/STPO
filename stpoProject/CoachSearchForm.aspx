@@ -8,14 +8,11 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
-            height: 23px;
+            width: 465px;
         }
-        .cell
-        {
-            width: 500px;
-            float: left;
-            padding: 2px;
-        }      
+        .auto-style2 {
+            width: 205px;
+        }
     </style>
 </head>
 <body>
@@ -24,7 +21,9 @@
 
             <table style="width:100%">
                 <tr>
-                    <td></td>
+                    <td class="auto-style2">
+                        <asp:Button ID="Btn_back" runat="server" Text="Wróc do swojego profilu" OnClick="Btn_back_Click" />
+                    </td>
                     <td align="center">
                         <asp:Label ID="Lbl_Coaches" runat="server" Text="Trenerzy" ></asp:Label>
                     </td>
@@ -32,7 +31,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td class="auto-style2"></td>
                     <td>
                         <asp:Label ID="LbL_sort" runat="server" Text="Sortuj po: "></asp:Label>
                         <asp:Button ID="Btn_sortByName" runat="server" OnClick="Btn_sortByName_Click" Text="imieniu" />
@@ -42,12 +41,12 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td class="auto-style2"></td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td class="auto-style2"></td>
                     <td>
                         <asp:DataList ID="DataList1" runat="server" DataSourceID="DataSource_coaches" OnItemCommand="itemCommand">
                             <ItemTemplate>
@@ -72,7 +71,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1"></td>
+                    <td class="auto-style2"></td>
                     <td class="auto-style1">
                         &nbsp;</td>
                     <td class="auto-style1"></td>

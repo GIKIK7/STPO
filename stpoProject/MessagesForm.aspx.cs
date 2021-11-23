@@ -21,7 +21,7 @@ namespace stpoProject
         {
             MessageController messageController = (MessageController)Session["messageController"];
             int currUser = Int16.Parse(Session["ID_current_user"].ToString());
-            int secondUserInConversation = Int16.Parse(Session["ID_user"].ToString());
+            int secondUserInConversation = Int16.Parse(Session["ID_user_conversation"].ToString());
 
             messageController.addMessage(currUser, secondUserInConversation, TxtBox_content.Text);
 
@@ -38,7 +38,7 @@ namespace stpoProject
             UserController userController = (UserController)Session["userController"];
 
             int currUser = Int16.Parse(Session["ID_current_user"].ToString());
-            int secondUserInConversation = Int16.Parse(Session["ID_user"].ToString());
+            int secondUserInConversation = Int16.Parse(Session["ID_user_conversation"].ToString());
 
             List<Message> messages = messageController.getConversation(currUser, secondUserInConversation);
 
@@ -63,6 +63,24 @@ namespace stpoProject
                 messageLabel.Text += message.content();
                 Panel1.Controls.Add(messageLabel);
                 Panel1.Controls.Add(new LiteralControl("<br />"));
+            }
+        }
+
+        protected void Btn_back_Click(object sender, EventArgs e)
+        {
+            UserController userController = (UserController)Session["userController"];
+            int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
+            User currUser = userController.getUserbyID(currUserID);
+
+            Session["ID_user"] = currUserID;
+
+            if (currUser.isTrener())
+            {
+                Response.Redirect("CoachDetailsForm.aspx");
+            }
+            else
+            {
+                Response.Redirect("ClientDetailsForm.aspx");
             }
         }
     }

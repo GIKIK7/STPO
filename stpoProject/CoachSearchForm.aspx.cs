@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 namespace stpoProject
 {
     using controllers;
+    using datasets;
 
     public partial class CoachSearchForm : System.Web.UI.Page
     {
@@ -77,6 +78,24 @@ namespace stpoProject
             else
             {
                 DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name], [categoryName] FROM [CoachesWithCategories] ORDER BY [categoryName] DESC";
+            }
+        }
+
+        protected void Btn_back_Click(object sender, EventArgs e)
+        {
+            UserController userController = (UserController)Session["userController"];
+            int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
+            User currUser = userController.getUserbyID(currUserID);
+
+            Session["ID_user"] = currUserID;
+
+            if (currUser.isTrener())
+            {
+                Response.Redirect("CoachDetailsForm.aspx");
+            }
+            else
+            {
+                Response.Redirect("ClientDetailsForm.aspx");
             }
         }
     }

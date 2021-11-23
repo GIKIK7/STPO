@@ -12,9 +12,7 @@
         <div>
             <table style ="width:100%">
                 <tr>
-                    <td style="width:15%">
-                        <asp:Button ID="Btn_back" runat="server" OnClick="Btn_back_Click" Text="Wróc do swojego profilu" />
-                    </td>
+                    <td style="width:15%"></td>
                     <td style="width:70%">&nbsp;</td>
                     <td style="width:15%"</td>
                 </tr>

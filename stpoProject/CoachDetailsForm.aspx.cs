@@ -58,12 +58,16 @@ namespace stpoProject
 
         protected void Btn_chat_Click(object sender, EventArgs e)
         {
-            if(Btn_chat.Text == "Przejdz do rozmowy")
+            int ID_page_owner = Int16.Parse(Session["ID_user"].ToString());
+
+            if (Btn_chat.Text == "Przejdz do rozmowy")
             {
+                Session["ID_user_conversation"] = ID_page_owner;
                 Response.Redirect("MessagesForm.aspx");
             }
             else
             {
+                Session["ID_user_conversation"] = ID_page_owner;
                 Response.Redirect("MessageContacts.aspx");
             }
         }

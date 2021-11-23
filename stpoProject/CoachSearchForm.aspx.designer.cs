@@ -24,6 +24,15 @@ namespace stpoProject
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Kontrolka Btn_back.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_back;
+
+        /// <summary>
         /// Kontrolka Lbl_Coaches.
         /// </summary>
         /// <remarks>
