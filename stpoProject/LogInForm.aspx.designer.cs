@@ -15,24 +15,6 @@ namespace stpoProject
     {
 
         /// <summary>
-        /// Kontrolka form1.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
-        /// Kontrolka Lbl_LogIn.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_LogIn;
-
-        /// <summary>
         /// Kontrolka LbL_User.
         /// </summary>
         /// <remarks>
@@ -76,15 +58,6 @@ namespace stpoProject
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btn_LogIn;
-
-        /// <summary>
-        /// Kontrolka Lbl_NoAccunt.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_NoAccunt;
 
         /// <summary>
         /// Kontrolka LbL_Helper.
