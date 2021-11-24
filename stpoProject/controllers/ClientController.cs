@@ -38,8 +38,15 @@ namespace stpoProject.controllers
                 int clientUserID = Int16.Parse(readerGetClient.GetValue(1).ToString());
                 string clientName = readerGetClient.GetValue(2).ToString();
                 string clientLastName = readerGetClient.GetValue(3).ToString();
+                int assignCoachID = Int16.Parse(readerGetClient.GetValue(4).ToString());
+                int ID_assign_diet = Int16.Parse(readerGetClient.GetValue(5).ToString());
+                int ID_assign_training = Int16.Parse(readerGetClient.GetValue(6).ToString());
 
                 Client client = new Client(clientID, clientUserID, clientName, clientLastName);
+                client.setID_assign_coach(assignCoachID);
+                client.setID_assign_diet(ID_assign_diet);
+                client.setID_assign_training(ID_assign_training);
+
                 m_clients.Add(client);
             }
             connection.Close();
@@ -73,8 +80,9 @@ namespace stpoProject.controllers
 
             SqlCommand cmd;
 
-            String insertStr = "INSERT INTO [dbo].[clients] (ID_user, name, last_name) VALUES ('" + ID_user + "','" + name + "','" + lastName + "')";
-
+            String insertStr = "INSERT INTO [dbo].[clients] (ID_user, name, last_name, ID_assign_coach, ID_assign_diet, ID_assign_training) VALUES " +
+                "('" + ID_user + "','" + name + "','" + lastName + "','" + 0 + "','"  + 0 + "','" + 0 + "')";
+             
             cmd = new SqlCommand(insertStr, connection);
 
             cmd.ExecuteReader();
@@ -126,5 +134,33 @@ namespace stpoProject.controllers
             }
         }
 
+        public Client getClientbyID(int ID)
+        {
+            foreach (Client client in m_clients)
+            {
+                if (client.ID() == ID)
+                {
+                    return client;
+                }
+            }
+            return null;
+        }
+
+        public void setCoachToClient(Client client, int ID_userCoach)
+        {
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+
+            connection.Open();
+
+            SqlCommand cmd;
+
+            String insertStr = "UPDATE [dbo].[clients] SET ID_assign_coach = '" + ID_userCoach + "' WHERE ID_user = '" + client.ID_user() + "'";
+
+            cmd = new SqlCommand(insertStr, connection);
+
+            cmd.ExecuteReader();
+
+            connection.Close();
+        }
     }
 }

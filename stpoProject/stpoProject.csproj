@@ -112,6 +112,7 @@
   <ItemGroup>
     <Content Include="ClientDetailsForm.aspx" />
     <Content Include="ClientEditForm.aspx" />
+    <Content Include="ClientSearchForm.aspx" />
     <Content Include="CoachEditForm.aspx" />
     <Content Include="CoachSearchForm.aspx" />
     <Content Include="LogInForm.aspx" />
@@ -136,6 +137,13 @@
     <Compile Include="ClientEditForm.aspx.designer.cs">
       <DependentUpon>ClientEditForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ClientSearchForm.aspx.cs">
+      <DependentUpon>ClientSearchForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientSearchForm.aspx.designer.cs">
+      <DependentUpon>ClientSearchForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CoachEditForm.aspx.cs">
       <DependentUpon>CoachEditForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -155,6 +163,7 @@
     <Compile Include="controllers\CoachController.cs" />
     <Compile Include="controllers\ConversationController.cs" />
     <Compile Include="controllers\DietController.cs" />
+    <Compile Include="controllers\MealController.cs" />
     <Compile Include="controllers\MessageController.cs" />
     <Compile Include="controllers\UserController.cs" />
     <Compile Include="datasets\Category.cs" />
@@ -162,6 +171,7 @@
     <Compile Include="datasets\Coach.cs" />
     <Compile Include="datasets\Conversation.cs" />
     <Compile Include="datasets\Diet.cs" />
+    <Compile Include="datasets\Meal.cs" />
     <Compile Include="datasets\Message.cs" />
     <Compile Include="datasets\User.cs" />
     <Compile Include="LogInForm.aspx.cs">

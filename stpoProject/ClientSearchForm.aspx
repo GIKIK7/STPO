@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CoachSearchForm.aspx.cs" Inherits="stpoProject.CoachSearchForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ClientSearchForm.aspx.cs" Inherits="stpoProject.ClientSearchPage" %>
 
 <!DOCTYPE html>
 
@@ -17,7 +17,7 @@
                         <asp:Button ID="Btn_back" runat="server" Text="Wróc do swojego profilu" OnClick="Btn_back_Click" />
                     </td>
                     <td align="center" style="width:70%">
-                        <asp:Label ID="Lbl_Coaches" runat="server" Text="Trenerzy" ></asp:Label>
+                        <asp:Label ID="Lbl_Coaches" runat="server" Text="Klienci" ></asp:Label>
                     </td>
                     <td style="width:15%">
                     </td>
@@ -28,7 +28,6 @@
                         <asp:Label ID="LbL_sort" runat="server" Text="Sortuj po: "></asp:Label>
                         <asp:Button ID="Btn_sortByName" runat="server" OnClick="Btn_sortByName_Click" Text="imieniu" />
                         <asp:Button ID="Btn_sortByLastName" runat="server" Text="nazwisku" OnClick="Btn_sortByLastName_Click" />
-                        <asp:Button ID="Btn_sortByCategory" runat="server" Text="Kategorii" OnClick="Btn_sortByCategory_Click" />
                     </td>
                     <td></td>
                 </tr>
@@ -49,14 +48,13 @@
                                 <asp:Label ID="last_nameLabel" runat="server" Text='<%# Eval("last_name") %>' />
                                 <br />
                                 kategoria:
-                                <asp:Label ID="categoryNameLabel" runat="server" Text='<%# Eval("categoryName") %>'/>
                                 <asp:Button ID="Btn_goToCoachPage" runat="server" Text="Strona" commandargument='<%# Eval("ID") %>'/>
                                 <br />
                                 <br />
                             </ItemTemplate>
                         </asp:DataList>
                         <asp:SqlDataSource ID="DataSource_coaches" runat="server" ConnectionString="<%$ ConnectionStrings:DBstpoConnectionString %>" 
-                            SelectCommand='SELECT [name], [last_name], [categoryName], [ID] FROM [CoachesWithCategories]'></asp:SqlDataSource>
+                            SelectCommand='SELECT [name], [last_name], [ID] FROM [clients]'></asp:SqlDataSource>
                     </td>
                     <td>
                         <asp:Label ID="Lbl_helper" runat="server"></asp:Label>
@@ -74,4 +72,5 @@
         </div>
     </form>
 </body>
+
 </html>

@@ -70,7 +70,6 @@ namespace stpoProject.controllers
 
         public void addCoach(int ID_user, string name, string lastName, int ID_category)
         {
-
             Coach coach = new Coach(ID_user, name, lastName);
 
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
@@ -79,8 +78,8 @@ namespace stpoProject.controllers
 
             SqlCommand cmd;
 
-            String insertStr = "INSERT INTO [dbo].[coaches] (ID_user, name, last_name, ID_category, ID_assign_client) VALUES ('" + ID_user + "','" + name + "','" +
-                lastName + "','" + ID_category + "','" + 0 + "')";
+            String insertStr = "INSERT INTO [dbo].[coaches] (ID_user, name, last_name, ID_category) VALUES ('" + ID_user + "','" + name + "','" +
+                lastName + "','" + ID_category + "')";
 
             using (cmd = new SqlCommand(insertStr, connection))
             {

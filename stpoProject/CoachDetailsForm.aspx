@@ -32,6 +32,8 @@
                         
                         <asp:Button ID="Btn_chat" runat="server" OnClick="Btn_chat_Click" Text="Chat" />
                         
+                        <asp:Button ID="Btn_dealStart" runat="server" OnClick="Btn_dealStart_Click" Text="Rozpocznij współprace" />
+                        
                     </td>
                 </tr>
                 <tr>
@@ -57,6 +59,13 @@
                     <td>
                         <asp:Label ID="LbL_Category" runat="server"></asp:Label>
 
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <asp:Button ID="Btn_searchClients" runat="server" Text="Przeglądaj Klientów" OnClick="Btn_searchClients_Click" />
                     </td>
                     <td></td>
                 </tr>

@@ -51,6 +51,15 @@ namespace stpoProject
         protected global::System.Web.UI.WebControls.Button Btn_chat;
 
         /// <summary>
+        /// Kontrolka Btn_dealStart.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_dealStart;
+
+        /// <summary>
         /// Kontrolka Lbl_Name.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace stpoProject
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LbL_Category;
+
+        /// <summary>
+        /// Kontrolka Btn_searchClients.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_searchClients;
 
         /// <summary>
         /// Kontrolka Btn_wyloguj.

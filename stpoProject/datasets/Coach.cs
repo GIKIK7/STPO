@@ -12,7 +12,6 @@ namespace stpoProject.datasets
         private string m_name;
         private string m_lastName;
         private int m_ID_category;
-        private int m_ID_assign_client=0;
 
         public Coach(int ID, int ID_user, string name, string lastName, int ID_category)
         {
@@ -47,11 +46,6 @@ namespace stpoProject.datasets
             return m_lastName;
         }
 
-        public int ID_assign_client()
-        {
-            return m_ID_assign_client;
-        }
-
         public int ID_category()
         {
             return m_ID_category;
@@ -72,11 +66,6 @@ namespace stpoProject.datasets
         public void setIDcategory(int IDcategory)
         {
             m_ID_category = IDcategory;
-        }
-
-        public void setID_assign_Client(int ID_assign_client)
-        {
-            m_ID_assign_client = ID_assign_client;
         }
 
     }
