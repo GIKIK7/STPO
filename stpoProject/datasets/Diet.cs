@@ -8,37 +8,16 @@ namespace stpoProject.datasets
     public class Diet
     {
         private int m_ID;
-        private int m_IDmealBrakfast;
-        private int m_AmountBreakfast;
-        private int m_IDmealDinner;
-        private int m_AmountDinner;
-        private int m_IDmealSupper;
-        private int m_AmountSupper;
+        private int m_ID_user;
+        private int m_ID_mealList;
+        private DateTime m_date;
 
-        public Diet(int ID, int IDmealBrakfast, int AmountBreakfast, int IDmealDinner, int AmountDinner, int IDmealSupper, int AmountSupper)
+        public Diet(int ID, int ID_user, int ID_mealList, DateTime date)
         {
             m_ID = ID;
-            m_IDmealBrakfast = IDmealBrakfast;
-            m_AmountBreakfast = AmountBreakfast;
-            m_IDmealDinner = IDmealDinner;
-            m_AmountDinner = AmountDinner;
-            m_IDmealSupper = IDmealSupper;
-            m_AmountSupper = AmountSupper;
-        }
-
-        public Diet(int IDmealBrakfast, int AmountBreakfast, int IDmealDinner, int AmountDinner, int IDmealSupper, int AmountSupper)
-        {
-            m_IDmealBrakfast = IDmealBrakfast;
-            m_AmountBreakfast = AmountBreakfast;
-            m_IDmealDinner = IDmealDinner;
-            m_AmountDinner = AmountDinner;
-            m_IDmealSupper = IDmealSupper;
-            m_AmountSupper = AmountSupper;
-        }
-
-        public void setID(int ID)
-        {
-            m_ID = ID;
+            m_ID_user = ID_user;
+            m_ID_mealList = ID_mealList;
+            m_date = date;
         }
 
         public int ID()
@@ -46,33 +25,39 @@ namespace stpoProject.datasets
             return m_ID;
         }
 
-        public int IDmealBrakfast()
+        public int ID_user()
         {
-            return m_IDmealBrakfast;
+            return m_ID_user;
         }
 
-        public int AmountBreakfast()
+        public int ID_mealList()
         {
-            return m_AmountBreakfast;
+            return m_ID_mealList;
         }
 
-        public int IDmealDinner()
+        public string date()
         {
-            return m_IDmealDinner;
+            return m_date.Year + "-" + m_date.Month + "-" + m_date.Day;
         }
 
-        public int AmountDinner()
+        public void setID(int ID)
         {
-            return m_AmountDinner;
-        }
-        public int IDmealSupper()
-        {
-            return m_IDmealSupper;
+            m_ID = ID;
         }
 
-        public int AmountSupper()
+        public void setID_user(int ID)
         {
-            return m_AmountSupper;
+            m_ID_user = ID;
+        }
+
+        public void setID_meals(int ID)
+        {
+            m_ID_mealList = ID;
+        }
+
+        public void setDate(DateTime date)
+        {
+            m_date = date;
         }
     }
 }

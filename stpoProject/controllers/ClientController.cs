@@ -39,12 +39,10 @@ namespace stpoProject.controllers
                 string clientName = readerGetClient.GetValue(2).ToString();
                 string clientLastName = readerGetClient.GetValue(3).ToString();
                 int assignCoachID = Int16.Parse(readerGetClient.GetValue(4).ToString());
-                int ID_assign_diet = Int16.Parse(readerGetClient.GetValue(5).ToString());
-                int ID_assign_training = Int16.Parse(readerGetClient.GetValue(6).ToString());
+                int ID_assign_training = Int16.Parse(readerGetClient.GetValue(5).ToString());
 
                 Client client = new Client(clientID, clientUserID, clientName, clientLastName);
                 client.setID_assign_coach(assignCoachID);
-                client.setID_assign_diet(ID_assign_diet);
                 client.setID_assign_training(ID_assign_training);
 
                 m_clients.Add(client);
@@ -80,8 +78,8 @@ namespace stpoProject.controllers
 
             SqlCommand cmd;
 
-            String insertStr = "INSERT INTO [dbo].[clients] (ID_user, name, last_name, ID_assign_coach, ID_assign_diet, ID_assign_training) VALUES " +
-                "('" + ID_user + "','" + name + "','" + lastName + "','" + 0 + "','"  + 0 + "','" + 0 + "')";
+            String insertStr = "INSERT INTO [dbo].[clients] (ID_user, name, last_name, ID_assign_coach, ID_assign_training) VALUES " +
+                "('" + ID_user + "','" + name + "','" + lastName + "','" + 0 + "','" + 0 + "')";
              
             cmd = new SqlCommand(insertStr, connection);
 
@@ -92,18 +90,18 @@ namespace stpoProject.controllers
 
             connection.Open();
 
-            int coachID = 0;
+            int clientID = 0;
 
-            String getClientID = "SELECT ID FROM [dbo].[coaches] WHERE ID_user='" + ID_user + "'";
+            String getClientID = "SELECT ID FROM [dbo].[clients] WHERE ID_user='" + ID_user + "'";
 
             SqlCommand command = new SqlCommand(getClientID, connection);
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                coachID = Int16.Parse(reader.GetValue(0).ToString());
+                clientID = Int16.Parse(reader.GetValue(0).ToString());
             }
 
-            client.setID(coachID);
+            client.setID(clientID);
 
             m_clients.Add(client);
 

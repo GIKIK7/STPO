@@ -30,6 +30,8 @@ namespace stpoProject
             if(Session["ID_current_user"].ToString() != Session["ID_user"].ToString())
             {
                 btn_goToEditClientProfile.Enabled = false;
+                Btn_wyloguj.Enabled = false;
+                Btn_wyloguj.Visible = false;
                 Btn_Chat.Text = "Przejdz do rozmowy";
             }
             else
@@ -46,6 +48,12 @@ namespace stpoProject
             {
                 Btn_searchCoaches.Enabled = false;
                 Btn_searchCoaches.Visible = false;
+
+                if(clientOwnerPage.ID_assign_coach() != currUser.ID())
+                {
+                    Btn_Diet.Enabled = false;
+                    Btn_Diet.Text = "dieta- klient nie jest Twoim podopiecznym";
+                }
             }
 
             Lbl_Name.Text = clientOwnerPage.name();
@@ -83,6 +91,29 @@ namespace stpoProject
         protected void Btn_searchCoaches_Click(object sender, EventArgs e)
         {
             Response.Redirect("CoachSearchForm.aspx");
+        }
+
+        protected void Btn_makeDiet_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DietListForm.aspx");
+        }
+
+        protected void Btn_goToYourProfile_Click(object sender, EventArgs e)
+        {
+            UserController userController = (UserController)Session["userController"];
+            int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
+            User currUser = userController.getUserbyID(currUserID);
+
+            Session["ID_user"] = currUserID;
+
+            if (currUser.isTrener())
+            {
+                Response.Redirect("CoachDetailsForm.aspx");
+            }
+            else
+            {
+                Response.Redirect("ClientDetailsForm.aspx");
+            }
         }
     }
 }

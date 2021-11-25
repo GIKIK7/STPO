@@ -43,6 +43,16 @@ namespace stpoProject.controllers
             connection.Close();
         }
 
+        public string showMeals()
+        {
+            string str="";
+            foreach (Meal meal in m_meals)
+            {
+                str += meal.ID() + " " + meal.name() + " ";
+            }
+            return str;
+        }
+
         public List<Meal> getMealList()
         {
             return m_meals;

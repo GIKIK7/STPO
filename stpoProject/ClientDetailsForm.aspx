@@ -17,7 +17,9 @@
         <div>
             <table style="width:100%">
                 <tr>
-                    <td style="width: 15%"></td>
+                    <td style="width: 15%">
+                        <asp:Button ID="Btn_goToYourProfile" runat="server" OnClick="Btn_goToYourProfile_Click" Text="Wróc do swojego profilu" />
+                    </td>
                     <td style="width: 70%" align ="center">
                         <asp:Label ID="Lbl_Client" runat="server" Text="Klient" Font-Bold="True" Font-Italic="False" Font-Size="XX-Large"></asp:Label>
                     </td>
@@ -60,16 +62,19 @@
                 <tr>
                     <td style="width: 15%" align="right"></td>
                     <td style="width: 70%">
-                        <asp:Button ID="Btn_searchCoaches" runat="server" OnClick="Btn_searchCoaches_Click" Text="Przegądaj Trenerów" />
+                        <asp:Button ID="Btn_Diet" runat="server" OnClick="Btn_makeDiet_Click" Text="Dieta" />
                     </td>
                     <td style="width: 15%">
-                        <asp:Button ID="Btn_wyloguj" runat="server" OnClick="Btn_wyloguj_Click" Text="Wyloguj sie" />
-                    </td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td> </td>
-                    <td></td>
+                    <td> 
+                        <asp:Button ID="Btn_searchCoaches" runat="server" OnClick="Btn_searchCoaches_Click" Text="Przegądaj Trenerów" />
+                    </td>
+                    <td>
+                        <asp:Button ID="Btn_wyloguj" runat="server" OnClick="Btn_wyloguj_Click" Text="Wyloguj sie" />
+                    </td>
                 </tr>
             </table>
 

@@ -11,7 +11,7 @@ namespace stpoProject
 {
 
 
-    public partial class ClientDetailsForm
+    public partial class DietForm
     {
 
         /// <summary>
@@ -24,93 +24,111 @@ namespace stpoProject
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Kontrolka Btn_goToYourProfile.
+        /// Kontrolka Btn_goBack.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_goToYourProfile;
+        protected global::System.Web.UI.WebControls.Button Btn_goBack;
 
         /// <summary>
-        /// Kontrolka Lbl_Client.
+        /// Kontrolka Lbl_diet.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_Client;
+        protected global::System.Web.UI.WebControls.Label Lbl_diet;
 
         /// <summary>
-        /// Kontrolka btn_goToEditClientProfile.
+        /// Kontrolka Lbl_sniadanie.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_goToEditClientProfile;
+        protected global::System.Web.UI.WebControls.Label Lbl_sniadanie;
 
         /// <summary>
-        /// Kontrolka Btn_Chat.
+        /// Kontrolka Lbl_breakfastMealName.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Chat;
+        protected global::System.Web.UI.WebControls.Label Lbl_breakfastMealName;
 
         /// <summary>
-        /// Kontrolka Lbl_Name.
+        /// Kontrolka Lbl_amountBreakfast.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_Name;
+        protected global::System.Web.UI.WebControls.Label Lbl_amountBreakfast;
 
         /// <summary>
-        /// Kontrolka Lbl_lastName.
+        /// Kontrolka Lbl_dinner.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_lastName;
+        protected global::System.Web.UI.WebControls.Label Lbl_dinner;
 
         /// <summary>
-        /// Kontrolka Lbl_assignCoach.
+        /// Kontrolka Lbl_dinnerName.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_assignCoach;
+        protected global::System.Web.UI.WebControls.Label Lbl_dinnerName;
 
         /// <summary>
-        /// Kontrolka Btn_Diet.
+        /// Kontrolka Lbl_amountDinner.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Diet;
+        protected global::System.Web.UI.WebControls.Label Lbl_amountDinner;
 
         /// <summary>
-        /// Kontrolka Btn_searchCoaches.
+        /// Kontrolka Lbl_supper.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_searchCoaches;
+        protected global::System.Web.UI.WebControls.Label Lbl_supper;
 
         /// <summary>
-        /// Kontrolka Btn_wyloguj.
+        /// Kontrolka Lbl_supperMealName.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_wyloguj;
+        protected global::System.Web.UI.WebControls.Label Lbl_supperMealName;
+
+        /// <summary>
+        /// Kontrolka Lbl_amountSupper.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lbl_amountSupper;
+
+        /// <summary>
+        /// Kontrolka Lbl_helper.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lbl_helper;
     }
 }

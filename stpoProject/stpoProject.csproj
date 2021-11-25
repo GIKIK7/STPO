@@ -115,6 +115,8 @@
     <Content Include="ClientSearchForm.aspx" />
     <Content Include="CoachEditForm.aspx" />
     <Content Include="CoachSearchForm.aspx" />
+    <Content Include="DietForm.aspx" />
+    <Content Include="DietListForm.aspx" />
     <Content Include="LogInForm.aspx" />
     <Content Include="MessageContacts.aspx" />
     <Content Include="MessagesForm.aspx" />
@@ -163,6 +165,7 @@
     <Compile Include="controllers\CoachController.cs" />
     <Compile Include="controllers\ConversationController.cs" />
     <Compile Include="controllers\DietController.cs" />
+    <Compile Include="controllers\MealListController.cs" />
     <Compile Include="controllers\MealController.cs" />
     <Compile Include="controllers\MessageController.cs" />
     <Compile Include="controllers\UserController.cs" />
@@ -171,9 +174,24 @@
     <Compile Include="datasets\Coach.cs" />
     <Compile Include="datasets\Conversation.cs" />
     <Compile Include="datasets\Diet.cs" />
+    <Compile Include="datasets\MealList.cs" />
     <Compile Include="datasets\Meal.cs" />
     <Compile Include="datasets\Message.cs" />
     <Compile Include="datasets\User.cs" />
+    <Compile Include="DietForm.aspx.cs">
+      <DependentUpon>DietForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DietForm.aspx.designer.cs">
+      <DependentUpon>DietForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DietListForm.aspx.cs">
+      <DependentUpon>DietListForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DietListForm.aspx.designer.cs">
+      <DependentUpon>DietListForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LogInForm.aspx.cs">
       <DependentUpon>LogInForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

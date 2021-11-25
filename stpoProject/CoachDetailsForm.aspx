@@ -22,7 +22,9 @@
         <div>
             <table style="width:100%">
                 <tr>
-                    <td style="width: 15%"></td>
+                    <td style="width: 15%">
+                        <asp:Button ID="Btn_goToYourProfile" runat="server" OnClick="Btn_goToYourProfile_Click" Text="Wróc do swojego profilu" />
+                    </td>
                     <td style="width: 70%" align ="center">
                         <asp:Label ID="Lbl_Coach" runat="server" Text="Trener" Font-Bold="True" Font-Italic="False" Font-Size="XX-Large"></asp:Label>
                     </td>

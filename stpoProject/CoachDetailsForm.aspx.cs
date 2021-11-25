@@ -37,6 +37,8 @@ namespace stpoProject
             }
             else
             {
+                Btn_wyloguj.Enabled = false;
+                Btn_wyloguj.Visible = false;
                 Btn_goToEditCoachProfile.Enabled = false;
                 Btn_chat.Text = "Przejdz do rozmowy";
             }
@@ -121,6 +123,24 @@ namespace stpoProject
         protected void Btn_searchClients_Click(object sender, EventArgs e)
         {
             Response.Redirect("ClientSearchForm.aspx");
+        }
+
+        protected void Btn_goToYourProfile_Click(object sender, EventArgs e)
+        {
+            UserController userController = (UserController)Session["userController"];
+            int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
+            User currUser = userController.getUserbyID(currUserID);
+
+            Session["ID_user"] = currUserID;
+
+            if (currUser.isTrener())
+            {
+                Response.Redirect("CoachDetailsForm.aspx");
+            }
+            else
+            {
+                Response.Redirect("ClientDetailsForm.aspx");
+            }
         }
     }
 }

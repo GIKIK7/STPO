@@ -4,13 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 
+
 namespace stpoProject.controllers
 {
     using datasets;
     public class DietController
     {
-        List<Diet> m_diets = new List<Diet>();
-
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
         {
             DataSource = "stpo.database.windows.net",
@@ -19,74 +18,67 @@ namespace stpoProject.controllers
             InitialCatalog = "DBstpo"
         };
 
-        public void getDietListFromDatabase()
+        List<Diet> m_diets = new List<Diet>();
+        public string showDiet()
+        {
+            string str = "";
+            foreach (Diet diet in m_diets)
+            {
+                str += diet.ID() + " " + diet.ID_user() + " " + diet.ID_mealList() + " " + diet.date() + " ";
+            }
+            return str;
+        }
+
+        public void getDietsFromDatabase()
         {
             m_diets.Clear();
             SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
             connection.Open();
 
-            String strGetDiet = "SELECT * FROM [dbo].[diets]";
+            String strGetDiets = "SELECT * FROM [dbo].[diet]";
 
-            SqlCommand cmdGetDiet = new SqlCommand(strGetDiet, connection);
-            SqlDataReader readerGetDiet = cmdGetDiet.ExecuteReader();
+            SqlCommand cmdGetDiets = new SqlCommand(strGetDiets, connection);
+            SqlDataReader readerGetDiets = cmdGetDiets.ExecuteReader();
 
-            while (readerGetDiet.Read())
+            while (readerGetDiets.Read())
             {
-                int dietID = Int16.Parse(readerGetDiet.GetValue(0).ToString());
-                int breakfastID= Int16.Parse(readerGetDiet.GetValue(1).ToString());
-                int amountBreakfast= Int16.Parse(readerGetDiet.GetValue(2).ToString());
-                int dinnerID = Int16.Parse(readerGetDiet.GetValue(3).ToString());
-                int amountDinner = Int16.Parse(readerGetDiet.GetValue(4).ToString());
-                int supperID = Int16.Parse(readerGetDiet.GetValue(5).ToString());
-                int amountSupper = Int16.Parse(readerGetDiet.GetValue(6).ToString());
+                int DietID = Int16.Parse(readerGetDiets.GetValue(0).ToString());
+                int userID = Int16.Parse(readerGetDiets.GetValue(1).ToString());
+                int mealListID = Int16.Parse(readerGetDiets.GetValue(2).ToString());
+                DateTime date = DateTime.Parse(readerGetDiets.GetValue(3).ToString());
 
-                Diet diet = new Diet(dietID, breakfastID, amountBreakfast, dinnerID, amountDinner, supperID, amountSupper);
-                m_diets.Add(diet);
+                Diet Diet = new Diet(DietID, userID, mealListID, date);
+                m_diets.Add(Diet);
             }
             connection.Close();
         }
-
-        public void addDiet(int breakfastID, int amountBreakfast, int dinnerID, int amountDinner, int supperID, int amountSupper)
+    
+        public List<Diet> getDietsOfUser(int ID_user)
         {
-            Diet diet = new Diet(breakfastID, amountBreakfast, dinnerID, amountDinner, supperID, amountSupper);
-
-            SqlConnection connection = new SqlConnection(builder.ConnectionString);
-
-            connection.Open();
-
-            SqlCommand cmd;
-
-            String insertStr = "INSERT INTO [dbo].[diets] (ID_meal_breakfast, Amount_breakfast, ID_meal_dinner, Amount_dinner, ID_meal_supper , Amount_supper ) VALUES " +
-                "('" + breakfastID + "','" + amountBreakfast + "','" + dinnerID + "','" + amountDinner + "','" + "','" + supperID + "','" +
-                "','" + amountSupper + "')";
-
-            cmd = new SqlCommand(insertStr, connection);
-
-            cmd.ExecuteReader();
-
-            connection.Close();
-
-
-            connection.Open();
-
-            int dietID = 0;
-
-            String getDietID = "SELECT ID FROM [dbo].[diets] WHERE ID_meal_breakfast='" + breakfastID + "' AND Amount_breakfast='" + amountBreakfast + "' AND ID_meal_dinner='"+
-              dinnerID + "' AND Amount_dinner ='" + amountDinner + "' AND ID_meal_supper='" + supperID + "' AND Amount_supper ='" + amountSupper + "'";
-
-            SqlCommand command = new SqlCommand(getDietID, connection);
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            List<Diet> diets = new List<Diet>();
+            foreach (Diet diet in m_diets)
             {
-                dietID = Int16.Parse(reader.GetValue(0).ToString());
+                if(diet.ID_user() == ID_user)
+                {
+                     diets.Add(diet);
+                }
             }
-
-            diet.setID(dietID);
-
-            m_diets.Add(diet);
-
-            connection.Close();
+            return diets;
         }
+    
+        public Diet getDietByDate(string date, int ID_user)
+        {
+            List<Diet> diets = new List<Diet>();
+            foreach (Diet diet in m_diets)
+            {
+                if (diet.date() == date && diet.ID_user() == ID_user)
+                {
+                    return diet;
+                }
+            }
+            return null;
+        }    
+    
     }
 }

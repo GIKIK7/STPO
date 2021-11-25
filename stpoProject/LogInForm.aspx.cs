@@ -48,6 +48,18 @@ namespace stpoProject
             MessageController messageController = new MessageController();
             messageController.getMessagesListFromDatabase();
             Session["messageController"] = messageController;
+
+            DietController dietController = new DietController();
+            dietController.getDietsFromDatabase();
+            Session["dietController"] = dietController;
+
+            MealListController mealListController = new MealListController();
+            mealListController.getmealListListFromDatabase();
+            Session["mealListController"] = mealListController;
+
+            MealController mealController = new MealController();
+            mealController.getMealListFromDatabase();
+            Session["mealController"] = mealController;
         }
 
         protected void Btn_LogInClick(object sender, EventArgs e)
