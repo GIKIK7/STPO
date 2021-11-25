@@ -69,6 +69,15 @@ namespace stpoProject
         protected global::System.Web.UI.WebControls.Button Btn_sortByLastName;
 
         /// <summary>
+        /// Kontrolka Btn_charges.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_charges;
+
+        /// <summary>
         /// Kontrolka DataList1.
         /// </summary>
         /// <remarks>

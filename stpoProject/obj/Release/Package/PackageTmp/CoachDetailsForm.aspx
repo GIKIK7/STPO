@@ -22,7 +22,9 @@
         <div>
             <table style="width:100%">
                 <tr>
-                    <td style="width: 15%"></td>
+                    <td style="width: 15%">
+                        <asp:Button ID="Btn_goToYourProfile" runat="server" OnClick="Btn_goToYourProfile_Click" Text="Wróc do swojego profilu" />
+                    </td>
                     <td style="width: 70%" align ="center">
                         <asp:Label ID="Lbl_Coach" runat="server" Text="Trener" Font-Bold="True" Font-Italic="False" Font-Size="XX-Large"></asp:Label>
                     </td>
@@ -31,6 +33,8 @@
                         <asp:Button ID="Btn_goToEditCoachProfile" runat="server" OnClick="Btn_goToEditCoachProfile_Click" Text="Edytuj profil" />
                         
                         <asp:Button ID="Btn_chat" runat="server" OnClick="Btn_chat_Click" Text="Chat" />
+                        
+                        <asp:Button ID="Btn_dealStart" runat="server" OnClick="Btn_dealStart_Click" Text="Rozpocznij współprace" />
                         
                     </td>
                 </tr>
@@ -57,6 +61,13 @@
                     <td>
                         <asp:Label ID="LbL_Category" runat="server"></asp:Label>
 
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <asp:Button ID="Btn_searchClients" runat="server" Text="Przeglądaj Klientów" OnClick="Btn_searchClients_Click" />
                     </td>
                     <td></td>
                 </tr>

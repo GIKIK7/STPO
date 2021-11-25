@@ -24,7 +24,9 @@
                 </tr>
 
                 <tr>
-                    <td></td>
+                    <td>
+                        <asp:Label ID="Lbl_helper" runat="server"></asp:Label>
+                    </td>
                     <td>
                         &nbsp;</td>
                     <td></td>

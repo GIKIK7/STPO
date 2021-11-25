@@ -13,6 +13,7 @@ namespace stpoProject
     {
         static bool ascSortName = false;
         static bool ascSortLastName = false;
+        static bool onlyCharges = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -69,11 +70,25 @@ namespace stpoProject
 
             if (ascSortName)
             {
-                DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name] FROM [clients] ORDER BY [name] ASC";
+                if (onlyCharges)
+                {
+                    DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name] FROM [clients] WHERE ID_assign_coach =" + currUserID + " ORDER BY [name] ASC";
+                }
+                else
+                {
+                    DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name] FROM [clients] ORDER BY [name] ASC";
+                }
             }
             else
             {
-                DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name] FROM [clients] ORDER BY [name] DESC";
+                if (onlyCharges)
+                {
+                    DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name] FROM [clients] WHERE ID_assign_coach =" + currUserID + " ORDER BY [name] DESC";
+                }
+                else
+                {
+                    DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name] FROM [clients] ORDER BY [name] DESC";
+                }
             }
         }
 
@@ -87,11 +102,46 @@ namespace stpoProject
 
             if (ascSortLastName)
             {
-                DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name] FROM [clients] ORDER BY [last_name] ASC";
+                if (onlyCharges)
+                {
+                    DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name] FROM [clients] WHERE ID_assign_coach =" + currUserID + " ORDER BY [last_name] ASC";
+                }
+                else
+                {
+                    DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name] FROM [clients] ORDER BY [last_name] ASC";
+                }
             }
             else
             {
-                DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name] FROM [clients] ORDER BY [last_name] DESC";
+                if (onlyCharges)
+                {
+                    DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name] FROM [clients] WHERE ID_assign_coach =" + currUserID + " ORDER BY [last_name] DESC";
+                }
+                else
+                {
+                    DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name] FROM [clients] ORDER BY [last_name] DESC";
+                }
+            }
+        }
+
+        protected void Btn_charges_Click(object sender, EventArgs e)
+        {
+            ClientController clientController = (ClientController)Session["clientController"];
+            UserController userController = (UserController)Session["userController"];
+            int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
+            User currUser = userController.getUserbyID(currUserID);
+
+            onlyCharges = !onlyCharges;
+
+            if (onlyCharges)
+            {
+                DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name] FROM [clients] WHERE ID_assign_coach =" + currUserID;
+                Btn_charges.Text = "wszyscy kleinci";
+            }
+            else
+            {
+                DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name] FROM [clients]";
+                Btn_charges.Text = "tylko Twoi podopieczni";
             }
         }
     }
