@@ -69,7 +69,6 @@ namespace stpoProject.controllers
     
         public Diet getDietByDate(string date, int ID_user)
         {
-            List<Diet> diets = new List<Diet>();
             foreach (Diet diet in m_diets)
             {
                 if (diet.date() == date && diet.ID_user() == ID_user)
@@ -79,6 +78,6 @@ namespace stpoProject.controllers
             }
             return null;
         }    
-    
+   
     }
 }

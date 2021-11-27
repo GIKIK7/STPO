@@ -33,7 +33,11 @@ namespace stpoProject
 
             if (Session["ID_current_user"].ToString() == Session["ID_user"].ToString())
             {
+                Btn_goToYourProfile.Enabled = false;
+                Btn_goToYourProfile.Visible = false;
                 Btn_goToEditCoachProfile.Enabled = true;
+                Btn_dealStart.Enabled = false; 
+                Btn_dealStart.Visible = false;
             }
             else
             {

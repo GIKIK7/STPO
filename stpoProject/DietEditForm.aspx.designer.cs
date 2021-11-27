@@ -11,7 +11,7 @@ namespace stpoProject
 {
 
 
-    public partial class DietForm
+    public partial class DietEditForm
     {
 
         /// <summary>
@@ -24,15 +24,6 @@ namespace stpoProject
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Kontrolka Btn_goBack.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_goBack;
-
-        /// <summary>
         /// Kontrolka Lbl_diet.
         /// </summary>
         /// <remarks>
@@ -40,15 +31,6 @@ namespace stpoProject
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lbl_diet;
-
-        /// <summary>
-        /// Kontrolka Btn_goEditDiet.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_goEditDiet;
 
         /// <summary>
         /// Kontrolka Lbl_sniadanie.
@@ -60,22 +42,31 @@ namespace stpoProject
         protected global::System.Web.UI.WebControls.Label Lbl_sniadanie;
 
         /// <summary>
-        /// Kontrolka Lbl_breakfastMealName.
+        /// Kontrolka DropList_breakfast.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_breakfastMealName;
+        protected global::System.Web.UI.WebControls.DropDownList DropList_breakfast;
 
         /// <summary>
-        /// Kontrolka Lbl_amountBreakfast.
+        /// Kontrolka SqlDataSource1.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_amountBreakfast;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+
+        /// <summary>
+        /// Kontrolka TxtBox_breakfast.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtBox_breakfast;
 
         /// <summary>
         /// Kontrolka Lbl_dinner.
@@ -87,22 +78,22 @@ namespace stpoProject
         protected global::System.Web.UI.WebControls.Label Lbl_dinner;
 
         /// <summary>
-        /// Kontrolka Lbl_dinnerName.
+        /// Kontrolka DropList_dinner.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_dinnerName;
+        protected global::System.Web.UI.WebControls.DropDownList DropList_dinner;
 
         /// <summary>
-        /// Kontrolka Lbl_amountDinner.
+        /// Kontrolka TxtBox_dinner.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_amountDinner;
+        protected global::System.Web.UI.WebControls.TextBox TxtBox_dinner;
 
         /// <summary>
         /// Kontrolka Lbl_supper.
@@ -114,22 +105,31 @@ namespace stpoProject
         protected global::System.Web.UI.WebControls.Label Lbl_supper;
 
         /// <summary>
-        /// Kontrolka Lbl_supperMealName.
+        /// Kontrolka DropList_supper.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_supperMealName;
+        protected global::System.Web.UI.WebControls.DropDownList DropList_supper;
 
         /// <summary>
-        /// Kontrolka Lbl_amountSupper.
+        /// Kontrolka TxtBox_supper.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_amountSupper;
+        protected global::System.Web.UI.WebControls.TextBox TxtBox_supper;
+
+        /// <summary>
+        /// Kontrolka Btb_addDiet.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btb_addDiet;
 
         /// <summary>
         /// Kontrolka Lbl_helper.

@@ -60,6 +60,18 @@ namespace stpoProject
             MealController mealController = new MealController();
             mealController.getMealListFromDatabase();
             Session["mealController"] = mealController;
+
+            WorkoutController workoutController = new WorkoutController();
+            workoutController.getWorkoutFromDatabase();
+            Session["workoutController"] = workoutController;
+
+            ExerciseListController exerciseListController = new ExerciseListController();
+            exerciseListController.getExerciseListFromDatabase();
+            Session["exerciseListController"] = exerciseListController;
+
+            ExerciseController exerciseController = new ExerciseController();
+            exerciseController.getExerciseListFromDatabase();
+            Session["exerciseController"] = exerciseController;
         }
 
         protected void Btn_LogInClick(object sender, EventArgs e)

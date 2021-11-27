@@ -40,6 +40,34 @@ namespace stpoProject.datasets
         {
             m_ID_mealList = ID;
         }
+        public void setIDmealBrakfast(int ID)
+        {
+            m_IDmealBrakfast = ID;
+        }
+
+        public void setAmountBreakfast(int val)
+        {
+            m_AmountBreakfast = val;
+        }
+
+        public void setIDdinner(int ID)
+        {
+            m_IDmealDinner = ID;
+        }
+
+        public void setAmountDinner(int val)
+        {
+            m_AmountDinner = val;
+        }
+        public void setIDsupper(int ID)
+        {
+            m_IDmealSupper = ID;
+        }
+
+        public void setAmountSupper(int val)
+        {
+            m_AmountSupper = val;
+        }
 
         public int ID()
         {

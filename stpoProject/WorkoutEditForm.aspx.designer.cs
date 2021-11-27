@@ -11,7 +11,7 @@ namespace stpoProject
 {
 
 
-    public partial class ClientDetailsForm
+    public partial class WorkoutEditForm
     {
 
         /// <summary>
@@ -24,102 +24,66 @@ namespace stpoProject
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Kontrolka Btn_goToYourProfile.
+        /// Kontrolka Lbl_editWorkout.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_goToYourProfile;
+        protected global::System.Web.UI.WebControls.Label Lbl_editWorkout;
 
         /// <summary>
-        /// Kontrolka Lbl_Client.
+        /// Kontrolka DropDownList1.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_Client;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
         /// <summary>
-        /// Kontrolka btn_goToEditClientProfile.
+        /// Kontrolka SqlDataSource1.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_goToEditClientProfile;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// Kontrolka Btn_Chat.
+        /// Kontrolka TxtBox_sets.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Chat;
+        protected global::System.Web.UI.WebControls.TextBox TxtBox_sets;
 
         /// <summary>
-        /// Kontrolka Lbl_Name.
+        /// Kontrolka TxtBox_reps.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_Name;
+        protected global::System.Web.UI.WebControls.TextBox TxtBox_reps;
 
         /// <summary>
-        /// Kontrolka Lbl_lastName.
+        /// Kontrolka Btn_addField.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_lastName;
+        protected global::System.Web.UI.WebControls.Button Btn_addField;
 
         /// <summary>
-        /// Kontrolka Lbl_assignCoach.
+        /// Kontrolka Panel_workout.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_assignCoach;
-
-        /// <summary>
-        /// Kontrolka Btn_Diet.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_Diet;
-
-        /// <summary>
-        /// Kontrolka Btn_workout.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_workout;
-
-        /// <summary>
-        /// Kontrolka Btn_searchCoaches.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_searchCoaches;
-
-        /// <summary>
-        /// Kontrolka Btn_wyloguj.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btn_wyloguj;
+        protected global::System.Web.UI.WebControls.Panel Panel_workout;
     }
 }

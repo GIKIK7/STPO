@@ -55,5 +55,10 @@ namespace stpoProject
                 Response.Redirect("ClientDetailsForm.aspx");
             }
         }
+
+        protected void Btn_goEditDiet_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DietEditForm.aspx");
+        }
     }
 }

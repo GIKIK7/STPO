@@ -115,6 +115,7 @@
     <Content Include="ClientSearchForm.aspx" />
     <Content Include="CoachEditForm.aspx" />
     <Content Include="CoachSearchForm.aspx" />
+    <Content Include="DietEditForm.aspx" />
     <Content Include="DietForm.aspx" />
     <Content Include="DietListForm.aspx" />
     <Content Include="LogInForm.aspx" />
@@ -123,6 +124,9 @@
     <Content Include="SignInForm.aspx" />
     <Content Include="CoachDetailsForm.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WorkoutEditForm.aspx" />
+    <Content Include="WorkoutForm.aspx" />
+    <Content Include="WorkoutListForm.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientDetailsForm.aspx.cs">
@@ -165,19 +169,32 @@
     <Compile Include="controllers\CoachController.cs" />
     <Compile Include="controllers\ConversationController.cs" />
     <Compile Include="controllers\DietController.cs" />
+    <Compile Include="controllers\ExerciseController.cs" />
+    <Compile Include="controllers\ExerciseListController.cs" />
     <Compile Include="controllers\MealListController.cs" />
     <Compile Include="controllers\MealController.cs" />
     <Compile Include="controllers\MessageController.cs" />
     <Compile Include="controllers\UserController.cs" />
+    <Compile Include="controllers\WorkoutController.cs" />
     <Compile Include="datasets\Category.cs" />
     <Compile Include="datasets\Client.cs" />
     <Compile Include="datasets\Coach.cs" />
     <Compile Include="datasets\Conversation.cs" />
     <Compile Include="datasets\Diet.cs" />
+    <Compile Include="datasets\Exercise.cs" />
+    <Compile Include="datasets\ExerciseList.cs" />
     <Compile Include="datasets\MealList.cs" />
     <Compile Include="datasets\Meal.cs" />
     <Compile Include="datasets\Message.cs" />
     <Compile Include="datasets\User.cs" />
+    <Compile Include="datasets\Workout.cs" />
+    <Compile Include="DietEditForm.aspx.cs">
+      <DependentUpon>DietEditForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DietEditForm.aspx.designer.cs">
+      <DependentUpon>DietEditForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DietForm.aspx.cs">
       <DependentUpon>DietForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -227,6 +244,27 @@
     </Compile>
     <Compile Include="CoachDetailsForm.aspx.designer.cs">
       <DependentUpon>CoachDetailsForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkoutEditForm.aspx.cs">
+      <DependentUpon>WorkoutEditForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WorkoutEditForm.aspx.designer.cs">
+      <DependentUpon>WorkoutEditForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkoutForm.aspx.cs">
+      <DependentUpon>WorkoutForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WorkoutForm.aspx.designer.cs">
+      <DependentUpon>WorkoutForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkoutListForm.aspx.cs">
+      <DependentUpon>WorkoutListForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WorkoutListForm.aspx.designer.cs">
+      <DependentUpon>WorkoutListForm.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

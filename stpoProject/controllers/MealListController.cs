@@ -9,7 +9,7 @@ namespace stpoProject.controllers
     using datasets;
     public class MealListController
     {
-        List<MealList> m_mealLists = new List<MealList>();
+        private List<MealList> m_mealLists = new List<MealList>();
 
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
         {
@@ -111,6 +111,32 @@ namespace stpoProject.controllers
                 }
             }
             return null;
+        }
+
+        public void updateMealList(int ID, int IDbreakfast, int amountBreakfast, int IDdinner, int amountDinner, int IDsuppeer, int amountSupper)
+        {
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+
+            connection.Open();
+
+            String updateCoach = "UPDATE [dbo].[mealList] SET ID_meal_breakfast ='" + IDbreakfast + "', Amount_breakfast='" + amountBreakfast + "', ID_meal_dinner='" + IDdinner
+                + "', Amount_dinner = '" + amountDinner + "', ID_meal_supper = '" + IDsuppeer + "', Amount_supper='" + amountSupper
+                   + "'WHERE ID =" + ID;
+
+
+            SqlCommand cmdEditCoach = new SqlCommand(updateCoach, connection);
+            cmdEditCoach.ExecuteReader();
+
+            connection.Close();
+            /*
+            foreach (MealList meal in m_mealLists)
+            {
+                if (meal.ID() == ID)
+                {
+                    
+                }
+            }
+            */
         }
     }
 }

@@ -14,6 +14,7 @@ namespace stpoProject
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            CoachController coachController = (CoachController)Session["coachController"];
             UserController userController = (UserController)Session["userController"];
             ClientController clientController = (ClientController)Session["clientController"];
 
@@ -36,6 +37,8 @@ namespace stpoProject
             }
             else
             {
+                Btn_goToYourProfile.Enabled = false;
+                Btn_goToYourProfile.Visible = false;
                 btn_goToEditClientProfile.Enabled = true;
             }
 
@@ -58,7 +61,17 @@ namespace stpoProject
 
             Lbl_Name.Text = clientOwnerPage.name();
             Lbl_lastName.Text = clientOwnerPage.lastName();
-            Lbl_assignCoach.Text = clientOwnerPage.ID_assign_coach().ToString();
+
+            if(clientOwnerPage.ID_assign_coach() !=0)
+            {
+                Coach assignCoach = coachController.getCoachByIDuser(clientOwnerPage.ID_assign_coach());
+                Lbl_assignCoach.Text = assignCoach.name().ToString() + " " + assignCoach.lastName().ToString();
+            }
+            else
+            {
+                Lbl_assignCoach.Text = "brak";
+            }
+            
         }
 
         protected void Btn_wyloguj_Click(object sender, EventArgs e)
@@ -114,6 +127,11 @@ namespace stpoProject
             {
                 Response.Redirect("ClientDetailsForm.aspx");
             }
+        }
+
+        protected void Btn_workout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WorkoutListForm.aspx");
         }
     }
 }
