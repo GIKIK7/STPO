@@ -11,10 +11,36 @@ namespace stpoProject
     using controllers;
     public partial class WorkoutEditForm : System.Web.UI.Page
     {
+        static bool isCommit = false;
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            //Panel_workout.Controls.Clear();
+
+            List<string> keysDrop = Request.Form.AllKeys.Where(key => key.Contains("drop")).ToList();
+            List<string> keySets = Request.Form.AllKeys.Where(key => key.Contains("txtSets")).ToList();
+            List<string> keyReps = Request.Form.AllKeys.Where(key => key.Contains("txtReps")).ToList();
+
+            int i = 1;
+            foreach (string key in keysDrop)
+            {
+                this.CreateDropDown("drop" + i);
+                this.CreateSets("txtSets" + i);
+                this.CreateReps("txtReps" + i);
+                i++;
+            }
+        }
+
+
         protected void Page_Load(object sender, EventArgs e)
         { 
-            string workoutDate = Session["workoutDate"].ToString();
-            Lbl_editWorkout.Text = "Edycja treningu na: " + workoutDate;
+           if (isCommit)
+           {
+                Btn_edit.Enabled = true;
+           }
+            else
+            {
+                Btn_edit.Enabled = false;
+            }
         }
 
         protected void Btn_goBack_Click(object sender, EventArgs e)
@@ -37,42 +63,119 @@ namespace stpoProject
 
         protected void Btn_addField_Click(object sender, EventArgs e)
         {
-            List<Control> controlsList = (List<Control>)Session["controlsList"];
+            int index_Drp = Panel_workout.Controls.OfType<DropDownList>().ToList().Count + 1;
+            this.CreateDropDown("drop" + index_Drp);
 
-            DropDownList dropList = new DropDownList();
-            dropList.DataSource = SqlDataSource1;
-            dropList.DataTextField = "exerciseName";
-            dropList.DataValueField = "ID";
+            int index = Panel_workout.Controls.OfType<TextBox>().ToList().Count + 1;
+            this.CreateSets("txtSets" + index);
 
-            dropList.DataBind();
+            index = Panel_workout.Controls.OfType<TextBox>().ToList().Count + 1;
+            this.CreateReps("txtReps" + index);
+        }
 
-            controlsList.Add(dropList);
+        private void CreateDropDown(string id)
+        {
+            DropDownList drp = new DropDownList();
+            drp.ID = id;
 
-            controlsList.Add(new LiteralControl("&nbsp;&nbsp;&nbsp;"));
+            drp.DataSource = SqlDataSource1;
+            drp.DataTextField = "exerciseName";
+            drp.DataValueField = "ID";
 
-            TextBox sets = new TextBox();
-            sets.Width = 50;
+            drp.DataBind();
 
-            controlsList.Add(sets);
-            controlsList.Add(new LiteralControl("&nbsp; serii &nbsp;"));
+            Panel_workout.Controls.Add(drp);
 
-            TextBox reps = new TextBox();
-            reps.Width = 50;
+            Panel_workout.Controls.Add(new LiteralControl("&nbsp;&nbsp;&nbsp;"));
+        }
+        private void CreateSets(string id)
+        {
+            TextBox txt = new TextBox();
+            txt.ID = id;
+            txt.Width = 50;
 
-            controlsList.Add(reps);
-            controlsList.Add(new LiteralControl("&nbsp; powtórzeń"));
+            txt.DataBind();
 
+            Panel_workout.Controls.Add(txt);
+
+            Panel_workout.Controls.Add(new LiteralControl("&nbsp; serii &nbsp;"));
+        }
+        private void CreateReps(string id)
+        {
+            TextBox txt = new TextBox();
+            txt.ID = id;
+            txt.Width = 50;
+
+            txt.DataBind();
+
+            Panel_workout.Controls.Add(txt);
+
+            Panel_workout.Controls.Add(new LiteralControl("&nbsp; powtórzeń"));
             Panel_workout.Controls.Add(new LiteralControl("<br />"));
+            Panel_workout.Controls.Add(new LiteralControl("<br />"));
+        }
+        
+        protected void Btn_edit_Click(object sender, EventArgs e)
+        {
+            string message = "";
+
+            List<int> exercises = new List<int>();
+            List<int> sets = new List<int>();
+            List<int> reps = new List<int>();
+
+            int setsOrReps = 1;
+
+            foreach (TextBox textBox in Panel_workout.Controls.OfType<TextBox>())
+            {
+                textBox.DataBind();
+                //message += textBox.ID + ": " + textBox.Text + "\\n";
+                if(setsOrReps %2 != 0)
+                {
+                    sets.Add(Int16.Parse(textBox.Text));
+                }
+                else
+                {
+                    reps.Add(Int16.Parse(textBox.Text));
+                }
+                setsOrReps++;
+                
+            }
 
             
-            controlsList.Add(new LiteralControl("<br />"));
-            controlsList.Add(new LiteralControl("<br />"));
+            int c = 0;
 
-            foreach (Control ctrl in controlsList)
+            foreach (DropDownList drop in Panel_workout.Controls.OfType<DropDownList>())
             {
-                Panel_workout.Controls.Add(ctrl);
+                //message += drop.ID + ": " + drop.SelectedValue + "\\n";
+                exercises.Add(Int16.Parse(drop.SelectedValue));
+                c++;
             }
-            //DODAĆ UPDATOWANIE I MOZE ZEBY DANE BYLY JUZ WYPELIONE!
+
+            /*
+            for(int i=0; i < c; i ++)
+            {
+                message += exercises[i].ToString() + sets[i].ToString() + reps[i].ToString() + "\\n";
+            }
+
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "alert('" + message + "');", true);
+            */
+
+            ExerciseListController exerciseListController = (ExerciseListController)Session["exerciseListController"];
+            WorkoutController workoutController = (WorkoutController)Session["workoutController"];
+
+            string currWorkoutDate = Session["workoutDate"].ToString();
+            int IDcurrUser = Int16.Parse(Session["ID_current_user"].ToString());
+
+            Workout currWorkout = workoutController.getWorkoutByDate(currWorkoutDate, IDcurrUser);
+
+            exerciseListController.updateExerciseList(currWorkout.ID(), exercises, sets, reps);
+
+            Response.Redirect("WorkoutForm.aspx");
+        }
+
+        protected void Btn_commit_Click(object sender, EventArgs e)
+        {
+            isCommit=true;
         }
     }
 }

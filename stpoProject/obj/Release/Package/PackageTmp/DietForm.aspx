@@ -9,15 +9,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Button ID="Btn_goBack" runat="server" OnClick="Btn_goBack_Click" Text="Wróc do swojgo profilu" />
+        
         <table style="width:100%">
-
             <tr>
-                <td style="width:15%"></td>
+                <td style="width:15%">
+                    <asp:Button ID="Btn_goBack" runat="server" OnClick="Btn_goBack_Click" Text="Wróc do swojgo profilu" />
+                </td>
                 <td align="center" style="width:70%">
                     <asp:Label ID="Lbl_diet" runat="server" Font-Size="XX-Large" Text="Dieta na: "></asp:Label>
                 </td>
-                <td style="width:15%"></td>
+                <td style="width:15%">
+                    <asp:Button ID="Btn_goEditDiet" runat="server" OnClick="Btn_goEditDiet_Click" Text="Edytuj diete" />
+                </td>
             </tr>
 
              <tr>

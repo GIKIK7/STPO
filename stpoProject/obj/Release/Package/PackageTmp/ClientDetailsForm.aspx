@@ -63,6 +63,7 @@
                     <td style="width: 15%" align="right"></td>
                     <td style="width: 70%">
                         <asp:Button ID="Btn_Diet" runat="server" OnClick="Btn_makeDiet_Click" Text="Dieta" />
+                        <asp:Button ID="Btn_workout" runat="server" OnClick="Btn_workout_Click" Text="Trening" />
                     </td>
                     <td style="width: 15%">
                         &nbsp;</td>

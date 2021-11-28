@@ -28,10 +28,24 @@ namespace stpoProject
 
             foreach (ExerciseList exerList in currExerciseList)
             {
-                Label lbl_exercise = new Label();
+                Label lbl_exerciseName = new Label();
+                Label lbl_exerciseSets = new Label();
+                Label lbl_exerciseReps = new Label();
+
                 Exercise exercise = exerciseController.getExerciseByID(exerList.ID_exercise());
-                lbl_exercise.Text = exercise.name() + " " + exerList.sets().ToString() + " serii " + exerList.reps().ToString() + " powtórzeń";
-                Panel_workout.Controls.Add(lbl_exercise);
+                lbl_exerciseName.Text = exercise.name();
+                lbl_exerciseName.Width = 200;
+
+                lbl_exerciseSets.Text = exerList.sets().ToString() + " serii ";
+                lbl_exerciseSets.Width = 100;
+
+                lbl_exerciseReps.Text = exerList.reps().ToString() + " powtórzeń";
+                lbl_exerciseReps.Width = 100;
+
+
+                Panel_workout.Controls.Add(lbl_exerciseName);
+                Panel_workout.Controls.Add(lbl_exerciseSets);
+                Panel_workout.Controls.Add(lbl_exerciseReps);
                 Panel_workout.Controls.Add(new LiteralControl("<br />"));
             }
         }
