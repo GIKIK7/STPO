@@ -72,6 +72,14 @@ namespace stpoProject
             ExerciseController exerciseController = new ExerciseController();
             exerciseController.getExerciseListFromDatabase();
             Session["exerciseController"] = exerciseController;
+
+            CommentController commentController = new CommentController();
+            commentController.getCommentsFromDatabase();
+            Session["commentController"] = commentController;
+
+            RatingController ratingController = new RatingController();
+            ratingController.getRatingsFromDatabase();
+            Session["ratingController"] = ratingController;
         }
 
         protected void Btn_LogInClick(object sender, EventArgs e)

@@ -152,6 +152,18 @@ namespace stpoProject.controllers
             }
             return "";
         }
-    
+
+        public int getIDbyLogin(string login)
+        {
+            foreach (User user in m_users)
+            {
+                if (user.login() == login)
+                {
+                    return user.ID();
+                }
+            }
+            return -1;
+        }
+
     }
 }

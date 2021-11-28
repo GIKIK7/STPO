@@ -12,6 +12,8 @@ namespace stpoProject.datasets
         private string m_name;
         private string m_lastName;
         private int m_ID_category;
+        private int m_dietPrice;
+        private int m_workoutPrice;
 
         public Coach(int ID, int ID_user, string name, string lastName, int ID_category)
         {
@@ -50,6 +52,17 @@ namespace stpoProject.datasets
         {
             return m_ID_category;
         }
+
+        public int dietPrice()
+        {
+            return m_dietPrice;
+        }
+
+        public int workoutPrice()
+        {
+            return m_workoutPrice;
+        }
+
         public void setID(int ID)
         {
             m_ID = ID;
@@ -66,6 +79,16 @@ namespace stpoProject.datasets
         public void setIDcategory(int IDcategory)
         {
             m_ID_category = IDcategory;
+        }
+
+        public void setDietPrice(int price)
+        {
+            m_dietPrice = price;
+        }
+
+        public void setworkoutPrice(int price)
+        {
+            m_workoutPrice = price;
         }
 
     }

@@ -38,6 +38,8 @@ namespace stpoProject.controllers
                 int coachtUserID = Int16.Parse(readerGetCoach.GetValue(1).ToString());
                 string coachName = readerGetCoach.GetValue(2).ToString();
                 string coachLastName = readerGetCoach.GetValue(3).ToString();
+                int workoutPrice = Int16.Parse(readerGetCoach.GetValue(5).ToString());
+                int dietPrice = Int16.Parse(readerGetCoach.GetValue(6).ToString());
                 int ID_category = 0;
 
                 if (readerGetCoach.GetValue(4).ToString() != "")
@@ -46,6 +48,8 @@ namespace stpoProject.controllers
                 }
 
                 Coach coach = new Coach(coachID, coachtUserID, coachName, coachLastName, ID_category);
+                coach.setDietPrice(dietPrice);
+                coach.setworkoutPrice(workoutPrice);
                 m_coaches.Add(coach);
             }
             connection.Close();
@@ -124,6 +128,29 @@ namespace stpoProject.controllers
             return -1;
         }
     
+        public void updatePrice(bool dietPrice, int value, int ID_coach)
+        {
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+
+            connection.Open();
+
+            String strUpdateData = "";
+
+            if (dietPrice)
+            {
+                strUpdateData = "UPDATE [dbo].[coaches] SET dietPrice ='" + value + "' WHERE ID_user ='" + ID_coach + "'";
+            }
+            else
+            {
+                strUpdateData = "UPDATE [dbo].[coaches] SET workoutPrice ='" + value + "' WHERE ID_user ='" + ID_coach + "'";
+            }
+
+            SqlCommand cmdUpdate = new SqlCommand(strUpdateData, connection);
+            cmdUpdate.ExecuteReader();
+
+            connection.Close();
+        }
+
         public void updateCoach(string name, string lastName, int category, int ID_user)
         {
             SqlConnection connection = new SqlConnection(builder.ConnectionString);

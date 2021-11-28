@@ -169,6 +169,7 @@
     <Compile Include="controllers\CategoryControllers.cs" />
     <Compile Include="controllers\ClientController.cs" />
     <Compile Include="controllers\CoachController.cs" />
+    <Compile Include="controllers\CommentController.cs" />
     <Compile Include="controllers\ConversationController.cs" />
     <Compile Include="controllers\DietController.cs" />
     <Compile Include="controllers\ExerciseController.cs" />
@@ -176,11 +177,13 @@
     <Compile Include="controllers\MealListController.cs" />
     <Compile Include="controllers\MealController.cs" />
     <Compile Include="controllers\MessageController.cs" />
+    <Compile Include="controllers\RatingController.cs" />
     <Compile Include="controllers\UserController.cs" />
     <Compile Include="controllers\WorkoutController.cs" />
     <Compile Include="datasets\Category.cs" />
     <Compile Include="datasets\Client.cs" />
     <Compile Include="datasets\Coach.cs" />
+    <Compile Include="datasets\Comment.cs" />
     <Compile Include="datasets\Conversation.cs" />
     <Compile Include="datasets\Diet.cs" />
     <Compile Include="datasets\Exercise.cs" />
@@ -188,6 +191,7 @@
     <Compile Include="datasets\MealList.cs" />
     <Compile Include="datasets\Meal.cs" />
     <Compile Include="datasets\Message.cs" />
+    <Compile Include="datasets\Rating.cs" />
     <Compile Include="datasets\User.cs" />
     <Compile Include="datasets\Workout.cs" />
     <Compile Include="DietCreateForm.aspx.cs">
