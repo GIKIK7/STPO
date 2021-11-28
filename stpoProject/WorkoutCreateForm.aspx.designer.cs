@@ -11,7 +11,7 @@ namespace stpoProject
 {
 
 
-    public partial class WorkoutEditForm1
+    public partial class WorkoutEditForm
     {
 
         /// <summary>
@@ -49,6 +49,15 @@ namespace stpoProject
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lbl_editWorkout;
+
+        /// <summary>
+        /// Kontrolka workout_calendar.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar workout_calendar;
 
         /// <summary>
         /// Kontrolka Btn_addField.

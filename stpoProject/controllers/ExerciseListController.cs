@@ -92,9 +92,6 @@ namespace stpoProject.controllers
                 }
             }
 
-            
-
-
             for (int i = 0; i < ID_exercise.Count(); i++)
             {
                 connection.Open();
@@ -128,6 +125,44 @@ namespace stpoProject.controllers
 
             this.getExerciseListFromDatabase();
 
+        }
+    
+        public void addExerciseListToDB(int ID_workout, List<int> ID_exercise, List<int> sets, List<int> reps)
+        {
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+
+            for (int i = 0; i < ID_exercise.Count(); i++)
+            {
+                connection.Open();
+
+                String insert = "INSERT INTO [dbo].[exerciseList] (ID_workout, ID_exercise, sets, reps) VALUES ('" + ID_workout + "','" + ID_exercise[i] + "','" +
+                    sets[i] + "','" + reps[i] + "')";
+
+                SqlCommand cmdInsert = new SqlCommand(insert, connection);
+                cmdInsert.ExecuteReader();
+
+                connection.Close();
+
+                connection.Open();
+
+                String getID = "SELECT ID FROM [dbo].[exerciseList]  WHERE ID_workout = '" + ID_workout + "' AND ID_exercise = '" + ID_exercise[i] + "' AND sets='" + sets[i] +
+                    "' AND reps= '" + reps[i] + "'";
+
+                SqlCommand cmdGetID = new SqlCommand(getID, connection);
+                SqlDataReader readerGetID = cmdGetID.ExecuteReader();
+
+                while (readerGetID.Read())
+                {
+                    int ID = Int16.Parse(readerGetID.GetValue(0).ToString());
+
+                    ExerciseList exerciseList = new ExerciseList(ID, ID_workout, ID_exercise[i], sets[i], reps[i]);
+                    m_exerciseLists.Add(exerciseList);
+                }
+
+                connection.Close();
+            }
+
+            this.getExerciseListFromDatabase();
         }
     }
 }

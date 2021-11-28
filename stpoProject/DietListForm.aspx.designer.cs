@@ -42,6 +42,15 @@ namespace stpoProject
         protected global::System.Web.UI.WebControls.Label Lbl_DIet;
 
         /// <summary>
+        /// Kontrolka Btn_createDiet.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_createDiet;
+
+        /// <summary>
         /// Kontrolka Panel_diet.
         /// </summary>
         /// <remarks>

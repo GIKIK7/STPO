@@ -13,18 +13,22 @@ namespace stpoProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ClientController clientController = (ClientController)Session["clientController"];
+            CoachController coachController = (CoachController)Session["coachController"];
             DietController dietController = (DietController)Session["dietController"];
             MealListController mealListController = (MealListController)Session["mealListController"];
             MealController mealController = (MealController)Session["mealController"];
             UserController userController = (UserController)Session["userController"];
 
+            int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
             string date = Session["dietDate"].ToString();
             int IDdietOwnerUser = Int16.Parse(Session["ID_user"].ToString());
-            User currUser = userController.getUserbyID(IDdietOwnerUser);
+
+            User currUser = userController.getUserbyID(currUserID);
 
             Diet currDiet = dietController.getDietByDate(date, IDdietOwnerUser);
 
-            MealList currMealList = mealListController.getMealListByID(currDiet.ID());
+            MealList currMealList = mealListController.getMealListByID(currDiet.ID_mealList());
 
             Lbl_diet.Text += currDiet.date();
 
@@ -36,6 +40,27 @@ namespace stpoProject
 
             Lbl_supperMealName.Text = mealController.getNameByID(currMealList.IDmealSupper()) + " ";
             Lbl_amountSupper.Text = currMealList.AmountSupper().ToString() + " g";
+
+            if (!currUser.isTrener())
+            {
+                Btn_goEditDiet.Enabled = false;
+                Btn_goEditDiet.Visible = false;
+            }
+            else
+            {
+                int IDpageOwner = Int16.Parse(Session["ID_user"].ToString());
+
+                Client pageOwnerClient = clientController.getClientByIDuser(IDpageOwner);
+                Coach currCoach = coachController.getCoachByIDuser(currUserID);
+
+                User assignCoachUser = userController.getUserbyID(pageOwnerClient.ID_assign_coach());
+
+                if (pageOwnerClient.ID_assign_coach() != currUser.ID())
+                {
+                    Btn_goEditDiet.Enabled = false;
+                    Btn_goEditDiet.Text = "Klient nie jest twoim podopiecznym";
+                }
+            }
         }
 
         protected void Btn_goBack_Click(object sender, EventArgs e)

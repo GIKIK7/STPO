@@ -13,16 +13,40 @@ namespace stpoProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ClientController clientController = (ClientController)Session["clientController"];
+            CoachController coachController = (CoachController)Session["coachController"];
             UserController userController = (UserController)Session["userController"];
-            int currUserID = Int16.Parse(Session["ID_user"].ToString());
+            int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
+            int pageOwnerID = Int16.Parse(Session["ID_user"].ToString());
 
             WorkoutController workoutController = (WorkoutController)Session["workoutController"];
 
             User currUser = userController.getUserbyID(currUserID);
 
+            if (!currUser.isTrener())
+            {
+                Btn_createWorkout.Enabled = false;
+                Btn_createWorkout.Visible = false;
+            }
+            else
+            {
+                int IDpageOwner = Int16.Parse(Session["ID_user"].ToString());
+
+                Client pageOwnerClient = clientController.getClientByIDuser(IDpageOwner);
+                Coach currCoach = coachController.getCoachByIDuser(currUserID);
+
+                User assignCoachUser = userController.getUserbyID(pageOwnerClient.ID_assign_coach());
+
+                if (pageOwnerClient.ID_assign_coach() != currCoach.ID_user())
+                {
+                    Btn_createWorkout.Enabled = false;
+                    Btn_createWorkout.Text = "Klient nie jest twoim podopiecznym";
+                }
+            }
+
             workoutController.getWorkoutFromDatabase();
 
-            List<Workout> workouts = workoutController.getWorkoutsOfUser(currUserID);
+            List<Workout> workouts = workoutController.getWorkoutsOfUser(pageOwnerID);
 
             foreach (Workout workout in workouts)
             {
@@ -66,6 +90,11 @@ namespace stpoProject
             {
                 Response.Redirect("ClientDetailsForm.aspx");
             }
+        }
+
+        protected void Btn_createWorkout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WorkoutCreateForm.aspx");
         }
     }
 }

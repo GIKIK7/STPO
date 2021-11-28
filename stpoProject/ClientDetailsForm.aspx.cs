@@ -56,6 +56,9 @@ namespace stpoProject
                 {
                     Btn_Diet.Enabled = false;
                     Btn_Diet.Text = "dieta- klient nie jest Twoim podopiecznym";
+
+                    Btn_workout.Enabled= false;
+                    Btn_workout.Text = "trening- klient nie jest Twoim podopiecznym";
                 }
             }
 

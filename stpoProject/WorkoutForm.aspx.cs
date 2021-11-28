@@ -13,14 +13,40 @@ namespace stpoProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ClientController clientController = (ClientController)Session["clientController"];
+            CoachController coachController = (CoachController)Session["coachController"];
             WorkoutController workoutController = (WorkoutController)Session["workoutController"];
             ExerciseListController exerciseListController = (ExerciseListController)Session["exerciseListController"];
             ExerciseController exerciseController = (ExerciseController)Session["exerciseController"];
             UserController userController = (UserController)Session["userController"];
+
+            int pageOwnerID = Int16.Parse(Session["ID_user"].ToString());
             int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
             User currUser = userController.getUserbyID(currUserID);
+
             string dateCurrWorkout = Session["workoutDate"].ToString();
-            Workout currWorkout = workoutController.getWorkoutByDate(dateCurrWorkout, currUserID);
+            Workout currWorkout = workoutController.getWorkoutByDate(dateCurrWorkout, pageOwnerID);
+
+            if (!currUser.isTrener())
+            {
+                Btn_editWorkout.Enabled = false;
+                Btn_editWorkout.Visible = false;
+            }
+            else
+            {
+                int IDpageOwner = Int16.Parse(Session["ID_user"].ToString());
+
+                Client pageOwnerClient = clientController.getClientByIDuser(IDpageOwner);
+                Coach currCoach = coachController.getCoachByIDuser(currUserID);
+
+                User assignCoachUser = userController.getUserbyID(pageOwnerClient.ID_assign_coach());
+
+                if (pageOwnerClient.ID_assign_coach() != currCoach.ID_user())
+                {
+                    Btn_editWorkout.Enabled = false;
+                    Btn_editWorkout.Text = "Klient nie jest twoim podopiecznym";
+                }
+            }
 
             Lbl_workout.Text += currWorkout.date();
 
@@ -70,8 +96,6 @@ namespace stpoProject
 
         protected void Btn_editWorkout_Click(object sender, EventArgs e)
         {
-            List<Control> controlsList = new List<Control>();
-            Session["controlsList"] = controlsList;
             Response.Redirect("WorkoutEditForm.aspx");
         }
     }

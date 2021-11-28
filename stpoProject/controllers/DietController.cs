@@ -77,7 +77,51 @@ namespace stpoProject.controllers
                 }
             }
             return null;
-        }    
-   
+        }
+
+        public void addDiet(int ID_user, int ID_mealList, string dateStr)
+        {
+            DateTime date = DateTime.Parse(dateStr);
+
+            Diet diet = new Diet(ID_user, ID_mealList, date);
+
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+
+            connection.Open();
+
+            SqlCommand cmd;
+
+            String insertStr = "INSERT INTO [dbo].[diet] (ID_user, ID_mealList ,dateDiet) VALUES ('" + ID_user + "','" + ID_mealList + "','" + dateStr + "')";
+
+            using (cmd = new SqlCommand(insertStr, connection))
+            {
+                cmd.ExecuteReader();
+            }
+
+            connection.Close();
+
+
+            connection.Open();
+
+            int ID = 0;
+
+            String getID = "SELECT ID FROM [dbo].[diet] WHERE ID_user='" + ID_user + "' AND dateDiet ='" + dateStr + "'";
+
+            using (SqlCommand command = new SqlCommand(getID, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ID = Int16.Parse(reader.GetValue(0).ToString());
+                    }
+                }
+            }
+            diet.setID(ID);
+
+            m_diets.Add(diet);
+
+            connection.Close();
+        }
     }
 }

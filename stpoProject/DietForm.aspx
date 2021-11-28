@@ -28,7 +28,7 @@
                     <asp:Label ID="Lbl_sniadanie" runat="server" Text="Śniadanie: "></asp:Label>
                  </td>
                 <td>
-                    <asp:Label ID="Lbl_breakfastMealName" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="Lbl_breakfastMealName" runat="server" Width="200px"></asp:Label>
                     <asp:Label ID="Lbl_amountBreakfast" runat="server" Text=""></asp:Label>
                 </td>
                 <td></td>
@@ -39,7 +39,7 @@
                     <asp:Label ID="Lbl_dinner" runat="server" Text="Obiad: "></asp:Label>
                 </td>
                 <td>
-                    <asp:Label ID="Lbl_dinnerName" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="Lbl_dinnerName" runat="server" Width="200px"></asp:Label>
                     <asp:Label ID="Lbl_amountDinner" runat="server"></asp:Label>
                 </td>
                 <td></td>
@@ -50,7 +50,7 @@
                     <asp:Label ID="Lbl_supper" runat="server" Text="Kolacja: "></asp:Label>   
                 </td>
                 <td>
-                    <asp:Label ID="Lbl_supperMealName" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="Lbl_supperMealName" runat="server" Width="200px"></asp:Label>
                     <asp:Label ID="Lbl_amountSupper" runat="server" Text=""></asp:Label>
                 </td>
                 <td></td>

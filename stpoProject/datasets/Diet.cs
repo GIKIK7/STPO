@@ -19,6 +19,12 @@ namespace stpoProject.datasets
             m_ID_mealList = ID_mealList;
             m_date = date;
         }
+        public Diet(int ID_user, int ID_mealList, DateTime date)
+        {
+            m_ID_user = ID_user;
+            m_ID_mealList = ID_mealList;
+            m_date = date;
+        }
 
         public int ID()
         {

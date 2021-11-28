@@ -18,7 +18,9 @@
                 <td align="center" style="width:70%">
                     <asp:Label ID="Lbl_DIet" runat="server" Text="Dieta" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
                 </td>
-                <td style="width:15%"></td>
+                <td style="width:15%">
+                    <asp:Button ID="Btn_createDiet" runat="server" OnClick="Btn_createDiet_Click" Text="Stwórz dietę" />
+                </td>
             </tr>
 
             <tr>

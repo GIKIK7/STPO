@@ -128,15 +128,68 @@ namespace stpoProject.controllers
             cmdEditCoach.ExecuteReader();
 
             connection.Close();
-            /*
+            
             foreach (MealList meal in m_mealLists)
             {
                 if (meal.ID() == ID)
                 {
-                    
+                    meal.setIDmealBrakfast(IDbreakfast);
+                    meal.setAmountBreakfast(amountBreakfast);
+                    meal.setIDdinner(IDdinner);
+                    meal.setAmountDinner(amountDinner);
+                    meal.setIDsupper(IDsuppeer);
+                    meal.setAmountSupper(amountSupper);
                 }
             }
-            */
+            
         }
+
+        public int addMealListReturnID(int IDbreakfast, int amountBreakfast, int IDdinner, int amountDinner, int IDsuppeer, int amountSupper)
+        {
+            MealList mealList = new MealList(IDbreakfast, amountBreakfast, IDdinner, amountDinner, IDsuppeer, amountSupper);
+
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+
+            connection.Open();
+
+            SqlCommand cmd;
+
+            String insertStr = "INSERT INTO [dbo].[mealList] (ID_meal_breakfast, Amount_breakfast, ID_meal_dinner, Amount_dinner, ID_meal_supper, Amount_supper) " +
+                "VALUES ('" + IDbreakfast + "','" + amountBreakfast + "','" + IDdinner + "','" + amountDinner + "','" + IDsuppeer + "','" + amountSupper + "')";
+
+            using (cmd = new SqlCommand(insertStr, connection))
+            {
+                cmd.ExecuteReader();
+            }
+
+            connection.Close();
+
+
+            connection.Open();
+
+            int ID = 0;
+
+            String getID = "SELECT ID FROM [dbo].[mealList] WHERE ID_meal_breakfast ='" + IDbreakfast + "' AND Amount_breakfast='" + amountBreakfast + "' AND ID_meal_dinner='" + IDdinner
+                + "'AND Amount_dinner ='" + amountDinner + "'AND ID_meal_supper='" + IDsuppeer + "'AND Amount_supper='" + amountSupper + "'";
+
+            using (SqlCommand command = new SqlCommand(getID, connection))
+            {
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ID = Int16.Parse(reader.GetValue(0).ToString());
+                    }
+                }
+            }
+            mealList.setID(ID);
+
+            m_mealLists.Add(mealList);
+
+            connection.Close();
+
+            return mealList.ID();
+        }
+
     }
 }

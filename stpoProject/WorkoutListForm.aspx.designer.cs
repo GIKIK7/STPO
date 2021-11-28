@@ -42,6 +42,15 @@ namespace stpoProject
         protected global::System.Web.UI.WebControls.Label Lbl_Workout;
 
         /// <summary>
+        /// Kontrolka Btn_createWorkout.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_createWorkout;
+
+        /// <summary>
         /// Kontrolka Panel_workout.
         /// </summary>
         /// <remarks>

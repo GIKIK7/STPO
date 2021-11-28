@@ -13,12 +13,14 @@
         <table style="width:100%">
 
             <tr>
-                <td class="auto-style1">
+                <td style="width:15%">
                 </td>
-                <td align="center" class="auto-style2">
+                <td align="center" style ="width:70% ">
                     <asp:Label ID="Lbl_Workout" runat="server" Text="Treningi" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
                 </td>
-                <td class="auto-style1"></td>
+                <td style="width:15%">
+                    <asp:Button ID="Btn_createWorkout" runat="server" Text="Stwórz trening" OnClick="Btn_createWorkout_Click" />
+                </td>
             </tr>
 
             <tr>
