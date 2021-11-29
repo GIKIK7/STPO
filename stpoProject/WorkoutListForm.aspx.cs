@@ -58,6 +58,20 @@ namespace stpoProject
                 Panel_workout.Controls.Add(LBworkout);
                 Panel_workout.Controls.Add(new LiteralControl("<br />"));
             }
+
+            if (currUser.isTrener())
+            {
+                Coach currCoach = coachController.getCoachByIDuser(currUserID);
+
+                Lbl_lastName.Text = currCoach.name() + " " + currCoach.lastName();
+            }
+            else
+            {
+                Client currClient = clientController.getClientByIDuser(currUserID);
+
+                Lbl_lastName.Text = currClient.name() + " " + currClient.lastName();
+            }
+
         }
 
         protected void LnkBtn_Click(object sender, EventArgs e)

@@ -36,7 +36,6 @@
                 <div class="mb-3"><asp:Panel ID="Panel1" runat="server" style="width:100%" Height="500px" ScrollBars="Auto"></asp:Panel></div>
                 <div class="mb-3"><asp:TextBox ID="TxtBox_content" Width="90%" runat="server"></asp:TextBox>
                 <asp:Button CssClass="btn btn-dark" ID="Btn_Send" runat="server" Text="Wyślij" style="width:9%" OnClick="Btn_Send_Click" /></div>
-                <div class="mb-3"><a style="width:10%" class="btn" href="MessageContacts.aspx">Wróć</a></div>
             </div>
        </div>        
     </form>

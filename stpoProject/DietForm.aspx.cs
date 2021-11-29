@@ -61,6 +61,21 @@ namespace stpoProject
                     Btn_goEditDiet.Text = "Klient nie jest twoim podopiecznym";
                 }
             }
+
+            if (currUser.isTrener())
+            {
+                Coach currCoach = coachController.getCoachByIDuser(currUserID);
+
+                Lbl_lastName.Text = currCoach.name() + " " + currCoach.lastName();
+            }
+            else
+            {
+                Client currClient = clientController.getClientByIDuser(currUserID);
+
+                Lbl_lastName.Text = currClient.name() + " " + currClient.lastName();
+            }
+
+
         }
 
         protected void Btn_goBack_Click(object sender, EventArgs e)

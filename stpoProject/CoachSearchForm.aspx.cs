@@ -18,7 +18,14 @@ namespace stpoProject
         static bool ascSortCategory = false;
         protected void Page_Load(object sender, EventArgs e)
         {
+            UserController userController = (UserController)Session["userController"];
+            ClientController clientController = (ClientController)Session["clientController"];
 
+            int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
+            User currUser = userController.getUserbyID(currUserID);
+            Client currClient = clientController.getClientByIDuser(currUserID);
+
+            Lbl_lastName.Text = currClient.name() + " " + currClient.lastName();
         }
 
         public void itemCommand(object sender, DataListCommandEventArgs e)

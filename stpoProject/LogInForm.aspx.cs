@@ -104,14 +104,9 @@ namespace stpoProject
                 }
                 else
                 {
-                    LbL_Helper.Text = "Niepoprawne haslo!";
+                    LbL_Helper.Text = "Niepoprawne hasło!";
                 }
             }
-        }
-
-        protected void Btn_testowa_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Testowa.aspx");
         }
     }
 }

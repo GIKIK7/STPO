@@ -33,7 +33,7 @@
         <h2 class="text-center"><strong>Konwersacje</strong></h2><br />
         <div class="container">
             <div class="row navigation-clean-button">
-                <div class="mb-3 navbar-brand"><asp:Label ID="LbL_contactsInfo" runat="server" Text="Przejdź do rozmowy z: "></asp:Label><br /></div>
+                <div class="mb-3 navbar-brand"><asp:Label ID="LbL_contactsInfo" runat="server" Text="Rozmowy: "></asp:Label><br /></div>
                 <div class="mb-3"><asp:Panel ID="Panel_conversation" runat="server"></asp:Panel></div>
             </div>
             <asp:Label ID="Lbl_helper" runat="server"></asp:Label>

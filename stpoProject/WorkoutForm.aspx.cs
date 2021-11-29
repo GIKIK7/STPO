@@ -66,7 +66,7 @@ namespace stpoProject
                 lbl_exerciseSets.Width = 100;
 
                 lbl_exerciseReps.Text = exerList.reps().ToString() + " powtórzeń";
-                lbl_exerciseReps.Width = 100;
+                lbl_exerciseReps.Width = 150;
 
 
                 Panel_workout.Controls.Add(lbl_exerciseName);
@@ -74,6 +74,20 @@ namespace stpoProject
                 Panel_workout.Controls.Add(lbl_exerciseReps);
                 Panel_workout.Controls.Add(new LiteralControl("<br />"));
             }
+
+            if (currUser.isTrener())
+            {
+                Coach currCoach = coachController.getCoachByIDuser(currUserID);
+
+                Lbl_lastName.Text = currCoach.name() + " " + currCoach.lastName();
+            }
+            else
+            {
+                Client currClient = clientController.getClientByIDuser(currUserID);
+
+                Lbl_lastName.Text = currClient.name() + " " + currClient.lastName();
+            }
+
         }
 
         protected void Btn_goBack_Click(object sender, EventArgs e)

@@ -17,7 +17,14 @@ namespace stpoProject
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            UserController userController = (UserController)Session["userController"];
+            CoachController coachController = (CoachController)Session["coachController"];
 
+            int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
+            User currUser = userController.getUserbyID(currUserID);
+            Coach currCoach = coachController.getCoachByIDuser(currUserID);
+
+            Lbl_lastName.Text = currCoach.name() + " " + currCoach.lastName();
         }
 
         public void itemCommand(object sender, DataListCommandEventArgs e)
@@ -136,7 +143,7 @@ namespace stpoProject
             if (onlyCharges)
             {
                 DataSource_coaches.SelectCommand = "SELECT [ID], [name], [last_name] FROM [clients] WHERE ID_assign_coach =" + currUserID;
-                Btn_charges.Text = "wszyscy kleinci";
+                Btn_charges.Text = "wszyscy klienci";
             }
             else
             {

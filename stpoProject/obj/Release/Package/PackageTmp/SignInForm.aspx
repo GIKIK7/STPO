@@ -3,120 +3,34 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">  
-    <title></title>  
-    <style type="text/css">  
-        .auto-style1 {  
-            width: 100%;  
-        }  
-        .auto-style4 {
-            width: 120px;
-        }
-        .auto-style5 {
-            width: 1001px;
-        }
-        .auto-style6 {
-            width: 120px;
-            height: 26px;
-        }
-        .auto-style7 {
-            width: 1001px;
-            height: 26px;
-        }
-        .auto-style8 {
-            width: 120px;
-        }
-        .auto-style9 {
-            width: 120px;
-            height: 26px;
-        }
-    </style>  
+<head runat="server">   
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+    <title>Zarejestruj się</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css"/>
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css"/>
+    <link rel="stylesheet" href="assets/css/styles.css"/> 
 </head>  
 <body>  
-    <form id="form1" runat="server">  
-    <div>  
-      
-        <table class="auto-style1">  
-
-            <tr>
-                <td class="auto-style4"></td>
-                <td align ="center" class="auto-style5">
-                    <asp:Label ID="Lbl_SignIn" runat="server" Text="Zarejestruj się!"></asp:Label>
-                </td>
-                <td class="auto-style8"></td>
-            </tr>
-            
-            <tr>
-                <td class="auto-style6">
-                    <asp:Label ID="Lbl_login" runat="server" Text="Login:"></asp:Label>
-                </td>
-                <td class="auto-style7">
-                    <asp:TextBox ID="TxtBox_login" runat="server" Width="407px"></asp:TextBox>
-                </td>
-                <td class="auto-style9"></td>
-            </tr>  
-            <tr>  
-                <td class="auto-style6">
-                    <asp:Label ID="Lbl_password" runat="server" Text="Hasło:"></asp:Label>
-                </td>
-                <td class="auto-style7">
-                    <asp:TextBox ID="TxtBox_password" runat="server" Width="404px"></asp:TextBox>
-                </td>
-                <td class="auto-style9"></td>
-            </tr>  
-
-            <tr>
-                <td class="auto-style6">
-                    <asp:Label ID="Lbl_name" runat="server" Text="Imie:"></asp:Label>
-                </td>
-                <td class="auto-style7">
-                    <asp:TextBox ID="TxtBox_name" runat="server" Width="407px"></asp:TextBox>
-                </td>
-                <td class="auto-style9"></td>
-            </tr>  
-            <tr>  
-                <td class="auto-style6">
-                    <asp:Label ID="Lbl_lastName" runat="server" Text="Nazwisko:"></asp:Label>
-                </td>
-                <td class="auto-style7">
-                    <asp:TextBox ID="TxtBox_LastName" runat="server" Width="404px"></asp:TextBox>
-                </td>
-                <td class="auto-style9"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td>
-                    <asp:DropDownList ID="DropList_category" runat="server" DataSourceID="SqlDataSource1" DataTextField="categoryName" DataValueField="categoryName" Enabled="False">
-                    </asp:DropDownList>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBstpoConnectionString %>" SelectCommand="SELECT [categoryName], [ID] FROM [category]"></asp:SqlDataSource>
-                </td>
-                <td></td>
-            </tr>
-
-            <tr>  
-                <td></td>
-                <td class="auto-style5">
-                    <asp:CheckBox ID="ChkBox_trener" runat="server" OnCheckedChanged="ChkBox_trener_CheckedChanged" Text="Trener" AutoPostBack="true" />
-                </td>
-                <td></td>
-            </tr> 
-
-            <tr>  
-                <td class="auto-style4">
-                    <asp:Label ID="Lbl_Helper" runat="server"></asp:Label>
-                </td>
-                <td class="auto-style5">
-                    <asp:Button ID="Btn_SignIn" runat="server" Text="Zarejestruj sie" OnClick="Btn_SignIn_Click" />
-                </td>
-                <td class="auto-style8">
-                    <a href="LogInForm.aspx">Zaloguj się</a>
-                </td>
-            </tr>
-
-        </table>  
-      
-    </div>  
-    </form>  
+    <section class="login-clean">
+        <form method="post" runat="server">
+            <h2 class="text-center"><strong>Zarejestruj się</strong></h2><br /><hr />
+            <div class="mb-3"><asp:CheckBox ID="ChkBox_trener" runat="server" OnCheckedChanged="ChkBox_trener_CheckedChanged" Text="&nbspTrener" AutoPostBack="true" /></div>
+            <div class="mb-3"><asp:DropDownList ID="DropList_category" runat="server" DataSourceID="SqlDataSource1" DataTextField="categoryName" DataValueField="categoryName" Enabled="False"></asp:DropDownList></div>
+            <div class="mb-3"><asp:Label ID="Lbl_login" runat="server" Font-Size="Large" Text="Login:"></asp:Label></div>
+            <div class="mb-3"><asp:TextBox CssClass="form-control" ID="TxtBox_login" runat="server" Font-Size="Large"></asp:TextBox></div>
+            <div class="mb-3"><asp:Label ID="Lbl_password" runat="server" Font-Size="Large" Text="Hasło:"></asp:Label></div>
+            <div class="mb-3"><asp:TextBox CssClass="form-control" ID="TxtBox_password" runat="server" Font-Size="Large" TextMode="Password" ></asp:TextBox></div>
+            <div class="mb-3"><asp:Label ID="Lbl_name" runat="server" Font-Size="Large" Text="Imię:"></asp:Label></div>
+            <div class="mb-3"><asp:TextBox CssClass="form-control" ID="TxtBox_name" runat="server" Font-Size="Large"></asp:TextBox></div>
+            <div class="mb-3"><asp:Label ID="Lbl_lastName" runat="server" Font-Size="Large" Text="Nazwisko:"></asp:Label></div>
+            <div class="mb-3"><asp:TextBox CssClass="form-control" ID="TxtBox_LastName" runat="server" Font-Size="Large"></asp:TextBox></div>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBstpoConnectionString %>" SelectCommand="SELECT [categoryName], [ID] FROM [category]"></asp:SqlDataSource>
+            <div class="mb-3"><asp:Button CssClass="btn btn-primary d-block w-100" ID="Btn_SignIn" runat="server" BorderStyle="None" Font-Size="Large" OnClick="Btn_SignIn_Click" Text="Zarejestruj się"/></div>
+            <div class="mb-3 text-center"><asp:Label ID="Lbl_Helper" runat="server" Font-Size="Medium" ForeColor="Red"></asp:Label></div>
+            <a class="forgot" href="LogInForm.aspx">Zaloguj się</a>
+        </form>
+    </section>
 </body>  
-</html> 
+</html>  

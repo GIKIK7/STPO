@@ -43,6 +43,26 @@ namespace stpoProject
                 LinkBtn_conversation.Click += new EventHandler(linkClicked);
                 Panel_conversation.Controls.Add(LinkBtn_conversation);
                 Panel_conversation.Controls.Add(new LiteralControl("<br />"));
+
+                ClientController clientController = (ClientController)Session["clientController"];
+                CoachController coachController = (CoachController)Session["coachController"];
+
+                int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
+                User currUser = userController.getUserbyID(currUserID);
+
+                if (currUser.isTrener())
+                {
+                    Coach currCoach = coachController.getCoachByIDuser(currUserID);
+
+                    Lbl_lastName.Text = currCoach.name() + " " + currCoach.lastName();
+                }
+                else
+                {
+                    Client currClient = clientController.getClientByIDuser(currUserID);
+
+                    Lbl_lastName.Text = currClient.name() + " " + currClient.lastName();
+                }
+
             }
             
         }

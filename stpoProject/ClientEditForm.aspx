@@ -26,7 +26,7 @@
 <body style="background-color:#f1f7fc">
     <form id="form2" runat="server">
         <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button">
-            <div class="container"><a class="navbar-brand" href="CoachDetailsForm.aspx"><img class="logo" src="assets/logoS.png" />
+            <div class="container"><a class="navbar-brand" href="ClientDetailsForm.aspx"><img class="logo" src="assets/logoS.png" />
                 <asp:Label ID="Lbl_lastName" runat="server" Text="Imię i Nazwisko"></asp:Label></a>
             </div>
         </nav><br />

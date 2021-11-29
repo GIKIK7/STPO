@@ -82,8 +82,8 @@ namespace stpoProject.controllers
 
             SqlCommand cmd;
 
-            String insertStr = "INSERT INTO [dbo].[coaches] (ID_user, name, last_name, ID_category) VALUES ('" + ID_user + "','" + name + "','" +
-                lastName + "','" + ID_category + "')";
+            String insertStr = "INSERT INTO [dbo].[coaches] (ID_user, name, last_name, ID_category, workoutPrice, dietPrice) VALUES ('" + ID_user + "','" + name + "','" +
+                lastName + "','" + ID_category + "','" + 0 + "','" + 0 + "')";
 
             using (cmd = new SqlCommand(insertStr, connection))
             {

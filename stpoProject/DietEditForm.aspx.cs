@@ -20,11 +20,31 @@ namespace stpoProject
 
             string date = Session["dietDate"].ToString();
             int IDdietOwnerUser = Int16.Parse(Session["ID_user"].ToString());
+
             User currUser = userController.getUserbyID(IDdietOwnerUser);
 
             Diet currDiet = dietController.getDietByDate(date, IDdietOwnerUser);
 
             Lbl_diet.Text = "Edytuj diete na " + currDiet.date();
+
+            ClientController clientController = (ClientController)Session["clientController"];
+            CoachController coachController = (CoachController)Session["coachController"];
+
+            int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
+            User currUserLoggedIn = userController.getUserbyID(currUserID);
+
+            if (currUserLoggedIn.isTrener())
+            {
+                Coach currCoach = coachController.getCoachByIDuser(currUserID);
+
+                Lbl_lastName.Text = currCoach.name() + " " + currCoach.lastName();
+            }
+            else
+            {
+                Client currClient = clientController.getClientByIDuser(currUserID);
+
+                Lbl_lastName.Text = currClient.name() + " " + currClient.lastName();
+            }
 
         }
 

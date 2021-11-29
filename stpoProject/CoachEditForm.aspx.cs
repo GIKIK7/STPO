@@ -26,6 +26,15 @@ namespace stpoProject
             Coach currentCoach = coachController.getCoachByIDuser(userID);
 
             Lbl_Coach.Text = "Edycja Trenera: " + currentCoach.name() + " " + currentCoach.lastName();
+
+            UserController userController = (UserController)Session["userController"];
+
+            int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
+            User currUser = userController.getUserbyID(currUserID);
+            Coach currCoach = coachController.getCoachByIDuser(currUserID);
+
+            Lbl_lastName.Text = currCoach.name() + " " + currCoach.lastName();
+
         }
 
         protected void Btn_Submit_Click(object sender, EventArgs e)

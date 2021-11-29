@@ -95,7 +95,7 @@ namespace stpoProject
 
                 if (ratingController.youVoted(IDcurrUser, IDownerPage))
                 {
-                    Btn_rateCoach.Text = "zmień swoją ocene";
+                    Btn_rateCoach.Text = "Zmień swoją ocene";
                 }
             }
 
@@ -118,7 +118,7 @@ namespace stpoProject
                 if(currClient.ID_assign_coach() != 0)
                 {
                     Btn_dealStart.Enabled = false;
-                    Btn_dealStart.Text = "posaidasz juz trenera";
+                    Btn_dealStart.Text = "Posiadasz juz trenera";
                 }
             }
 

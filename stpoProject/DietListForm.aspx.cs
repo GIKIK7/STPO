@@ -61,6 +61,22 @@ namespace stpoProject
                 }
             }
 
+            User currUserLoggedIn = userController.getUserbyID(currUserID);
+
+            if (currUserLoggedIn.isTrener())
+            {
+                Coach currCoach = coachController.getCoachByIDuser(currUserID);
+
+                Lbl_lastName.Text = currCoach.name() + " " + currCoach.lastName();
+            }
+            else
+            {
+                Client currClient = clientController.getClientByIDuser(currUserID);
+
+                Lbl_lastName.Text = currClient.name() + " " + currClient.lastName();
+            }
+
+
         }
 
         protected void LnkBtn_Click(object sender, EventArgs e)

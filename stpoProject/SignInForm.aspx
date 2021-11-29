@@ -16,6 +16,8 @@
     <section class="login-clean">
         <form method="post" runat="server">
             <h2 class="text-center"><strong>Zarejestruj się</strong></h2><br /><hr />
+            <div class="mb-3"><asp:CheckBox ID="ChkBox_trener" runat="server" OnCheckedChanged="ChkBox_trener_CheckedChanged" Text="&nbspTrener" AutoPostBack="true" /></div>
+            <div class="mb-3"><asp:DropDownList ID="DropList_category" runat="server" DataSourceID="SqlDataSource1" DataTextField="categoryName" DataValueField="categoryName" Enabled="False"></asp:DropDownList></div>
             <div class="mb-3"><asp:Label ID="Lbl_login" runat="server" Font-Size="Large" Text="Login:"></asp:Label></div>
             <div class="mb-3"><asp:TextBox CssClass="form-control" ID="TxtBox_login" runat="server" Font-Size="Large"></asp:TextBox></div>
             <div class="mb-3"><asp:Label ID="Lbl_password" runat="server" Font-Size="Large" Text="Hasło:"></asp:Label></div>
@@ -24,8 +26,6 @@
             <div class="mb-3"><asp:TextBox CssClass="form-control" ID="TxtBox_name" runat="server" Font-Size="Large"></asp:TextBox></div>
             <div class="mb-3"><asp:Label ID="Lbl_lastName" runat="server" Font-Size="Large" Text="Nazwisko:"></asp:Label></div>
             <div class="mb-3"><asp:TextBox CssClass="form-control" ID="TxtBox_LastName" runat="server" Font-Size="Large"></asp:TextBox></div>
-            <div class="mb-3"><asp:CheckBox ID="ChkBox_trener" runat="server" OnCheckedChanged="ChkBox_trener_CheckedChanged" Text="&nbspTrener" AutoPostBack="true" /></div>
-            <div class="mb-3"><asp:DropDownList ID="DropList_category" runat="server" DataSourceID="SqlDataSource1" DataTextField="categoryName" DataValueField="categoryName" Enabled="False"></asp:DropDownList></div>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBstpoConnectionString %>" SelectCommand="SELECT [categoryName], [ID] FROM [category]"></asp:SqlDataSource>
             <div class="mb-3"><asp:Button CssClass="btn btn-primary d-block w-100" ID="Btn_SignIn" runat="server" BorderStyle="None" Font-Size="Large" OnClick="Btn_SignIn_Click" Text="Zarejestruj się"/></div>
             <div class="mb-3 text-center"><asp:Label ID="Lbl_Helper" runat="server" Font-Size="Medium" ForeColor="Red"></asp:Label></div>

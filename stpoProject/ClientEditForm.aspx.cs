@@ -17,7 +17,7 @@ namespace stpoProject
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            int userID = Int16.Parse(Session["ID_user"].ToString());
+            int userID = Int16.Parse(Session["ID_current_user"].ToString());
 
             if (userID == -1)
             {
@@ -29,6 +29,8 @@ namespace stpoProject
             Client clientOwnerPage = clientController.getClientByIDuser(userID);
 
             Lbl_Client.Text = "Edycja Klienta: " + clientOwnerPage.name() + " " + clientOwnerPage.lastName();
+
+            Lbl_lastName.Text = clientOwnerPage.name() + " " + clientOwnerPage.lastName();
 
         }
 

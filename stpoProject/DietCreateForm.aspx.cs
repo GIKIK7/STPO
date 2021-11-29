@@ -13,7 +13,25 @@ namespace stpoProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            UserController userController = (UserController)Session["userController"];
+            ClientController clientController = (ClientController)Session["clientController"];
+            CoachController coachController = (CoachController)Session["coachController"];
 
+            int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
+            User currUser = userController.getUserbyID(currUserID);
+
+            if (currUser.isTrener())
+            {
+                Coach currCoach = coachController.getCoachByIDuser(currUserID);
+
+                Lbl_lastName.Text = currCoach.name() + " " + currCoach.lastName();
+            }
+            else
+            {
+                Client currClient = clientController.getClientByIDuser(currUserID);
+
+                Lbl_lastName.Text = currClient.name() + " " + currClient.lastName();
+            }
         }
 
         protected void Btn_goBack_Click(object sender, EventArgs e)

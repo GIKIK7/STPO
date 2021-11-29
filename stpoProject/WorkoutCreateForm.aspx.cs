@@ -14,8 +14,6 @@ namespace stpoProject
         static bool isCommit = false;
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            //Panel_workout.Controls.Clear();
-
             List<string> keysDrop = Request.Form.AllKeys.Where(key => key.Contains("drop")).ToList();
             List<string> keySets = Request.Form.AllKeys.Where(key => key.Contains("txtSets")).ToList();
             List<string> keyReps = Request.Form.AllKeys.Where(key => key.Contains("txtReps")).ToList();
@@ -41,6 +39,27 @@ namespace stpoProject
             {
                 Btn_edit.Enabled = false;
             }
+
+            UserController userController = (UserController)Session["userController"];
+            ClientController clientController = (ClientController)Session["clientController"];
+            CoachController coachController = (CoachController)Session["coachController"];
+
+            int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
+            User currUser = userController.getUserbyID(currUserID);
+
+            if (currUser.isTrener())
+            {
+                Coach currCoach = coachController.getCoachByIDuser(currUserID);
+
+                Lbl_lastName.Text = currCoach.name() + " " + currCoach.lastName();
+            }
+            else
+            {
+                Client currClient = clientController.getClientByIDuser(currUserID);
+
+                Lbl_lastName.Text = currClient.name() + " " + currClient.lastName();
+            }
+
         }
 
         protected void Btn_goBack_Click(object sender, EventArgs e)
