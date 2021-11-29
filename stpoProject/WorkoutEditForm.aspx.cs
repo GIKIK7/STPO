@@ -44,6 +44,24 @@ namespace stpoProject
             }
         }
 
+        protected void Btn_goBack_Click(object sender, EventArgs e)
+        {
+            UserController userController = (UserController)Session["userController"];
+            int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
+            User currUser = userController.getUserbyID(currUserID);
+
+            Session["ID_user"] = currUserID;
+
+            if (currUser.isTrener())
+            {
+                Response.Redirect("CoachDetailsForm.aspx");
+            }
+            else
+            {
+                Response.Redirect("ClientDetailsForm.aspx");
+            }
+        }
+
         protected void Btn_commit_Click(object sender, EventArgs e)
         {
             isCommit = true;

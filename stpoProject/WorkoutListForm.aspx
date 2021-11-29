@@ -5,40 +5,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+    <title>Trening</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css"/>
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css"/>
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css"/>
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css"/>
+    <link rel="stylesheet" href="assets/css/styles.css"/>
+    <style type="text/css">
+        .logo {
+            margin-left:auto;
+            margin-right:auto;
+            width: 75px;
+            height: 75px;
+        }
+    </style>
 </head>
-<body>
-    <form id="form1" runat="server">
-        <asp:Button ID="Btn_goBackToYourProfile" runat="server" OnClick="Btn_goBackToYourProfile_Click" Text="Wróc do swojego profilu" />
-        <table style="width:100%">
-
-            <tr>
-                <td style="width:15%">
-                </td>
-                <td align="center" style ="width:70% ">
-                    <asp:Label ID="Lbl_Workout" runat="server" Text="Treningi" Font-Bold="True" Font-Size="XX-Large"></asp:Label>
-                </td>
-                <td style="width:15%">
-                    <asp:Button ID="Btn_createWorkout" runat="server" Text="Stwórz trening" OnClick="Btn_createWorkout_Click" />
-                </td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td>
-                    <asp:Panel ID="Panel_workout" runat="server">
-                    </asp:Panel>
-                </td>
-                <td></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-
-        </table>
+<body style="background-color:#f1f7fc">
+    <form id="form2" runat="server">
+        <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button">
+            <div class="container"><a class="navbar-brand" href="#" runat="server" onserverclick="Btn_goBackToYourProfile_Click"><img class="logo" src="assets/logoS.png" />
+                <asp:Label ID="Lbl_lastName" runat="server" Text="Imię i Nazwisko"></asp:Label></a>
+                <asp:Button style="position:center" CssClass="btn btn-dark" ID="Btn_createWorkout" runat="server" Text="Stwórz trening" OnClick="Btn_createWorkout_Click" />
+            </div>
+        </nav><br />
+        <h2 class="text-center"><strong>Wybierz dzień treningu</strong></h2><br />
+        <div class="container">
+            <div class="row">
+                <asp:Panel CssClass="navigation-clean-button" ID="Panel_workout" runat="server"></asp:Panel>
+            </div>
+       </div>        
     </form>
 </body>
 </html>
