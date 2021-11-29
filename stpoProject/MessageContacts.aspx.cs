@@ -19,6 +19,24 @@ namespace stpoProject
 
             int IDcurrUser = Int16.Parse(Session["ID_current_user"].ToString());
 
+            ClientController clientController = (ClientController)Session["clientController"];
+            CoachController coachController = (CoachController)Session["coachController"];
+
+            User currUser = userController.getUserbyID(IDcurrUser);
+
+            if (currUser.isTrener())
+            {
+                Coach currCoach = coachController.getCoachByIDuser(IDcurrUser);
+
+                Lbl_lastName.Text = currCoach.name() + " " + currCoach.lastName();
+            }
+            else
+            {
+                Client currClient = clientController.getClientByIDuser(IDcurrUser);
+
+                Lbl_lastName.Text = currClient.name() + " " + currClient.lastName();
+            }
+
             List<Message> messages = messageController.getMessageList();
 
             ConversationController conversationController = new ConversationController();
@@ -43,25 +61,6 @@ namespace stpoProject
                 LinkBtn_conversation.Click += new EventHandler(linkClicked);
                 Panel_conversation.Controls.Add(LinkBtn_conversation);
                 Panel_conversation.Controls.Add(new LiteralControl("<br />"));
-
-                ClientController clientController = (ClientController)Session["clientController"];
-                CoachController coachController = (CoachController)Session["coachController"];
-
-                int currUserID = Int16.Parse(Session["ID_current_user"].ToString());
-                User currUser = userController.getUserbyID(currUserID);
-
-                if (currUser.isTrener())
-                {
-                    Coach currCoach = coachController.getCoachByIDuser(currUserID);
-
-                    Lbl_lastName.Text = currCoach.name() + " " + currCoach.lastName();
-                }
-                else
-                {
-                    Client currClient = clientController.getClientByIDuser(currUserID);
-
-                    Lbl_lastName.Text = currClient.name() + " " + currClient.lastName();
-                }
 
             }
             
