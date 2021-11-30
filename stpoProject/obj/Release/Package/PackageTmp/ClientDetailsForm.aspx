@@ -43,7 +43,7 @@
             <div class="container"><a class="navbar-brand" href="#"><img class="logo" src="assets/logoS.png" />
                 <asp:Label ID="Lbl_Name" runat="server"></asp:Label>&nbsp;<asp:Label ID="Lbl_lastName" runat="server"></asp:Label></a>     
                 <div id="navcol-1" class="collapse navbar-collapse navbar-text actions" style="position:absolute; right: 325px">
-                    <asp:Button CssClass="btn btn-light action-button" ID="Btn_searchCoaches" runat="server" OnClick="Btn_searchCoaches_Click" Text="Przegądaj trenerów" />&nbsp;&nbsp;
+                    <asp:Button CssClass="btn btn-light action-button" ID="Btn_searchCoaches" runat="server" OnClick="Btn_searchCoaches_Click" Text="Przeglądaj trenerów" />&nbsp;&nbsp;
                     <asp:Button CssClass="btn btn-light action-button" ID="Btn_Chat" runat="server" OnClick="Btn_Chat_Click" Text="Wiadomości" />&nbsp;&nbsp;
                     <asp:Button CssClass="btn btn-light action-button" ID="btn_goToEditClientProfile" runat="server" OnClick="btn_goToEditClientProfile_Click" Text="Edytuj profil" />&nbsp;&nbsp;
                     <asp:Button CssClass="btn btn-light action-button" ID="Btn_wyloguj" runat="server" OnClick="Btn_wyloguj_Click" Text="Wyloguj sie" />
