@@ -30,7 +30,7 @@
                 <asp:Label ID="Lbl_lastName" runat="server" Text="Imię i Nazwisko"></asp:Label></a>
             </div>
         </nav><br />
-        <h2 class="text-center"><strong><asp:Label ID="Lbl_editWorkout" runat="server" Text="Edycja treningu z dnia: "></asp:Label></strong></h2><br />
+        <h2 class="text-center"><strong><asp:Label ID="Lbl_editWorkout" runat="server" Text="Stwórz trening "></asp:Label></strong></h2><br />
         <div class="container navigation-clean-button">
             <div class="row"><br />
 				<div class="mb-3"><asp:Calendar ID="workout_calendar" runat="server" BackColor="#f1f7fc" BorderColor="Black" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">
@@ -46,7 +46,7 @@
                 <div class="mb-3"><asp:Button Width="150px" CssClass="btn btn-dark" ID="Btn_addField" runat="server" Text="Dodaj ćwiczenie" OnClick="Btn_addField_Click" />
 				<asp:Button Width="150px" CssClass="btn btn-dark" ID="Btn_edit" runat="server" OnClick="Btn_edit_Click" Text="Stwórz" />
                 <asp:Button Width="150px" CssClass="btn btn-dark" ID="Btn_commit" runat="server" OnClick="Btn_commit_Click" Text="Zatwierdź" />
-                <a style="width:10%" class="btn" href="WorkoutForm.aspx">Wróć</a></div>
+                <a style="width:10%" class="btn" href="WorkoutListForm.aspx">Wróć</a></div>
             </div>
             <asp:Label ID="Lbl_helper" runat="server" ForeColor="#CC3300"></asp:Label>
         </div>

@@ -159,3 +159,4 @@ C:\Users\riiis\Desktop\STPO-DEMO_AzureDB\stpoProject\obj\Debug\stpoProject.cspro
 C:\Users\riiis\Desktop\STPO-DEMO_AzureDB\stpoProject\obj\Debug\stpoProject.csproj.CopyComplete
 C:\Users\riiis\Desktop\STPO-DEMO_AzureDB\stpoProject\obj\Debug\stpoProject.dll
 C:\Users\riiis\Desktop\STPO-DEMO_AzureDB\stpoProject\obj\Debug\stpoProject.pdb
+D:\ProjektTPST\STPO\stpoProject\obj\Debug\stpoProject.csproj.CopyComplete

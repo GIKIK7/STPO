@@ -30,7 +30,7 @@
                 <asp:Label ID="Lbl_lastName" runat="server" Text="Imię i Nazwisko"></asp:Label></a>
             </div>
         </nav><br />
-        <h2 class="text-center"><strong><asp:Label ID="Lbl_diet" runat="server" Text="Edycja diety z dnia: "></asp:Label></strong></h2><br />
+        <h2 class="text-center"><strong><asp:Label ID="Lbl_diet" runat="server" Text="Stwórz diete"></asp:Label></strong></h2><br />
         <div class="container navigation-clean-button">
             <div class="mb-3"><asp:Calendar ID="calendar_diet" runat="server" BackColor="#f1f7fc" BorderColor="Black" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">
                 <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
